@@ -7,6 +7,7 @@
 //
 
 #import "TopPaidAppViewController.h"
+#import "JsonFeedParser.h"
 
 @interface TopPaidAppViewController ()
 
@@ -17,6 +18,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.jsonFeed       = [[JsonFeedParser alloc]initJsonParser];
+    self.topPaidAppList = [self.jsonFeed fetchAppInfoFromJsonFeed:@"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=25/json"];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -24,4 +28,8 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)searchTopPaidApp:(id)sender
+{
+    
+}
 @end

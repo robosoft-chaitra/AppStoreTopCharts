@@ -21,11 +21,11 @@
     return self;
 }
 
--(NSArray *)fetchAppInfoFromAppStore:(NSString *)jsonUrl
+-(NSArray *)fetchAppInfoFromJsonFeed:(NSString *)JsonFeed
 {
     NSOperationQueue *queue = [[NSOperationQueue alloc]init];
     dispatch_async(kBgQueue, ^{
-        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:jsonUrl]];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:JsonFeed]];
         [NSURLConnection sendAsynchronousRequest:urlRequest
                                            queue:queue
                                completionHandler:^(NSURLResponse *response,NSData *appData,NSError *error)

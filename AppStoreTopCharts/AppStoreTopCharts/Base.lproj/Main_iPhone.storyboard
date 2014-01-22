@@ -8,20 +8,20 @@
         <scene sceneID="W3I-pn-N6e">
             <objects>
                 <viewController title="TopPaidApp" id="CZ4-MO-1fc" customClass="TopPaidAppViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Q26-ZG-bCK"/>
-                        <viewControllerLayoutGuide type="bottom" id="NHB-Y7-KLo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Top Paid Chart" id="Py5-s4-LPT">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="d3b-ka-MuW"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Top Paid Chart" id="Py5-s4-LPT"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="BK4-EV-CEU" id="nhz-fL-uun"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="BK4-EV-CEU">
+                    <connections>
+                        <outlet property="delegate" destination="CZ4-MO-1fc" id="cOn-Vs-Vix"/>
+                        <outlet property="searchContentsController" destination="CZ4-MO-1fc" id="Uhe-zu-grc"/>
+                        <outlet property="searchResultsDataSource" destination="CZ4-MO-1fc" id="g1a-je-0XA"/>
+                        <outlet property="searchResultsDelegate" destination="CZ4-MO-1fc" id="TiB-Zq-6Wn"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="414" y="-1044"/>
         </scene>

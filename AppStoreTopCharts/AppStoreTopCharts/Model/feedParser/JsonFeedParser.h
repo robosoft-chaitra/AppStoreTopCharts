@@ -13,6 +13,6 @@
 @property (nonatomic, retain) NSMutableArray *appsList;
 
 -(id)initJsonParser;
--(NSArray *) fetchAppInfoFromAppStore:(NSString*) JsonUrl;
+-(NSArray *) fetchAppInfoFromJsonFeed:(NSString*) JsonFeed;
 
 @end

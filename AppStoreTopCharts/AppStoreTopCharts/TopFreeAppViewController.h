@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @class JsonFeedParser;
+
 @interface TopFreeAppViewController : UIViewController
 
+@property (nonatomic, strong) NSArray        *topFreeAppList;
 @property (nonatomic, strong) JsonFeedParser *jsonFeed;
 
 @end

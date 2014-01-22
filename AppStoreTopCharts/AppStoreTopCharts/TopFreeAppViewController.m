@@ -11,8 +11,6 @@
 
 @interface TopFreeAppViewController ()
 
-@property (nonatomic, strong) NSArray *topPaidAppList;
-
 @end
 
 @implementation TopFreeAppViewController
@@ -21,14 +19,14 @@
 {
     [super viewDidLoad];
     self.jsonFeed       = [[JsonFeedParser alloc]initJsonParser];
-    self.topPaidAppList = [self.jsonFeed fetchAppInfoFromAppStore:@"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=25/json"];
+    self.topFreeAppList = [self.jsonFeed fetchAppInfoFromJsonFeed:@"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=25/json"];
    
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-     NSLog(@"new array count=%d",self.topPaidAppList.count);
+     NSLog(@"new array count= %d",self.topFreeAppList.count);
 }
 
 - (void)didReceiveMemoryWarning

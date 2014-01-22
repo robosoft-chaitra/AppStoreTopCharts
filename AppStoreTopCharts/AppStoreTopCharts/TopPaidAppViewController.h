@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class JsonFeedParser;
+
 @interface TopPaidAppViewController : UIViewController
+
+@property (nonatomic, strong) NSArray        *topPaidAppList;
+@property (nonatomic, strong) JsonFeedParser *jsonFeed;
 
 @end
