@@ -17,11 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="TopPaidApp" image="first" id="u1e-5L-l1D"/>
+                    <navigationItem key="navigationItem" title="Top Paid Chart" id="Py5-s4-LPT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="d3b-ka-MuW"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-112" y="-1044"/>
+            <point key="canvasLocation" x="414" y="-1044"/>
         </scene>
         <!--Top Free App View Controller - TopFreeApp-->
         <scene sceneID="ot8-2e-RuS">
@@ -36,13 +38,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="TopFreeApp" image="second" id="Z7h-1E-pvt"/>
+                    <navigationItem key="navigationItem" title="Top Free Chart" id="WhY-U7-0PW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="pKs-Da-16V"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-120" y="-370"/>
+            <point key="canvasLocation" x="406" y="-370"/>
         </scene>
-        <!--Wish List View Controller - WishList-->
+        <!--Wish List View Controller - Wish List-->
         <scene sceneID="8yo-BO-ZMG">
             <objects>
                 <viewController id="MNp-eD-pnc" customClass="WishListViewController" sceneMemberID="viewController">
@@ -55,17 +59,20 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="WishList" image="first" id="Jpb-Oz-dy6"/>
+                    <navigationItem key="navigationItem" title="Wish List" id="6As-uG-Rz6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="uZg-i8-kxq"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Zq-sd-cdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-134" y="401"/>
+            <point key="canvasLocation" x="392" y="401"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
             <objects>
                 <tabBarController id="8YX-ce-x5E" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="M19-57-I1r"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
@@ -73,14 +80,71 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
-                        <segue destination="QUy-BD-bpt" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
-                        <segue destination="MNp-eD-pnc" kind="relationship" relationship="viewControllers" id="78K-8y-bRG"/>
+                        <segue destination="4rv-gl-GNo" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
+                        <segue destination="txo-ai-CnZ" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
+                        <segue destination="cv7-QG-C7V" kind="relationship" relationship="viewControllers" id="78K-8y-bRG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-772" y="-336"/>
+            <point key="canvasLocation" x="-736" y="-254"/>
+        </scene>
+        <!--Navigation Controller - WishList-->
+        <scene sceneID="Uy6-5t-Z1Y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cv7-QG-C7V" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="WishList" image="first" id="Jpb-Oz-dy6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HSc-L0-gbS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MNp-eD-pnc" kind="relationship" relationship="rootViewController" id="juM-36-hes"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ePY-JH-c09" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-134" y="401"/>
+        </scene>
+        <!--Navigation Controller - TopFreeApp-->
+        <scene sceneID="tga-u5-8Tw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="txo-ai-CnZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="TopFreeApp" image="second" id="Z7h-1E-pvt"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dVY-hC-64d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QUy-BD-bpt" kind="relationship" relationship="rootViewController" id="aQY-wd-BvL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IHk-dv-kJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-120" y="-370"/>
+        </scene>
+        <!--Navigation Controller - TopPaidApp-->
+        <scene sceneID="qWh-Mq-cV2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4rv-gl-GNo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="TopPaidApp" image="first" id="u1e-5L-l1D"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="orm-w0-s79">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CZ4-MO-1fc" kind="relationship" relationship="rootViewController" id="fVI-Gd-sAC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rk4-fR-KpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-112" y="-1044"/>
         </scene>
     </scenes>
     <resources>

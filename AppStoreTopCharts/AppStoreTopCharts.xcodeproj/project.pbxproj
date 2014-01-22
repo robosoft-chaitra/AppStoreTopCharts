@@ -24,6 +24,8 @@
 		9D2D1A52188FC2E5009BB661 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D2D1A50188FC2E5009BB661 /* InfoPlist.strings */; };
 		9D2D1A54188FC2E5009BB661 /* AppStoreTopChartsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A53188FC2E5009BB661 /* AppStoreTopChartsTests.m */; };
 		9D2D1A6B188FCCBC009BB661 /* WishListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A6A188FCCBC009BB661 /* WishListViewController.m */; };
+		9D2D1A6F188FDB23009BB661 /* TopApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A6E188FDB23009BB661 /* TopApp.m */; };
+		9D2D1A73188FDDCF009BB661 /* JsonFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A72188FDDCF009BB661 /* JsonFeedParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,10 @@
 		9D2D1A53188FC2E5009BB661 /* AppStoreTopChartsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppStoreTopChartsTests.m; sourceTree = "<group>"; };
 		9D2D1A69188FCCBC009BB661 /* WishListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListViewController.h; path = ViewController/WishListViewController.h; sourceTree = "<group>"; };
 		9D2D1A6A188FCCBC009BB661 /* WishListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListViewController.m; path = ViewController/WishListViewController.m; sourceTree = "<group>"; };
+		9D2D1A6D188FDB23009BB661 /* TopApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopApp.h; path = Model/TopApp.h; sourceTree = "<group>"; };
+		9D2D1A6E188FDB23009BB661 /* TopApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopApp.m; path = Model/TopApp.m; sourceTree = "<group>"; };
+		9D2D1A71188FDDCF009BB661 /* JsonFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JsonFeedParser.h; path = Model/feedParser/JsonFeedParser.h; sourceTree = "<group>"; };
+		9D2D1A72188FDDCF009BB661 /* JsonFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JsonFeedParser.m; path = Model/feedParser/JsonFeedParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +227,8 @@
 		9D2D1A64188FC42A009BB661 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9D2D1A70188FDD96009BB661 /* JsonFeedParser */,
+				9D2D1A6C188FCE20009BB661 /* TopApp */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -235,6 +243,24 @@
 				9D2D1A5D188FC39D009BB661 /* AppDelegate */,
 			);
 			name = Source;
+			sourceTree = "<group>";
+		};
+		9D2D1A6C188FCE20009BB661 /* TopApp */ = {
+			isa = PBXGroup;
+			children = (
+				9D2D1A6D188FDB23009BB661 /* TopApp.h */,
+				9D2D1A6E188FDB23009BB661 /* TopApp.m */,
+			);
+			name = TopApp;
+			sourceTree = "<group>";
+		};
+		9D2D1A70188FDD96009BB661 /* JsonFeedParser */ = {
+			isa = PBXGroup;
+			children = (
+				9D2D1A71188FDDCF009BB661 /* JsonFeedParser.h */,
+				9D2D1A72188FDDCF009BB661 /* JsonFeedParser.m */,
+			);
+			name = JsonFeedParser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,8 +365,10 @@
 				9D2D1A3C188FC2E5009BB661 /* TopPaidAppViewController.m in Sources */,
 				9D2D1A33188FC2E5009BB661 /* ASAppDelegate.m in Sources */,
 				9D2D1A3F188FC2E5009BB661 /* TopFreeAppViewController.m in Sources */,
+				9D2D1A73188FDDCF009BB661 /* JsonFeedParser.m in Sources */,
 				9D2D1A2F188FC2E5009BB661 /* main.m in Sources */,
 				9D2D1A6B188FCCBC009BB661 /* WishListViewController.m in Sources */,
+				9D2D1A6F188FDB23009BB661 /* TopApp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
