@@ -1,5 +1,5 @@
 //
-//  ASFirstViewController.h
+//  WishListViewController.h
 //  AppStoreTopCharts
 //
 //  Created by Chaithra TV on 22/01/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ASFirstViewController : UIViewController
+@interface WishListViewController : UIViewController
 
 @end

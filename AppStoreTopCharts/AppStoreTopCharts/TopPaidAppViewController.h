@@ -1,5 +1,5 @@
 //
-//  ASSecondViewController.h
+//  ASFirstViewController.h
 //  AppStoreTopCharts
 //
 //  Created by Chaithra TV on 22/01/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ASSecondViewController : UIViewController
+@interface TopPaidAppViewController : UIViewController
 
 @end
