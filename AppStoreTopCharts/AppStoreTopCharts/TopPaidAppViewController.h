@@ -10,7 +10,7 @@
 
 @class JsonFeedParser;
 
-@interface TopPaidAppViewController : UIViewController
+@interface TopPaidAppViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) NSArray        *topPaidAppList;
 @property (nonatomic, strong) JsonFeedParser *jsonFeed;

@@ -26,7 +26,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-     NSLog(@"new array count= %d",self.topFreeAppList.count);
+     
 }
 
 - (void)didReceiveMemoryWarning
