@@ -13,6 +13,6 @@
 @interface TopAppViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) NSArray        *topAppsList;
-@property (nonatomic, strong) JsonFeedParser *jsonFeed;
+@property (nonatomic, strong) JsonFeedParser *jsonParser;
 
 @end

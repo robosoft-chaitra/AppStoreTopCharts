@@ -9,7 +9,7 @@
             <objects>
                 <viewController title="TopPaidApp" id="CZ4-MO-1fc" customClass="TopAppViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="bZ7-cl-Pon">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L2c-J1-VC2">
@@ -19,7 +19,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopPaidAppCell" id="1Im-dj-8aS" customClass="TopAppsCollectionCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopAppsCell" id="1Im-dj-8aS" customClass="TopAppsCollectionCell">
                                 <rect key="frame" x="0.0" y="64" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -78,16 +78,16 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="Dkm-8Y-Dg4"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchDisplayController" destination="BK4-EV-CEU" id="nhz-fL-uun"/>
+                        <outlet property="searchDisplayController" destination="R91-Sc-43a" id="H7E-xB-4ih"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="BK4-EV-CEU">
+                <searchDisplayController id="R91-Sc-43a">
                     <connections>
-                        <outlet property="delegate" destination="CZ4-MO-1fc" id="cOn-Vs-Vix"/>
-                        <outlet property="searchContentsController" destination="CZ4-MO-1fc" id="Uhe-zu-grc"/>
-                        <outlet property="searchResultsDataSource" destination="CZ4-MO-1fc" id="g1a-je-0XA"/>
-                        <outlet property="searchResultsDelegate" destination="CZ4-MO-1fc" id="TiB-Zq-6Wn"/>
+                        <outlet property="delegate" destination="CZ4-MO-1fc" id="ZdJ-cr-Hvr"/>
+                        <outlet property="searchContentsController" destination="CZ4-MO-1fc" id="yp4-Xl-kJz"/>
+                        <outlet property="searchResultsDataSource" destination="CZ4-MO-1fc" id="3w0-Hl-hJo"/>
+                        <outlet property="searchResultsDelegate" destination="CZ4-MO-1fc" id="NiA-aM-giL"/>
                     </connections>
                 </searchDisplayController>
             </objects>
@@ -98,21 +98,21 @@
             <objects>
                 <viewController title="TopFreeApp" id="QUy-BD-bpt" customClass="TopAppViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="M4N-HT-udk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MKF-gx-jlN">
-                            <size key="itemSize" width="150" height="150"/>
+                            <size key="itemSize" width="155" height="155"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopPaidAppCell" id="Vao-30-Jld" customClass="TopAppsCollectionCell">
-                                <rect key="frame" x="0.0" y="64" width="150" height="150"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopAppsCell" id="Vao-30-Jld" customClass="TopAppsCollectionCell">
+                                <rect key="frame" x="0.0" y="64" width="155" height="155"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AppName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQ8-6K-sCp">
@@ -122,7 +122,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vde-p7-HB9">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vde-p7-HB9">
                                             <rect key="frame" x="15" y="8" width="120" height="80"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -175,20 +175,32 @@
             <objects>
                 <viewController id="MNp-eD-pnc" customClass="WishListViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rQB-UN-K7e"/>
-                        <viewControllerLayoutGuide type="bottom" id="Hl9-H6-4EH"/>
+                        <viewControllerLayoutGuide type="top" id="P4l-dt-Tdh"/>
+                        <viewControllerLayoutGuide type="bottom" id="DFm-ca-eir"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LFQ-Hk-SqT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="view" contentMode="scaleToFill" id="qZc-1G-qPT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Wish List" id="6As-uG-Rz6">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="uZg-i8-kxq"/>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="OGX-j2-HED" id="N1A-XK-EcA"/>
+                        <outlet property="view" destination="qZc-1G-qPT" id="AP6-yW-dhm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Zq-sd-cdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="OGX-j2-HED">
+                    <connections>
+                        <outlet property="delegate" destination="MNp-eD-pnc" id="x0I-8K-KVS"/>
+                        <outlet property="searchContentsController" destination="MNp-eD-pnc" id="i6x-Wp-BDZ"/>
+                        <outlet property="searchResultsDataSource" destination="MNp-eD-pnc" id="nfp-v1-EoV"/>
+                        <outlet property="searchResultsDelegate" destination="MNp-eD-pnc" id="Vwk-Ip-8s2"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="392" y="401"/>
         </scene>
@@ -278,6 +290,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

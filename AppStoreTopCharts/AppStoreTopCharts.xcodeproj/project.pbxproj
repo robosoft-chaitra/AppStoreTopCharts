@@ -67,6 +67,7 @@
 		9D2D1A72188FDDCF009BB661 /* JsonFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JsonFeedParser.m; path = Model/feedParser/JsonFeedParser.m; sourceTree = "<group>"; };
 		9D3A94EE188FFB2E00F524A7 /* TopAppsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopAppsCollectionCell.h; path = View/TopPaidAppCollectionCell/TopAppsCollectionCell.h; sourceTree = "<group>"; };
 		9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopAppsCollectionCell.m; path = View/TopPaidAppCollectionCell/TopAppsCollectionCell.m; sourceTree = "<group>"; };
+		9D9FAC4B189107250052BFEB /* TopAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopAppConstants.h; path = Constants/TopAppConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +219,7 @@
 		9D2D1A64188FC42A009BB661 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9D9FAC4A189107030052BFEB /* Constants */,
 				9D2D1A70188FDD96009BB661 /* JsonFeedParser */,
 				9D2D1A6C188FCE20009BB661 /* TopApp */,
 			);
@@ -261,6 +263,14 @@
 				9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */,
 			);
 			name = TopPaidAppCollectionCell;
+			sourceTree = "<group>";
+		};
+		9D9FAC4A189107030052BFEB /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				9D9FAC4B189107250052BFEB /* TopAppConstants.h */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -15,16 +15,20 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        
     }
     return self;
 }
 
+#pragma mark - Display AppInfo
+
+//Method to Display appInfo in grid of UIcollectionView
 -(void)displayAppInfoInGrid:(NSString *)appName appImageUrl:(NSURL *)imageUrl appCategory:(NSString *)category appPrice:(NSString *)price
 {
     [self.imageActivityIndicator startAnimating];
     dispatch_async(kBgQueue, ^{
         NSData* data = [NSData dataWithContentsOfURL: imageUrl];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [self performSelector:@selector(displayAppImage:) withObject:data];
         });
@@ -35,6 +39,7 @@
     self.priceLabel.text    = price;
 }
 
+//Method to diplay appImage Async
 - (void)displayAppImage:(NSData *)imageData
 {
      NSError* error;

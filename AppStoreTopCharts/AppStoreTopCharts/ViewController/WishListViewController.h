@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface WishListViewController : UIViewController
-
 @end

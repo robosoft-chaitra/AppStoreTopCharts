@@ -8,19 +8,14 @@
 
 #import "JsonFeedParser.h"
 #import "TopApp.h"
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+
 
 @implementation JsonFeedParser
 
--(id)initJsonParser
-{
-   if(self = [super init])
-   {
-       self.appsList = [[NSMutableArray alloc]init];
-   }
-    return self;
-}
 
+#pragma mark - Json Parsing
+
+//Method to Parse the information from json feed
 -(NSArray *)fetchAppInfoFromJsonFeed:(NSString *)JsonFeed
 {
 //    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
@@ -30,8 +25,11 @@
 //                                           queue:queue
 //                               completionHandler:^(NSURLResponse *response,NSData *appData,NSError *error)
 //         {
+    NSMutableArray *appsList   = [[NSMutableArray alloc]init];
+    
     NSURL * JsonUrl = [NSURL URLWithString:JsonFeed];
     NSData *appData = [NSData dataWithContentsOfURL:JsonUrl];
+    
     NSError *error;
              if ([appData length] > 0 && error == nil)
              {
@@ -40,14 +38,11 @@
                                                                             error:&error];
                  
                  NSArray *entries = [NSArray arrayWithArray:[[appStoreDict valueForKey:@"feed"] valueForKey:@"entry"] ];
-                
-                 for (NSDictionary *entry in  entries)
+                for (NSDictionary *entry in  entries)
                  {
                      TopApp *topApp = [[TopApp alloc]initTopAppFromAppStoreDict:entry];
-                     [self.appsList addObject:topApp];
+                     [appsList addObject:topApp];
                  }
-
-                 
              }
              else if ([appData length] == 0 && error == nil)
              {
@@ -59,7 +54,7 @@
 //         }];
 //    });
    
-    return self.appsList;
+    return appsList;
 }
 
 @end
