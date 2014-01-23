@@ -15,8 +15,7 @@
 		9D2D1A33188FC2E5009BB661 /* ASAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A32188FC2E5009BB661 /* ASAppDelegate.m */; };
 		9D2D1A36188FC2E5009BB661 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2D1A34188FC2E5009BB661 /* Main_iPhone.storyboard */; };
 		9D2D1A39188FC2E5009BB661 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2D1A37188FC2E5009BB661 /* Main_iPad.storyboard */; };
-		9D2D1A3C188FC2E5009BB661 /* TopPaidAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A3B188FC2E5009BB661 /* TopPaidAppViewController.m */; };
-		9D2D1A3F188FC2E5009BB661 /* TopFreeAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A3E188FC2E5009BB661 /* TopFreeAppViewController.m */; };
+		9D2D1A3C188FC2E5009BB661 /* TopAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A3B188FC2E5009BB661 /* TopAppViewController.m */; };
 		9D2D1A41188FC2E5009BB661 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D2D1A40188FC2E5009BB661 /* Images.xcassets */; };
 		9D2D1A48188FC2E5009BB661 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2D1A47188FC2E5009BB661 /* XCTest.framework */; };
 		9D2D1A49188FC2E5009BB661 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2D1A22188FC2E5009BB661 /* Foundation.framework */; };
@@ -26,7 +25,7 @@
 		9D2D1A6B188FCCBC009BB661 /* WishListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A6A188FCCBC009BB661 /* WishListViewController.m */; };
 		9D2D1A6F188FDB23009BB661 /* TopApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A6E188FDB23009BB661 /* TopApp.m */; };
 		9D2D1A73188FDDCF009BB661 /* JsonFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A72188FDDCF009BB661 /* JsonFeedParser.m */; };
-		9D3A94F0188FFB2E00F524A7 /* TopPaidAppCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A94EF188FFB2E00F524A7 /* TopPaidAppCollectionCell.m */; };
+		9D3A94F0188FFB2E00F524A7 /* TopAppsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,10 +51,8 @@
 		9D2D1A32188FC2E5009BB661 /* ASAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASAppDelegate.m; sourceTree = "<group>"; };
 		9D2D1A35188FC2E5009BB661 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		9D2D1A38188FC2E5009BB661 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		9D2D1A3A188FC2E5009BB661 /* TopPaidAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopPaidAppViewController.h; sourceTree = "<group>"; };
-		9D2D1A3B188FC2E5009BB661 /* TopPaidAppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopPaidAppViewController.m; sourceTree = "<group>"; };
-		9D2D1A3D188FC2E5009BB661 /* TopFreeAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopFreeAppViewController.h; sourceTree = "<group>"; };
-		9D2D1A3E188FC2E5009BB661 /* TopFreeAppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopFreeAppViewController.m; sourceTree = "<group>"; };
+		9D2D1A3A188FC2E5009BB661 /* TopAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopAppViewController.h; sourceTree = "<group>"; };
+		9D2D1A3B188FC2E5009BB661 /* TopAppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopAppViewController.m; sourceTree = "<group>"; };
 		9D2D1A40188FC2E5009BB661 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9D2D1A46188FC2E5009BB661 /* AppStoreTopChartsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStoreTopChartsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D2D1A47188FC2E5009BB661 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -68,8 +65,8 @@
 		9D2D1A6E188FDB23009BB661 /* TopApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopApp.m; path = Model/TopApp.m; sourceTree = "<group>"; };
 		9D2D1A71188FDDCF009BB661 /* JsonFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JsonFeedParser.h; path = Model/feedParser/JsonFeedParser.h; sourceTree = "<group>"; };
 		9D2D1A72188FDDCF009BB661 /* JsonFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JsonFeedParser.m; path = Model/feedParser/JsonFeedParser.m; sourceTree = "<group>"; };
-		9D3A94EE188FFB2E00F524A7 /* TopPaidAppCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopPaidAppCollectionCell.h; path = View/TopPaidAppCollectionCell/TopPaidAppCollectionCell.h; sourceTree = "<group>"; };
-		9D3A94EF188FFB2E00F524A7 /* TopPaidAppCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopPaidAppCollectionCell.m; path = View/TopPaidAppCollectionCell/TopPaidAppCollectionCell.m; sourceTree = "<group>"; };
+		9D3A94EE188FFB2E00F524A7 /* TopAppsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopAppsCollectionCell.h; path = View/TopPaidAppCollectionCell/TopAppsCollectionCell.h; sourceTree = "<group>"; };
+		9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopAppsCollectionCell.m; path = View/TopPaidAppCollectionCell/TopAppsCollectionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,28 +184,18 @@
 			isa = PBXGroup;
 			children = (
 				9D2D1A62188FC40E009BB661 /* WishListViewController */,
-				9D2D1A61188FC3F4009BB661 /* TopFreeAppViewController */,
-				9D2D1A60188FC3E5009BB661 /* TopPaidAppViewController */,
+				9D2D1A60188FC3E5009BB661 /* TopAppViewController */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		9D2D1A60188FC3E5009BB661 /* TopPaidAppViewController */ = {
+		9D2D1A60188FC3E5009BB661 /* TopAppViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9D2D1A3A188FC2E5009BB661 /* TopPaidAppViewController.h */,
-				9D2D1A3B188FC2E5009BB661 /* TopPaidAppViewController.m */,
+				9D2D1A3A188FC2E5009BB661 /* TopAppViewController.h */,
+				9D2D1A3B188FC2E5009BB661 /* TopAppViewController.m */,
 			);
-			name = TopPaidAppViewController;
-			sourceTree = "<group>";
-		};
-		9D2D1A61188FC3F4009BB661 /* TopFreeAppViewController */ = {
-			isa = PBXGroup;
-			children = (
-				9D2D1A3D188FC2E5009BB661 /* TopFreeAppViewController.h */,
-				9D2D1A3E188FC2E5009BB661 /* TopFreeAppViewController.m */,
-			);
-			name = TopFreeAppViewController;
+			name = TopAppViewController;
 			sourceTree = "<group>";
 		};
 		9D2D1A62188FC40E009BB661 /* WishListViewController */ = {
@@ -270,8 +257,8 @@
 		9D3A94ED188FFAD600F524A7 /* TopPaidAppCollectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				9D3A94EE188FFB2E00F524A7 /* TopPaidAppCollectionCell.h */,
-				9D3A94EF188FFB2E00F524A7 /* TopPaidAppCollectionCell.m */,
+				9D3A94EE188FFB2E00F524A7 /* TopAppsCollectionCell.h */,
+				9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */,
 			);
 			name = TopPaidAppCollectionCell;
 			sourceTree = "<group>";
@@ -375,10 +362,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D2D1A3C188FC2E5009BB661 /* TopPaidAppViewController.m in Sources */,
+				9D2D1A3C188FC2E5009BB661 /* TopAppViewController.m in Sources */,
 				9D2D1A33188FC2E5009BB661 /* ASAppDelegate.m in Sources */,
-				9D2D1A3F188FC2E5009BB661 /* TopFreeAppViewController.m in Sources */,
-				9D3A94F0188FFB2E00F524A7 /* TopPaidAppCollectionCell.m in Sources */,
+				9D3A94F0188FFB2E00F524A7 /* TopAppsCollectionCell.m in Sources */,
 				9D2D1A73188FDDCF009BB661 /* JsonFeedParser.m in Sources */,
 				9D2D1A2F188FC2E5009BB661 /* main.m in Sources */,
 				9D2D1A6B188FCCBC009BB661 /* WishListViewController.m in Sources */,

@@ -23,13 +23,16 @@
 
 -(NSArray *)fetchAppInfoFromJsonFeed:(NSString *)JsonFeed
 {
-    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-    dispatch_async(kBgQueue, ^{
-        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:JsonFeed]];
-        [NSURLConnection sendAsynchronousRequest:urlRequest
-                                           queue:queue
-                               completionHandler:^(NSURLResponse *response,NSData *appData,NSError *error)
-         {
+//    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+//    dispatch_async(kBgQueue, ^{
+//        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:JsonFeed]];
+//        [NSURLConnection sendAsynchronousRequest:urlRequest
+//                                           queue:queue
+//                               completionHandler:^(NSURLResponse *response,NSData *appData,NSError *error)
+//         {
+    NSURL * JsonUrl = [NSURL URLWithString:JsonFeed];
+    NSData *appData = [NSData dataWithContentsOfURL:JsonUrl];
+    NSError *error;
              if ([appData length] > 0 && error == nil)
              {
                  NSDictionary* appStoreDict = [NSJSONSerialization JSONObjectWithData:appData
@@ -41,7 +44,6 @@
                  for (NSDictionary *entry in  entries)
                  {
                      TopApp *topApp = [[TopApp alloc]initTopAppFromAppStoreDict:entry];
-                     NSLog(@"model =%@",topApp.appName);
                      [self.appsList addObject:topApp];
                  }
 
@@ -54,8 +56,8 @@
              else if (error != nil){
                  NSLog(@"Error = %@", [error userInfo]);
              }
-         }];
-    });
+//         }];
+//    });
    
     return self.appsList;
 }

@@ -23,7 +23,7 @@
         self.category      = [[[appDictionary valueForKey:@"category"] valueForKey:@"attributes"] valueForKey:@"label"];
         self.releaseDate   = [[[appDictionary valueForKey:@"im:releaseDate"] valueForKey:@"attributes"]valueForKey:@"label"];
         self.referenceLink = [[[appDictionary valueForKey:@"link"] valueForKey:@"attributes"] valueForKey:@"href"];
-        self.appImagePath  = [appDictionary valueForKey:@"im:image"];
+        self.appImageUrl   = [NSURL URLWithString:[[[appDictionary valueForKey:@"im:image"]objectAtIndex:0] valueForKey:@"label"]];
     }
     return self;
 }

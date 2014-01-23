@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSString *appName;
 @property (nonatomic, strong) NSString *authorName;
 @property (nonatomic, strong) NSString *price;
-@property (nonatomic, strong) NSArray  *appImagePath;
+@property (nonatomic, strong) NSURL    *appImageUrl;
 @property (nonatomic, strong) NSString *category;
 @property (nonatomic, strong) NSString *copyright;
 @property (nonatomic, strong) NSString *summary;

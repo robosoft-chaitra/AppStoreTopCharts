@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Top Paid App View Controller - Top Paid Chart-->
+        <!--Top App View Controller - Top Paid Chart-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="TopPaidAppViewController" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="TopAppViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gQj-gx-LUK"/>
                         <viewControllerLayoutGuide type="bottom" id="rvn-x6-x7v"/>
