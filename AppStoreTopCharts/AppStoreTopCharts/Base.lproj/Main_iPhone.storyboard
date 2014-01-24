@@ -13,17 +13,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L2c-J1-VC2">
-                            <size key="itemSize" width="150" height="150"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="itemSize" width="147" height="149"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopAppsCell" id="1Im-dj-8aS" customClass="TopAppsCollectionCell">
-                                <rect key="frame" x="0.0" y="64" width="150" height="150"/>
+                                <rect key="frame" x="0.0" y="114" width="147" height="149"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="147" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AppName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dl4-SW-YZd">
@@ -69,27 +69,51 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchHeaderView" id="esO-Sc-lRy" customClass="SearchHeaderView">
+                            <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Syo-Ik-cdU">
+                                    <rect key="frame" x="0.0" y="6" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <scopeButtonTitles>
+                                        <string>Title</string>
+                                        <string>Title</string>
+                                    </scopeButtonTitles>
+                                    <connections>
+                                        <outlet property="delegate" destination="esO-Sc-lRy" id="tfs-jt-lDz"/>
+                                    </connections>
+                                </searchBar>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Syo-Ik-cdU" firstAttribute="leading" secondItem="esO-Sc-lRy" secondAttribute="leading" id="53c-LX-KdL"/>
+                                <constraint firstAttribute="trailing" secondItem="Syo-Ik-cdU" secondAttribute="trailing" id="OcX-08-lWq"/>
+                                <constraint firstAttribute="trailing" secondItem="Syo-Ik-cdU" secondAttribute="trailing" id="Qne-ci-bCC"/>
+                                <constraint firstItem="Syo-Ik-cdU" firstAttribute="leading" secondItem="esO-Sc-lRy" secondAttribute="leading" id="dOR-Cn-vMn"/>
+                                <constraint firstAttribute="bottom" secondItem="Syo-Ik-cdU" secondAttribute="bottom" id="x0I-5A-8TS"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="appSearchBar" destination="Syo-Ik-cdU" id="OU9-O9-4Nq"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="CZ4-MO-1fc" id="W7d-7B-mBb"/>
                             <outlet property="delegate" destination="CZ4-MO-1fc" id="TAw-aK-VbX"/>
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Top Paid Chart" id="Py5-s4-LPT">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Dkm-8Y-Dg4"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Dkm-8Y-Dg4">
+                            <connections>
+                                <action selector="searchAppsByName:" destination="CZ4-MO-1fc" id="eJq-Pm-4Ox"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchDisplayController" destination="R91-Sc-43a" id="H7E-xB-4ih"/>
+                        <outlet property="topAppCollectionView" destination="bZ7-cl-Pon" id="Wnp-Lf-RRV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="R91-Sc-43a">
-                    <connections>
-                        <outlet property="delegate" destination="CZ4-MO-1fc" id="ZdJ-cr-Hvr"/>
-                        <outlet property="searchContentsController" destination="CZ4-MO-1fc" id="yp4-Xl-kJz"/>
-                        <outlet property="searchResultsDataSource" destination="CZ4-MO-1fc" id="3w0-Hl-hJo"/>
-                        <outlet property="searchResultsDelegate" destination="CZ4-MO-1fc" id="NiA-aM-giL"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="414" y="-1044"/>
         </scene>
@@ -102,28 +126,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MKF-gx-jlN">
-                            <size key="itemSize" width="155" height="155"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="itemSize" width="144" height="149"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopAppsCell" id="Vao-30-Jld" customClass="TopAppsCollectionCell">
-                                <rect key="frame" x="0.0" y="64" width="155" height="155"/>
+                                <rect key="frame" x="0.0" y="114" width="144" height="149"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="155" height="155"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="144" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AppName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQ8-6K-sCp">
-                                            <rect key="frame" x="4" y="90" width="142" height="21"/>
+                                            <rect key="frame" x="2" y="90" width="142" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vde-p7-HB9">
-                                            <rect key="frame" x="15" y="8" width="120" height="80"/>
+                                            <rect key="frame" x="13" y="8" width="105" height="80"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1ch-gQ-qPc">
@@ -131,14 +155,14 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </activityIndicatorView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACK-8k-ZN3">
-                                            <rect key="frame" x="6" y="108" width="130" height="21"/>
+                                            <rect key="frame" x="10" y="108" width="130" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRH-Bq-mBz">
-                                            <rect key="frame" x="7" y="126" width="120" height="21"/>
+                                            <rect key="frame" x="13" y="128" width="120" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -157,14 +181,43 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchHeaderView" id="q66-eB-avd" customClass="SearchHeaderView">
+                            <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="OAq-ov-aHZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="q66-eB-avd" id="4Vq-nj-jnl"/>
+                                    </connections>
+                                </searchBar>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="OAq-ov-aHZ" firstAttribute="leading" secondItem="q66-eB-avd" secondAttribute="leading" id="3wk-3N-gZA"/>
+                                <constraint firstAttribute="bottom" secondItem="OAq-ov-aHZ" secondAttribute="bottom" constant="6" id="DlY-gB-HSK"/>
+                                <constraint firstAttribute="trailing" secondItem="OAq-ov-aHZ" secondAttribute="trailing" id="jEJ-RM-g4i"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="appSearchBar" destination="OAq-ov-aHZ" id="eYl-Ew-rlU"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="QUy-BD-bpt" id="PVH-oh-khP"/>
                             <outlet property="delegate" destination="QUy-BD-bpt" id="yGC-4i-gG6"/>
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Top Free Chart" id="WhY-U7-0PW">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="pKs-Da-16V"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="pKs-Da-16V">
+                            <connections>
+                                <action selector="searchAppsByName:" destination="QUy-BD-bpt" id="H8C-qn-hDK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="topAppCollectionView" destination="M4N-HT-udk" id="QwK-PB-vvA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>
@@ -181,6 +234,13 @@
                     <view key="view" contentMode="scaleToFill" id="qZc-1G-qPT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mgr-t3-2Mj">
+                                <rect key="frame" x="33" y="91" width="253" height="312"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Wish List" id="6As-uG-Rz6">

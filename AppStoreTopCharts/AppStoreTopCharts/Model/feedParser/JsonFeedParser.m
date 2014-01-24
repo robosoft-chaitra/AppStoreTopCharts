@@ -25,7 +25,7 @@
 //                                           queue:queue
 //                               completionHandler:^(NSURLResponse *response,NSData *appData,NSError *error)
 //         {
-    NSMutableArray *appsList   = [[NSMutableArray alloc]init];
+    self.appsList   = [[NSMutableArray alloc]init];
     
     NSURL * JsonUrl = [NSURL URLWithString:JsonFeed];
     NSData *appData = [NSData dataWithContentsOfURL:JsonUrl];
@@ -41,7 +41,7 @@
                 for (NSDictionary *entry in  entries)
                  {
                      TopApp *topApp = [[TopApp alloc]initTopAppFromAppStoreDict:entry];
-                     [appsList addObject:topApp];
+                     [self.appsList addObject:topApp];
                  }
              }
              else if ([appData length] == 0 && error == nil)
@@ -54,7 +54,7 @@
 //         }];
 //    });
    
-    return appsList;
+    return self.appsList;
 }
 
 @end

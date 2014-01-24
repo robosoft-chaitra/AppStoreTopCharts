@@ -1,3 +1,4 @@
+
 //
 //  ASFirstViewController.h
 //  AppStoreTopCharts
@@ -7,12 +8,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchHeaderView.h"
+
 
 @class JsonFeedParser;
+@interface TopAppViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,SearchAppsDelegate>
 
-@interface TopAppViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource>
-
-@property (nonatomic, strong) NSArray        *topAppsList;
+@property (nonatomic, strong) NSMutableArray *filteredApps;
+@property (nonatomic, strong) NSArray        *topApps;
 @property (nonatomic, strong) JsonFeedParser *jsonParser;
+
+@property (strong, nonatomic) IBOutlet UICollectionView *topAppCollectionView;
+- (IBAction)searchAppsByName:(id)sender;
 
 @end

@@ -26,6 +26,9 @@
 		9D2D1A6F188FDB23009BB661 /* TopApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A6E188FDB23009BB661 /* TopApp.m */; };
 		9D2D1A73188FDDCF009BB661 /* JsonFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A72188FDDCF009BB661 /* JsonFeedParser.m */; };
 		9D3A94F0188FFB2E00F524A7 /* TopAppsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */; };
+		9D9B5E9318921BBC00C857E9 /* SearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B5E9218921BBC00C857E9 /* SearchHeaderView.m */; };
+		9D9B5EE218928BC300C857E9 /* PopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B5EE118928BC300C857E9 /* PopUpView.m */; };
+		9D9B5EE418928BEB00C857E9 /* PopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B5EE318928BEB00C857E9 /* PopUpView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,12 +64,17 @@
 		9D2D1A53188FC2E5009BB661 /* AppStoreTopChartsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppStoreTopChartsTests.m; sourceTree = "<group>"; };
 		9D2D1A69188FCCBC009BB661 /* WishListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListViewController.h; path = ViewController/WishListViewController.h; sourceTree = "<group>"; };
 		9D2D1A6A188FCCBC009BB661 /* WishListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListViewController.m; path = ViewController/WishListViewController.m; sourceTree = "<group>"; };
-		9D2D1A6D188FDB23009BB661 /* TopApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopApp.h; path = Model/TopApp.h; sourceTree = "<group>"; };
-		9D2D1A6E188FDB23009BB661 /* TopApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopApp.m; path = Model/TopApp.m; sourceTree = "<group>"; };
+		9D2D1A6D188FDB23009BB661 /* TopApp.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.c.h; name = TopApp.h; path = Model/TopApp.h; sourceTree = "<group>"; };
+		9D2D1A6E188FDB23009BB661 /* TopApp.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.c.objc; name = TopApp.m; path = Model/TopApp.m; sourceTree = "<group>"; };
 		9D2D1A71188FDDCF009BB661 /* JsonFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JsonFeedParser.h; path = Model/feedParser/JsonFeedParser.h; sourceTree = "<group>"; };
 		9D2D1A72188FDDCF009BB661 /* JsonFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JsonFeedParser.m; path = Model/feedParser/JsonFeedParser.m; sourceTree = "<group>"; };
 		9D3A94EE188FFB2E00F524A7 /* TopAppsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopAppsCollectionCell.h; path = View/TopPaidAppCollectionCell/TopAppsCollectionCell.h; sourceTree = "<group>"; };
 		9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopAppsCollectionCell.m; path = View/TopPaidAppCollectionCell/TopAppsCollectionCell.m; sourceTree = "<group>"; };
+		9D9B5E9118921BBC00C857E9 /* SearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHeaderView.h; path = View/HeaderView/SearchHeaderView.h; sourceTree = "<group>"; };
+		9D9B5E9218921BBC00C857E9 /* SearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHeaderView.m; path = View/HeaderView/SearchHeaderView.m; sourceTree = "<group>"; };
+		9D9B5EE018928BC300C857E9 /* PopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpView.h; path = View/PopUpView/PopUpView.h; sourceTree = "<group>"; };
+		9D9B5EE118928BC300C857E9 /* PopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopUpView.m; path = View/PopUpView/PopUpView.m; sourceTree = "<group>"; };
+		9D9B5EE318928BEB00C857E9 /* PopUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopUpView.xib; path = View/PopUpView/PopUpView.xib; sourceTree = "<group>"; };
 		9D9FAC4B189107250052BFEB /* TopAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopAppConstants.h; path = Constants/TopAppConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,6 +219,8 @@
 		9D2D1A63188FC421009BB661 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9D9B5EDF18928BA400C857E9 /* PopUpView */,
+				9D9B5E9018921B8E00C857E9 /* SearchHeaderView */,
 				9D3A94ED188FFAD600F524A7 /* TopPaidAppCollectionCell */,
 			);
 			name = View;
@@ -263,6 +273,25 @@
 				9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */,
 			);
 			name = TopPaidAppCollectionCell;
+			sourceTree = "<group>";
+		};
+		9D9B5E9018921B8E00C857E9 /* SearchHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				9D9B5E9118921BBC00C857E9 /* SearchHeaderView.h */,
+				9D9B5E9218921BBC00C857E9 /* SearchHeaderView.m */,
+			);
+			name = SearchHeaderView;
+			sourceTree = "<group>";
+		};
+		9D9B5EDF18928BA400C857E9 /* PopUpView */ = {
+			isa = PBXGroup;
+			children = (
+				9D9B5EE018928BC300C857E9 /* PopUpView.h */,
+				9D9B5EE118928BC300C857E9 /* PopUpView.m */,
+				9D9B5EE318928BEB00C857E9 /* PopUpView.xib */,
+			);
+			name = PopUpView;
 			sourceTree = "<group>";
 		};
 		9D9FAC4A189107030052BFEB /* Constants */ = {
@@ -351,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D2D1A39188FC2E5009BB661 /* Main_iPad.storyboard in Resources */,
+				9D9B5EE418928BEB00C857E9 /* PopUpView.xib in Resources */,
 				9D2D1A41188FC2E5009BB661 /* Images.xcassets in Resources */,
 				9D2D1A36188FC2E5009BB661 /* Main_iPhone.storyboard in Resources */,
 				9D2D1A2D188FC2E5009BB661 /* InfoPlist.strings in Resources */,
@@ -379,6 +409,8 @@
 				9D2D1A2F188FC2E5009BB661 /* main.m in Sources */,
 				9D2D1A6B188FCCBC009BB661 /* WishListViewController.m in Sources */,
 				9D2D1A6F188FDB23009BB661 /* TopApp.m in Sources */,
+				9D9B5EE218928BC300C857E9 /* PopUpView.m in Sources */,
+				9D9B5E9318921BBC00C857E9 /* SearchHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

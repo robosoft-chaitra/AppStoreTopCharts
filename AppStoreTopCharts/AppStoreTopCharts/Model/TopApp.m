@@ -17,7 +17,7 @@
 {
     if(self = [super init])
     {
-        self.appName       = [[appDictionary valueForKey:@"im:name"]   valueForKey:@"label"];
+        self.appName       = [self seperateAppNameFromSubTitle:[[appDictionary valueForKey:@"im:name"]   valueForKey:@"label"]];
         self.authorName    = [[appDictionary valueForKey:@"im:artist"] valueForKey:@"label"];
         self.summary       = [[appDictionary valueForKey:@"summary"]   valueForKey:@"label"];
         self.price         = [[appDictionary valueForKey:@"im:price"]  valueForKey:@"label"];
@@ -30,5 +30,18 @@
     }
     return self;
 }
+
+-(NSString*)seperateAppNameFromSubTitle:(NSString*)originalString
+{
+
+    return [[[[[[[[[[originalString componentsSeparatedByString:@"\u2013"] objectAtIndex: 0]
+                                    componentsSeparatedByString:@"\u2014"] objectAtIndex: 0]
+                                    componentsSeparatedByString:@"-"] objectAtIndex: 0]
+                                    componentsSeparatedByString:@":"] objectAtIndex: 0]
+                                    componentsSeparatedByString:@"by"] objectAtIndex: 0];
+    
+    
+}
+
 
 @end
