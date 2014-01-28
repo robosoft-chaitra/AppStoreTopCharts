@@ -17,7 +17,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+
     }
     return self;
 }
@@ -64,6 +64,20 @@
     else if (error != nil){
         NSLog(@"Error = %@", [error userInfo]);
     }
+}
+
+- (void)addToWishList:(id)sender {
+    if([self.delegate respondsToSelector:@selector(addToWishList:forCell:)]) {
+        [self.delegate addToWishList:sender forCell:self];
+    }
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    if (action == @selector(addToWishList:)) {
+        return YES;
+    }
+    return NO;
 }
 
 @end

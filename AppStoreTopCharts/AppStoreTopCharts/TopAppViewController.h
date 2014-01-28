@@ -10,11 +10,12 @@
 #import <UIKit/UIKit.h>
 #import "SearchHeaderView.h"
 #import "PopUpView.h"
+#import "TopAppsCollectionCell.h"
 
-@class PopUpView;
+
 @class JsonFeedParser;
 
-@interface TopAppViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,SearchAppsDelegate, PopUpViewDelegate, UIGestureRecognizerDelegate>
+@interface TopAppViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,SearchAppsDelegate, PopUpViewDelegate, WishListMenuDelegate>
 
 @property (nonatomic, strong) NSMutableArray *filteredApps;
 @property (nonatomic, strong) NSArray        *topApps;
@@ -22,7 +23,7 @@
 @property (nonatomic, strong) PopUpView      *popupView ;
 
 @property (strong, nonatomic) UITapGestureRecognizer       *hidePopupGestureRecognizer;
-@property (strong, nonatomic) UILongPressGestureRecognizer *wishListGestureReognizer;
 @property (strong, nonatomic) IBOutlet UICollectionView   *topAppCollectionView;
+
 - (IBAction)searchAppsByName:(id)sender;
 @end

@@ -18,8 +18,15 @@
     
 + (id)popUpView
 {
-    PopUpView *popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpView" owner:nil options:nil] lastObject];
-    
+    PopUpView *popUpView;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpViewiPad" owner:nil options:nil] lastObject];
+    }
+    else{
+        popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpViewiPhone" owner:nil options:nil] lastObject];
+
+    }
     if ([popUpView isKindOfClass:[PopUpView class]])
         return popUpView;
     else

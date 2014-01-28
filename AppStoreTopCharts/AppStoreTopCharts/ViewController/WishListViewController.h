@@ -9,4 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface WishListViewController : UIViewController
+
+@property (nonatomic, retain) NSMutableArray *selectedApps;
+
 @end

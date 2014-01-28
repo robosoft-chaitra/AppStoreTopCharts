@@ -7,6 +7,8 @@
 //
 
 #import "WishListViewController.h"
+#import "TopApp.h"
+
 
 @interface WishListViewController ()
 
@@ -26,7 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+  }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
 }
 
 - (void)didReceiveMemoryWarning

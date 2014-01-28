@@ -10,11 +10,11 @@
             <rect key="frame" x="0.0" y="0.0" width="250" height="323"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcv-hc-nga">
-                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcv-hc-nga">
+                    <rect key="frame" x="2" y="6" width="21" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" title="X">
+                    <state key="normal" image="close">
                         <color key="titleColor" red="1" green="0.19401828401219057" blue="0.22856872020612129" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -100,4 +100,7 @@
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="close" width="64" height="64"/>
+    </resources>
 </document>

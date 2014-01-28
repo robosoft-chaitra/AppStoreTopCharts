@@ -38,8 +38,12 @@
     isPopUpViewAppers = NO;
     self.topApps = [[NSArray alloc]init];
     self.jsonParser    = [[JsonFeedParser alloc]init];
+   
     
-}
+    UIMenuItem *wishListItem = [[UIMenuItem alloc] initWithTitle:@"WishList" action:@selector(addToWishList:)];
+    [[UIMenuController sharedMenuController] setMenuItems:@[wishListItem]];
+    self.topAppCollectionView.delegate = self;
+ }
 
 -(void)setUpPopUpView
 {
@@ -50,7 +54,6 @@
         [self.topAppCollectionView addSubview:self.popupView];
          self.popupView.alpha = 0.0f;
     }
-    
     self.hidePopupGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hidePopUpView:)];
 
 }
@@ -94,7 +97,9 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TopAppsCollectionCell *topAppCollectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:KTopAppCellIdentifier
+                                                   
                                                                                                 forIndexPath:indexPath];
+    topAppCollectionCell.delegate = self;
     TopApp *topApp;
     if(isFiltered)
         topApp = [self.filteredApps objectAtIndex:indexPath.row];
@@ -102,11 +107,6 @@
         topApp = [self.topApps objectAtIndex:indexPath.row];
     
     [topAppCollectionCell displayAppInfoInGrid:topApp];
-    
-    self.wishListGestureReognizer = [[UILongPressGestureRecognizer alloc]
-                                     initWithTarget:self action:@selector(addAppToWishList:)];
-    self.wishListGestureReognizer.minimumPressDuration = 1.0;
-    [topAppCollectionCell addGestureRecognizer:self.wishListGestureReognizer];
     
     return topAppCollectionCell;
 }
@@ -149,6 +149,27 @@
         return KHeaderViewZeroSize;
     else
         return KHeaderViewRefSize;
+}
+
+#pragma mark - Menu Item for CollectionView
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender;
+{
+    return YES;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
+{
+   
+}
+
+-(BOOL)canBecomeFirstResponder
+{
+    return YES;
 }
 
 #pragma mark - IBAction SearchBarButton method
@@ -213,16 +234,41 @@
     return ViewCenter;
 }
 
-#pragma mark - adding app to wishList Gesture
-
--(void)addAppToWishList:(UILongPressGestureRecognizer*)recognizer
-{
-    NSLog(@"Long Press Gesture recognizer");
-}
-
+#pragma mark - Gesture Recognizer method
 -(void)hidePopUpView:(UITapGestureRecognizer*)recognizer
 {
         [self.popupView  hideView:self.popupView];
 }
+
+#pragma mark - WishListMenu Delegate methods
+-(void)addToWishList:(id)sender forCell:(TopAppsCollectionCell*)cvCell
+{
+
+    if (isFiltered)
+    {
+        for (TopApp *app in self.filteredApps)
+        {
+            if([cvCell.appNameLabel.text isEqualToString:app.appName])
+//               [arr addObject:app];
+                NSLog(@"custom action on ios 7 cell info %@",cvCell.appNameLabel.text);
+
+        }
+    }
+    else{
+        for (TopApp * app in self.topApps) {
+            if([cvCell.appNameLabel.text isEqualToString:app.appName])
+//                [arr addObject:app];
+                NSLog(@"custom action on ios 7 cell info %@",cvCell.appNameLabel.text);
+
+
+
+        }
+    }
+   }
+
+- (void)addToWishList:(id)sender {
+//    NSLog(@"custom action %@",sender);
+}
+
 
 @end
