@@ -10,11 +10,15 @@
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
-#define KTopPaidAppFeed @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=25/json"
-#define KTopFreeAppFeed @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=25/json"
+#define KTopPaidAppFeed @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=100/json"
+#define KTopFreeAppFeed @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=100/json"
 
 #define KTopPaidChartTitle @"Top Paid Chart"
 #define KTopFreeChartTitle @"Top Free Chart"
 
 #define KTopAppCellIdentifier @"TopAppsCell"
 #define KTopAppHeaderView @"TopAppHeaderView"
+
+#define KCollectionViewEdgeInset UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f)
+#define KHeaderViewZeroSize CGSizeMake(0, 0)
+#define KHeaderViewRefSize CGSizeMake(768, 44)

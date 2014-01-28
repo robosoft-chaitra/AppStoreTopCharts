@@ -7,6 +7,7 @@
 //
 
 #import "TopAppsCollectionCell.h"
+#import "TopApp.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) 
 
@@ -24,23 +25,25 @@
 #pragma mark - Display AppInfo
 
 //Method to Display appInfo in grid of UIcollectionView
--(void)displayAppInfoInGrid:(NSString *)appName appImageUrl:(NSURL *)imageUrl appCategory:(NSString *)category appPrice:(NSString *)price
+-(void)displayAppInfoInGrid:(TopApp*)appInfo
 {
     [self.imageActivityIndicator startAnimating];
     dispatch_async(kBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL: imageUrl];
+        NSData* data = [NSData dataWithContentsOfURL: appInfo.appImageUrl];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self performSelector:@selector(displayAppImage:) withObject:data];
         });
     });
-
-    self.appNameLabel.text  = appName;
-    self.categoryLabel.text = category;
-    self.priceLabel.text    = price;
+    self.layer.borderWidth  = 0.1f;
+    self.layer.borderColor  = [[UIColor lightGrayColor] CGColor];
+    self.layer.cornerRadius = 10.0f;
+    self.appNameLabel.text  = appInfo.appName;
+    self.categoryLabel.text = appInfo.category;
+    self.priceLabel.text    = appInfo.price;
 }
 
-//Method to diplay appImage Async
+//Method to display appImage Async
 - (void)displayAppImage:(NSData *)imageData
 {
      NSError* error;

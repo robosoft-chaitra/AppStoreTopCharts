@@ -15,16 +15,9 @@
 
 #pragma mark - Json Parsing
 
-//Method to Parse the information from json feed
+//Method to Parse the Data from json feed
 -(NSArray *)fetchAppInfoFromJsonFeed:(NSString *)JsonFeed
 {
-//    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-//    dispatch_async(kBgQueue, ^{
-//        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:JsonFeed]];
-//        [NSURLConnection sendAsynchronousRequest:urlRequest
-//                                           queue:queue
-//                               completionHandler:^(NSURLResponse *response,NSData *appData,NSError *error)
-//         {
     self.appsList   = [[NSMutableArray alloc]init];
     
     NSURL * JsonUrl = [NSURL URLWithString:JsonFeed];
@@ -51,9 +44,6 @@
              else if (error != nil){
                  NSLog(@"Error = %@", [error userInfo]);
              }
-//         }];
-//    });
-   
     return self.appsList;
 }
 

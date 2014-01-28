@@ -31,16 +31,14 @@
     return self;
 }
 
+//Method to seperate the subtitles
 -(NSString*)seperateAppNameFromSubTitle:(NSString*)originalString
 {
-
     return [[[[[[[[[[originalString componentsSeparatedByString:@"\u2013"] objectAtIndex: 0]
                                     componentsSeparatedByString:@"\u2014"] objectAtIndex: 0]
                                     componentsSeparatedByString:@"-"] objectAtIndex: 0]
                                     componentsSeparatedByString:@":"] objectAtIndex: 0]
                                     componentsSeparatedByString:@"by"] objectAtIndex: 0];
-    
-    
 }
 
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class TopApp;
 @interface TopAppsCollectionCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
@@ -16,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *appImageView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *imageActivityIndicator;
 
--(void)displayAppInfoInGrid:(NSString *)appName appImageUrl:(NSURL *)imageUrl appCategory:(NSString *)category appPrice:(NSString *)price;
+-(void)displayAppInfoInGrid:(TopApp*)appInfo;
 
 @end

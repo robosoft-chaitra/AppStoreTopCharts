@@ -10,10 +10,11 @@
 
 @protocol SearchAppsDelegate<NSObject>
 
--(void)searchAppByNameInGrid:(NSString *)appName;
--(void)didFinishedSearchigForApp :(NSString *)appName;
+-(void)didSearchForApps:(NSString *)appName;
 
 @end
+
+
 @interface SearchHeaderView : UICollectionReusableView<UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *appSearchBar;

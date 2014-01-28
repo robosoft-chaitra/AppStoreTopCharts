@@ -21,10 +21,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-   
-    [searchBar resignFirstResponder];
-    [self.delegate didFinishedSearchigForApp:searchBar.text];
-
+     [searchBar resignFirstResponder];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
@@ -34,7 +31,7 @@
 
 -(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString *)searchText
 {
-   [self.delegate searchAppByNameInGrid:searchBar.text];
+   [self.delegate didSearchForApps:searchBar.text];
 }
 
 @end

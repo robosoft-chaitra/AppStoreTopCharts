@@ -7,10 +7,32 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TopApp.h"
+
+@protocol PopUpViewDelegate <NSObject>
+
+-(void)popUpViewDidAppear;
+-(void)popUpViewCancelButtonClicked;
+
+@end
 
 @interface PopUpView : UIView
-- (IBAction)hideView:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *copyrightLabel;
+@property (weak, nonatomic) IBOutlet UILabel *releseDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *refLinkLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *appImageView;
+@property (weak, nonatomic) IBOutlet UITextView *summaryTextField;
+
+@property (weak,   nonatomic) id<PopUpViewDelegate> delegate;
+@property (strong, nonatomic) TopApp *topApp;
 
 + (id)popUpView;
--(void)startAnimation;
+- (void)startAnimation;
+- (IBAction)hideView:(id)sender;
+
 @end

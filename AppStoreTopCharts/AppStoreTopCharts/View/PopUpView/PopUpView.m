@@ -10,28 +10,16 @@
 
 @implementation PopUpView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 - (IBAction)hideView:(id)sender
 {
     self.alpha = 0.0f;
-    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.6, 0.6);
-    [self removeFromSuperview];
-    
+    [self.delegate popUpViewCancelButtonClicked];
 }
-
+    
 + (id)popUpView
 {
     PopUpView *popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpView" owner:nil options:nil] lastObject];
     
-    // make sure customView is not nil or the wrong class!
     if ([popUpView isKindOfClass:[PopUpView class]])
         return popUpView;
     else
@@ -43,10 +31,8 @@
     [UIView animateWithDuration:0.2
                      animations:^(void){
                          self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1);
-                         self.alpha = 0.5;
-                         NSLog(@"uiview pror=%@",[self description]);
-                         //                         NSLog(@"alph=%f",self.alpha);
-                     }
+                         self.alpha = 0.5f;
+                        }
                      completion:^(BOOL finished){
                          [self bounceOutAnimationStopped];
                      }];
@@ -58,10 +44,9 @@
     [UIView animateWithDuration:0.1
                      animations:^(void){
                          self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9, 0.9);
-                         self.alpha = 0.8;
-                         NSLog(@"uiview pror=%@",[self description]);
-                         //                          NSLog(@"alph=%f",self.alpha);
-                     }
+                         self.alpha = 0.8f;
+                       
+                        }
                      completion:^(BOOL finished){
                          [self bounceInAnimationStopped];
                          
@@ -70,19 +55,33 @@
 
 -(void) bounceInAnimationStopped
 {
-    [UIView animateWithDuration:0.1 animations:^(void){
-        self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
-        self.alpha = 1;
-        NSLog(@"uiview pror=%@",[self description]);
-        //         NSLog(@"alph=%f",self.alpha);
-    }completion:^(BOOL finished){
-        [self animationStopped];
-    }];
+    [UIView animateWithDuration:0.1
+                     animations:^(void){
+                         self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+                         self.alpha = 1.0f;
+                     }
+                     completion:^(BOOL finished){
+                         [self animationStopped];
+                     }];
 }
 
 -(void)animationStopped
 {
-    
+    [self.delegate popUpViewDidAppear];
+    [self displayDetailsInPopUpView];
+}
+
+-(void)displayDetailsInPopUpView
+{
+    self.appNameLabel.text    = self.topApp.appName;
+    self.categoryLabel.text   = self.topApp.category;
+    self.authorLabel.text     = self.topApp.authorName;
+    self.priceLabel.text      = self.topApp.price;
+    self.copyrightLabel.text  = self.topApp.copyright;
+    self.releseDateLabel.text = self.topApp.releaseDate;
+    self.refLinkLabel.text    = self.topApp.referenceLink;
+    self.summaryTextField.text= self.topApp.summary;
+    self.appImageView.image   = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.topApp.appImageUrl]];
 }
 
 @end
