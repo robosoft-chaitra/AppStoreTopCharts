@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TopApp.h"
 
+@class TopApp;
 @protocol PopUpViewDelegate <NSObject>
 
 -(void)popUpViewDidAppear;
 -(void)popUpViewCancelButtonClicked;
+-(void)addAppToWishList:(NSString*)appName;
 
 @end
 
@@ -21,18 +22,23 @@
 @property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *copyrightLabel;
 @property (weak, nonatomic) IBOutlet UILabel *releseDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *refLinkLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *appImageView;
 @property (weak, nonatomic) IBOutlet UITextView *summaryTextField;
+@property (weak, nonatomic) IBOutlet UIButton *priceButton;
+@property (weak, nonatomic) IBOutlet UIButton *wishListButton;
+@property (weak, nonatomic) IBOutlet UIButton *referenceLinkButton;
 
 @property (weak,   nonatomic) id<PopUpViewDelegate> delegate;
-@property (strong, nonatomic) TopApp *topApp;
 
 + (id)popUpView;
-- (void)startAnimation;
+-(void)startAnimation:(TopApp*)topApp;
+
 - (IBAction)hideView:(id)sender;
+- (IBAction)installApp:(id)sender;
+- (IBAction)addToWishList:(id)sender;
+- (IBAction)showReferenceLink:(id)sender;
+
 
 @end

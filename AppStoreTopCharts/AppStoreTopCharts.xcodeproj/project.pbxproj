@@ -22,7 +22,6 @@
 		9D2D1A4A188FC2E5009BB661 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2D1A26188FC2E5009BB661 /* UIKit.framework */; };
 		9D2D1A52188FC2E5009BB661 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D2D1A50188FC2E5009BB661 /* InfoPlist.strings */; };
 		9D2D1A54188FC2E5009BB661 /* AppStoreTopChartsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A53188FC2E5009BB661 /* AppStoreTopChartsTests.m */; };
-		9D2D1A6B188FCCBC009BB661 /* WishListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A6A188FCCBC009BB661 /* WishListViewController.m */; };
 		9D2D1A6F188FDB23009BB661 /* TopApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A6E188FDB23009BB661 /* TopApp.m */; };
 		9D2D1A73188FDDCF009BB661 /* JsonFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A72188FDDCF009BB661 /* JsonFeedParser.m */; };
 		9D3A94F0188FFB2E00F524A7 /* TopAppsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */; };
@@ -31,6 +30,8 @@
 		9D9B5EE418928BEB00C857E9 /* PopUpViewiPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B5EE318928BEB00C857E9 /* PopUpViewiPhone.xib */; };
 		9D9BDC361897B2C100E4155E /* PopUpViewiPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9BDC351897B2C100E4155E /* PopUpViewiPad.xib */; };
 		9D9BDC381897E4F400E4155E /* WishList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D9BDC371897E4F400E4155E /* WishList.plist */; };
+		9D9BDD611898F7DF00049F4D /* WishListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDD601898F7DF00049F4D /* WishListViewController.m */; };
+		9D9BDD6518990E4E00049F4D /* WishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDD6418990E4E00049F4D /* WishListCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +65,6 @@
 		9D2D1A4F188FC2E5009BB661 /* AppStoreTopChartsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppStoreTopChartsTests-Info.plist"; sourceTree = "<group>"; };
 		9D2D1A51188FC2E5009BB661 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9D2D1A53188FC2E5009BB661 /* AppStoreTopChartsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppStoreTopChartsTests.m; sourceTree = "<group>"; };
-		9D2D1A69188FCCBC009BB661 /* WishListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListViewController.h; path = ViewController/WishListViewController.h; sourceTree = "<group>"; };
-		9D2D1A6A188FCCBC009BB661 /* WishListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListViewController.m; path = ViewController/WishListViewController.m; sourceTree = "<group>"; };
 		9D2D1A6D188FDB23009BB661 /* TopApp.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.c.h; name = TopApp.h; path = Model/TopApp.h; sourceTree = "<group>"; };
 		9D2D1A6E188FDB23009BB661 /* TopApp.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.c.objc; name = TopApp.m; path = Model/TopApp.m; sourceTree = "<group>"; };
 		9D2D1A71188FDDCF009BB661 /* JsonFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JsonFeedParser.h; path = Model/feedParser/JsonFeedParser.h; sourceTree = "<group>"; };
@@ -79,6 +78,10 @@
 		9D9B5EE318928BEB00C857E9 /* PopUpViewiPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopUpViewiPhone.xib; path = View/PopUpView/PopUpViewiPhone.xib; sourceTree = "<group>"; };
 		9D9BDC351897B2C100E4155E /* PopUpViewiPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewiPad.xib; sourceTree = "<group>"; };
 		9D9BDC371897E4F400E4155E /* WishList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WishList.plist; sourceTree = "<group>"; };
+		9D9BDD5F1898F7DF00049F4D /* WishListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListViewController.h; path = viewController/WishListViewController/WishListViewController.h; sourceTree = "<group>"; };
+		9D9BDD601898F7DF00049F4D /* WishListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListViewController.m; path = viewController/WishListViewController/WishListViewController.m; sourceTree = "<group>"; };
+		9D9BDD6318990E4E00049F4D /* WishListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListCell.h; path = View/wishListCell/WishListCell.h; sourceTree = "<group>"; };
+		9D9BDD6418990E4E00049F4D /* WishListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListCell.m; path = View/wishListCell/WishListCell.m; sourceTree = "<group>"; };
 		9D9FAC4B189107250052BFEB /* TopAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopAppConstants.h; path = Constants/TopAppConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,8 +218,8 @@
 		9D2D1A62188FC40E009BB661 /* WishListViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9D2D1A69188FCCBC009BB661 /* WishListViewController.h */,
-				9D2D1A6A188FCCBC009BB661 /* WishListViewController.m */,
+				9D9BDD5F1898F7DF00049F4D /* WishListViewController.h */,
+				9D9BDD601898F7DF00049F4D /* WishListViewController.m */,
 			);
 			name = WishListViewController;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 		9D2D1A63188FC421009BB661 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9D9BDD6218990DEA00049F4D /* WishListCell */,
 				9D9B5EDF18928BA400C857E9 /* PopUpView */,
 				9D9B5E9018921B8E00C857E9 /* SearchHeaderView */,
 				9D3A94ED188FFAD600F524A7 /* TopPaidAppCollectionCell */,
@@ -298,6 +302,15 @@
 				9D9BDC351897B2C100E4155E /* PopUpViewiPad.xib */,
 			);
 			name = PopUpView;
+			sourceTree = "<group>";
+		};
+		9D9BDD6218990DEA00049F4D /* WishListCell */ = {
+			isa = PBXGroup;
+			children = (
+				9D9BDD6318990E4E00049F4D /* WishListCell.h */,
+				9D9BDD6418990E4E00049F4D /* WishListCell.m */,
+			);
+			name = WishListCell;
 			sourceTree = "<group>";
 		};
 		9D9FAC4A189107030052BFEB /* Constants */ = {
@@ -411,13 +424,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D2D1A3C188FC2E5009BB661 /* TopAppViewController.m in Sources */,
+				9D9BDD611898F7DF00049F4D /* WishListViewController.m in Sources */,
 				9D2D1A33188FC2E5009BB661 /* ASAppDelegate.m in Sources */,
 				9D3A94F0188FFB2E00F524A7 /* TopAppsCollectionCell.m in Sources */,
 				9D2D1A73188FDDCF009BB661 /* JsonFeedParser.m in Sources */,
 				9D2D1A2F188FC2E5009BB661 /* main.m in Sources */,
-				9D2D1A6B188FCCBC009BB661 /* WishListViewController.m in Sources */,
 				9D2D1A6F188FDB23009BB661 /* TopApp.m in Sources */,
 				9D9B5EE218928BC300C857E9 /* PopUpView.m in Sources */,
+				9D9BDD6518990E4E00049F4D /* WishListCell.m in Sources */,
 				9D9B5E9318921BBC00C857E9 /* SearchHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

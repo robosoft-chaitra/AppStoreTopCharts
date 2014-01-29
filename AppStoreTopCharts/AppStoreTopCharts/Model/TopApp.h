@@ -19,7 +19,8 @@
 @property (nonatomic, strong) NSString *summary;
 @property (nonatomic, strong) NSString *releaseDate;
 @property (nonatomic, strong) NSString *referenceLink;
+@property (nonatomic, strong) NSDictionary *appDictionary;
 
--(id)initTopAppFromAppStoreDict:(NSDictionary*) appDictionary;
+-(id)initTopAppFromAppStoreDictionary:(NSDictionary*) appStoreDictionary;
 
 @end

@@ -38,12 +38,7 @@
     isPopUpViewAppers = NO;
     self.topApps = [[NSArray alloc]init];
     self.jsonParser    = [[JsonFeedParser alloc]init];
-   
-    
-    UIMenuItem *wishListItem = [[UIMenuItem alloc] initWithTitle:@"WishList" action:@selector(addToWishList:)];
-    [[UIMenuController sharedMenuController] setMenuItems:@[wishListItem]];
-    self.topAppCollectionView.delegate = self;
- }
+}
 
 -(void)setUpPopUpView
 {
@@ -99,7 +94,6 @@
     TopAppsCollectionCell *topAppCollectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:KTopAppCellIdentifier
                                                    
                                                                                                 forIndexPath:indexPath];
-    topAppCollectionCell.delegate = self;
     TopApp *topApp;
     if(isFiltered)
         topApp = [self.filteredApps objectAtIndex:indexPath.row];
@@ -118,12 +112,11 @@
     if(!isPopUpViewAppers)
     {
         if(isFiltered)
-            self.popupView.topApp = [self.filteredApps objectAtIndex:indexPath.row];
+             [self.popupView startAnimation: [self.filteredApps objectAtIndex:indexPath.row]];
         else
-            self.popupView.topApp = [self.topApps objectAtIndex:indexPath.row];
+             [self.popupView startAnimation: [self.topApps objectAtIndex:indexPath.row]];
         
         self.popupView.center = [self updateCenterForPopUpView];
-        [self.popupView startAnimation];
     }
     else
         [self.popupView  hideView:self.popupView];
@@ -149,27 +142,6 @@
         return KHeaderViewZeroSize;
     else
         return KHeaderViewRefSize;
-}
-
-#pragma mark - Menu Item for CollectionView
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender;
-{
-    return YES;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
-{
-   
-}
-
--(BOOL)canBecomeFirstResponder
-{
-    return YES;
 }
 
 #pragma mark - IBAction SearchBarButton method
@@ -210,7 +182,7 @@
 {
     isPopUpViewAppers = YES;
     self.topAppCollectionView.scrollEnabled = NO;
-    self.topAppCollectionView.alpha = 0.7;
+    self.topAppCollectionView.alpha = 0.8;
     [self.view addGestureRecognizer:self.hidePopupGestureRecognizer];
 
 }
@@ -221,6 +193,19 @@
     self.topAppCollectionView.scrollEnabled = YES;
     self.topAppCollectionView.alpha = 1.0;
     [self.view removeGestureRecognizer:self.hidePopupGestureRecognizer];
+}
+
+-(void)addAppToWishList:(NSString *)appName
+{
+    [self loadFromAppDirectory];
+    NSIndexPath *indexpath = [[self.topAppCollectionView indexPathsForSelectedItems ] objectAtIndex:0];
+    TopApp *topApp = [self.topApps objectAtIndex:indexpath.row];
+    
+    if(![self.wishListApps containsObject:topApp.appDictionary])
+        [self.wishListApps addObject:topApp.appDictionary];
+    else
+        NSLog(@"App Already added to wishList");
+    [self.wishListApps writeToFile:KAppDirectoryPath atomically:YES];
 }
 
 #pragma mark- Updating Center for PopupView
@@ -240,35 +225,20 @@
         [self.popupView  hideView:self.popupView];
 }
 
-#pragma mark - WishListMenu Delegate methods
--(void)addToWishList:(id)sender forCell:(TopAppsCollectionCell*)cvCell
+-(void)loadFromAppDirectory
 {
-
-    if (isFiltered)
+    NSError *error;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:KAppDirectoryPath])
     {
-        for (TopApp *app in self.filteredApps)
-        {
-            if([cvCell.appNameLabel.text isEqualToString:app.appName])
-//               [arr addObject:app];
-                NSLog(@"custom action on ios 7 cell info %@",cvCell.appNameLabel.text);
-
-        }
+        NSString *bundle = [[NSBundle mainBundle] pathForResource:@"WishList" ofType:@"plist"];
+        [[NSFileManager defaultManager] copyItemAtPath:bundle toPath:KAppDirectoryPath error:&error];
     }
-    else{
-        for (TopApp * app in self.topApps) {
-            if([cvCell.appNameLabel.text isEqualToString:app.appName])
-//                [arr addObject:app];
-                NSLog(@"custom action on ios 7 cell info %@",cvCell.appNameLabel.text);
-
-
-
-        }
+    
+    self.wishListApps =[[NSArray arrayWithContentsOfFile:KAppDirectoryPath] mutableCopy];
+    if (self.wishListApps.count == 0)
+    {
+        self.wishListApps = [[NSMutableArray alloc]init];
     }
-   }
-
-- (void)addToWishList:(id)sender {
-//    NSLog(@"custom action %@",sender);
 }
-
 
 @end

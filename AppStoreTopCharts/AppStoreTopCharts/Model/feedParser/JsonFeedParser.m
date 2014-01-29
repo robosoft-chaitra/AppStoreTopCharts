@@ -30,10 +30,10 @@
                                                                           options:kNilOptions
                                                                             error:&error];
                  
-                 NSArray *entries = [NSArray arrayWithArray:[[appStoreDict valueForKey:@"feed"] valueForKey:@"entry"] ];
-                for (NSDictionary *entry in  entries)
+                 NSArray *appEntries = [NSArray arrayWithArray:[[appStoreDict valueForKey:@"feed"] valueForKey:@"entry"] ];
+                for (NSDictionary *entry in  appEntries)
                  {
-                     TopApp *topApp = [[TopApp alloc]initTopAppFromAppStoreDict:entry];
+                     TopApp *topApp = [[TopApp alloc]initTopAppFromAppStoreDictionary:entry];
                      [self.appsList addObject:topApp];
                  }
              }

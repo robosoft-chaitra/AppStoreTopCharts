@@ -7,15 +7,10 @@
 //
 
 #import "PopUpView.h"
+#import "TopApp.h"
 
 @implementation PopUpView
 
-- (IBAction)hideView:(id)sender
-{
-    self.alpha = 0.0f;
-    [self.delegate popUpViewCancelButtonClicked];
-}
-    
 + (id)popUpView
 {
     PopUpView *popUpView;
@@ -33,12 +28,14 @@
         return nil;
 }
 
--(void)startAnimation
+-(void)startAnimation:(TopApp*)topApp
 {
+    [self setUpUI];
     [UIView animateWithDuration:0.2
                      animations:^(void){
                          self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1);
                          self.alpha = 0.5f;
+                         [self displayDetailsInPopUpView:topApp];
                         }
                      completion:^(BOOL finished){
                          [self bounceOutAnimationStopped];
@@ -75,20 +72,50 @@
 -(void)animationStopped
 {
     [self.delegate popUpViewDidAppear];
-    [self displayDetailsInPopUpView];
 }
 
--(void)displayDetailsInPopUpView
+-(void)displayDetailsInPopUpView:(TopApp*)topApp
 {
-    self.appNameLabel.text    = self.topApp.appName;
-    self.categoryLabel.text   = self.topApp.category;
-    self.authorLabel.text     = self.topApp.authorName;
-    self.priceLabel.text      = self.topApp.price;
-    self.copyrightLabel.text  = self.topApp.copyright;
-    self.releseDateLabel.text = self.topApp.releaseDate;
-    self.refLinkLabel.text    = self.topApp.referenceLink;
-    self.summaryTextField.text= self.topApp.summary;
-    self.appImageView.image   = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.topApp.appImageUrl]];
+    self.appNameLabel.text    = topApp.appName;
+    self.categoryLabel.text   = topApp.category;
+    self.authorLabel.text     = topApp.authorName;
+    self.copyrightLabel.text  = topApp.copyright;
+    self.releseDateLabel.text = topApp.releaseDate;
+    self.summaryTextField.text= topApp.summary;
+    self.appImageView.image   = [UIImage imageWithData:[NSData dataWithContentsOfURL:topApp.appImageUrl]];
+    [self.priceButton setTitle:topApp.price forState:UIControlStateNormal];
+    [self.referenceLinkButton setTitle:topApp.referenceLink forState:UIControlStateNormal];
+}
+#pragma mark - IBAction methods
+- (IBAction)hideView:(id)sender
+{
+    self.alpha = 0.0f;
+    [self.delegate popUpViewCancelButtonClicked];
+}
+
+- (IBAction)installApp:(id)sender
+{
+    [self.priceButton setTitle:@"INSTALL" forState:UIControlStateNormal];
+
+}
+
+- (IBAction)addToWishList:(id)sender
+{
+    [self.delegate addAppToWishList:self.appNameLabel.text];
+}
+
+- (IBAction)showReferenceLink:(id)sender {
+}
+
+-(void)setUpUI
+{
+    self.layer.borderWidth = KBorderWidth;
+    self.layer.borderColor = KBorderColor;
+    self.layer.cornerRadius = KCornerRadius;
+    self.priceButton.layer.borderWidth = KBorderWidth;
+    self.priceButton.layer.borderColor = KBorderColor;
+    self.wishListButton.layer.borderWidth = KBorderWidth;
+    self.wishListButton.layer.borderColor = KBorderColor;
 }
 
 @end

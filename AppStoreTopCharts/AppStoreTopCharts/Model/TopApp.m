@@ -13,20 +13,12 @@
 #pragma mark- init Method
 
 // designated initalizer for topApp 
--(id)initTopAppFromAppStoreDict:(NSDictionary *)appDictionary
+-(id)initTopAppFromAppStoreDictionary:(NSDictionary *)appStoreDictionary
 {
     if(self = [super init])
     {
-        self.appName       = [self seperateAppNameFromSubTitle:[[appDictionary valueForKey:@"im:name"]   valueForKey:@"label"]];
-        self.authorName    = [[appDictionary valueForKey:@"im:artist"] valueForKey:@"label"];
-        self.summary       = [[appDictionary valueForKey:@"summary"]   valueForKey:@"label"];
-        self.price         = [[appDictionary valueForKey:@"im:price"]  valueForKey:@"label"];
-        self.copyright     = [[appDictionary valueForKey:@"rights"]    valueForKey:@"label"];
-        self.category      = [[[appDictionary valueForKey:@"category"] valueForKey:@"attributes"] valueForKey:@"label"];
-        self.referenceLink = [[[appDictionary valueForKey:@"link"]     valueForKey:@"attributes"] valueForKey:@"href"];
-        self.appImageUrl   = [NSURL URLWithString:[[[appDictionary     valueForKey:@"im:image"]   objectAtIndex:0] valueForKey:@"label"]] ;
-        self.releaseDate   = [[[appDictionary valueForKey:@"im:releaseDate"] valueForKey:@"attributes"]valueForKey:@"label"];
-
+        self = [self convertToAppFromDictionary:appStoreDictionary];
+        
     }
     return self;
 }
@@ -41,5 +33,20 @@
                                     componentsSeparatedByString:@"by"] objectAtIndex: 0];
 }
 
+-(id)convertToAppFromDictionary:(NSDictionary*)appStoreDictionary
+{
+     self.appName       = [self seperateAppNameFromSubTitle:[[appStoreDictionary valueForKey:@"im:name"]   valueForKey:@"label"]];
+     self.authorName    = [[appStoreDictionary valueForKey:@"im:artist"] valueForKey:@"label"];
+     self.summary       = [[appStoreDictionary valueForKey:@"summary"]   valueForKey:@"label"];
+     self.price         = [[appStoreDictionary valueForKey:@"im:price"]  valueForKey:@"label"];
+     self.copyright     = [[appStoreDictionary valueForKey:@"rights"]    valueForKey:@"label"];
+     self.category      = [[[appStoreDictionary valueForKey:@"category"] valueForKey:@"attributes"] valueForKey:@"label"];
+     self.referenceLink = [[[appStoreDictionary valueForKey:@"link"]     valueForKey:@"attributes"] valueForKey:@"href"];
+     self.appImageUrl   = [NSURL URLWithString:[[[appStoreDictionary     valueForKey:@"im:image"]   objectAtIndex:0] valueForKey:@"label"]] ;
+     self.releaseDate   = [[[appStoreDictionary valueForKey:@"im:releaseDate"] valueForKey:@"attributes"]valueForKey:@"label"];
+     self.appDictionary = appStoreDictionary;
+     
+     return self;
 
+}
 @end

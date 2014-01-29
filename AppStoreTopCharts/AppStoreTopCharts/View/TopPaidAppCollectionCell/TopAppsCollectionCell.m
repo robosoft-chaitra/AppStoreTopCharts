@@ -36,8 +36,8 @@
         });
     });
     self.layer.borderWidth  = 0.1f;
-    self.layer.borderColor  = [[UIColor lightGrayColor] CGColor];
-    self.layer.cornerRadius = 10.0f;
+    self.layer.borderColor  = KBorderColor;
+    self.layer.cornerRadius = KCornerRadius;
     self.appNameLabel.text  = appInfo.appName;
     self.categoryLabel.text = appInfo.category;
     self.priceLabel.text    = appInfo.price;
@@ -64,20 +64,6 @@
     else if (error != nil){
         NSLog(@"Error = %@", [error userInfo]);
     }
-}
-
-- (void)addToWishList:(id)sender {
-    if([self.delegate respondsToSelector:@selector(addToWishList:forCell:)]) {
-        [self.delegate addToWishList:sender forCell:self];
-    }
-}
-
-- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
-{
-    if (action == @selector(addToWishList:)) {
-        return YES;
-    }
-    return NO;
 }
 
 @end

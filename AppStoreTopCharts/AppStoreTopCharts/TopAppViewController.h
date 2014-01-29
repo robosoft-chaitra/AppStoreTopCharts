@@ -15,8 +15,9 @@
 
 @class JsonFeedParser;
 
-@interface TopAppViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,SearchAppsDelegate, PopUpViewDelegate, WishListMenuDelegate>
+@interface TopAppViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,SearchAppsDelegate, PopUpViewDelegate>
 
+@property (nonatomic, strong) NSMutableArray *wishListApps;
 @property (nonatomic, strong) NSMutableArray *filteredApps;
 @property (nonatomic, strong) NSArray        *topApps;
 @property (nonatomic, strong) JsonFeedParser *jsonParser;

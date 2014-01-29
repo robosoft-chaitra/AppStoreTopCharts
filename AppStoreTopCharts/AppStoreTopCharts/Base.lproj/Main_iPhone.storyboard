@@ -9,7 +9,7 @@
             <objects>
                 <viewController title="TopPaidApp" id="CZ4-MO-1fc" customClass="TopAppViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="bZ7-cl-Pon">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L2c-J1-VC2">
@@ -119,7 +119,7 @@
             <objects>
                 <viewController title="TopFreeApp" id="QUy-BD-bpt" customClass="TopAppViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="M4N-HT-udk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MKF-gx-jlN">
@@ -217,47 +217,6 @@
             </objects>
             <point key="canvasLocation" x="406" y="-370"/>
         </scene>
-        <!--Wish List View Controller - Wish List-->
-        <scene sceneID="8yo-BO-ZMG">
-            <objects>
-                <viewController id="MNp-eD-pnc" customClass="WishListViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="P4l-dt-Tdh"/>
-                        <viewControllerLayoutGuide type="bottom" id="DFm-ca-eir"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qZc-1G-qPT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mgr-t3-2Mj">
-                                <rect key="frame" x="33" y="91" width="253" height="312"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Wish List" id="6As-uG-Rz6">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="uZg-i8-kxq"/>
-                    </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="OGX-j2-HED" id="N1A-XK-EcA"/>
-                        <outlet property="view" destination="qZc-1G-qPT" id="AP6-yW-dhm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Zq-sd-cdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="OGX-j2-HED">
-                    <connections>
-                        <outlet property="delegate" destination="MNp-eD-pnc" id="x0I-8K-KVS"/>
-                        <outlet property="searchContentsController" destination="MNp-eD-pnc" id="i6x-Wp-BDZ"/>
-                        <outlet property="searchResultsDataSource" destination="MNp-eD-pnc" id="nfp-v1-EoV"/>
-                        <outlet property="searchResultsDelegate" destination="MNp-eD-pnc" id="Vwk-Ip-8s2"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="392" y="401"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
             <objects>
@@ -272,31 +231,12 @@
                     <connections>
                         <segue destination="4rv-gl-GNo" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
                         <segue destination="txo-ai-CnZ" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
-                        <segue destination="cv7-QG-C7V" kind="relationship" relationship="viewControllers" id="78K-8y-bRG"/>
+                        <segue destination="H1v-XH-eqF" kind="relationship" relationship="viewControllers" id="EU5-Bj-sd5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-736" y="-254"/>
-        </scene>
-        <!--Navigation Controller - WishList-->
-        <scene sceneID="Uy6-5t-Z1Y">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cv7-QG-C7V" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="WishList" image="first" id="Jpb-Oz-dy6"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HSc-L0-gbS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="MNp-eD-pnc" kind="relationship" relationship="rootViewController" id="juM-36-hes"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ePY-JH-c09" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-134" y="401"/>
         </scene>
         <!--Navigation Controller - TopFreeApp-->
         <scene sceneID="tga-u5-8Tw">
@@ -317,6 +257,86 @@
             </objects>
             <point key="canvasLocation" x="-120" y="-370"/>
         </scene>
+        <!--Wish List View Controller - WishLIst-->
+        <scene sceneID="Byu-gK-bbn">
+            <objects>
+                <tableViewController id="UwE-o1-Xnu" customClass="WishListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" id="URh-Wc-e8w">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WishListCell" rowHeight="75" id="dQE-Ux-kha" customClass="WishListCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dQE-Ux-kha" id="bK9-qi-o7V">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wgD-ww-Ijo">
+                                            <rect key="frame" x="12" y="3" width="65" height="66"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AppName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU0-5D-59E">
+                                            <rect key="frame" x="87" y="8" width="213" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xI8-Rw-gj8">
+                                            <rect key="frame" x="87" y="26" width="213" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dp4-ix-COx">
+                                            <rect key="frame" x="248" y="22" width="52" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="52" id="ybP-8e-bpF"/>
+                                            </constraints>
+                                            <state key="normal" title="Price">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="installApp:" destination="dQE-Ux-kha" eventType="touchUpInside" id="Buf-bU-nBq"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vd1-Vl-ZVG">
+                                            <rect key="frame" x="87" y="45" width="213" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Dp4-ix-COx" secondAttribute="trailing" constant="20" id="8cr-HP-cQa"/>
+                                        <constraint firstItem="Dp4-ix-COx" firstAttribute="centerY" secondItem="bK9-qi-o7V" secondAttribute="centerY" id="yWc-kr-fsl"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="appImageView" destination="wgD-ww-Ijo" id="0Do-RA-iiY"/>
+                                    <outlet property="appNameLabel" destination="BU0-5D-59E" id="r3W-cc-q2j"/>
+                                    <outlet property="authorLabel" destination="vd1-Vl-ZVG" id="ale-4g-ayJ"/>
+                                    <outlet property="categoryLabel" destination="xI8-Rw-gj8" id="vnA-vk-mMd"/>
+                                    <outlet property="priceButton" destination="Dp4-ix-COx" id="vQe-Nv-LgC"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UwE-o1-Xnu" id="tPt-PO-9p2"/>
+                            <outlet property="delegate" destination="UwE-o1-Xnu" id="Sv5-Ac-HUq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="WishLIst" id="PbB-EW-k30"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdK-Pl-kyD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="421" y="213"/>
+        </scene>
         <!--Navigation Controller - TopPaidApp-->
         <scene sceneID="qWh-Mq-cV2">
             <objects>
@@ -336,6 +356,25 @@
             </objects>
             <point key="canvasLocation" x="-112" y="-1044"/>
         </scene>
+        <!--Navigation Controller - WishList-->
+        <scene sceneID="1bn-ad-3ID">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H1v-XH-eqF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="WishList" image="first" id="hOP-eq-DTq"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GgD-JI-l9x">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UwE-o1-Xnu" kind="relationship" relationship="rootViewController" id="eXP-58-8vA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cov-Yf-Gqu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-105" y="213"/>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
@@ -344,6 +383,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>
