@@ -10,15 +10,7 @@
 
 @implementation SearchHeaderView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
+#pragma mark - UISearchBar delegate Methods
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
      [searchBar resignFirstResponder];
@@ -31,6 +23,7 @@
 
 -(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString *)searchText
 {
+//    searching  for each character
    [self.delegate didSearchForApps:searchBar.text];
 }
 

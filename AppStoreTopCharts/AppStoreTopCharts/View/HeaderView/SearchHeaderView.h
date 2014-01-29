@@ -10,10 +10,9 @@
 
 @protocol SearchAppsDelegate<NSObject>
 
+//Delegate method to search for app using appName
 -(void)didSearchForApps:(NSString *)appName;
-
 @end
-
 
 @interface SearchHeaderView : UICollectionReusableView<UISearchBarDelegate>
 

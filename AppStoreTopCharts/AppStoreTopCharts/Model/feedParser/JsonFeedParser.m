@@ -33,6 +33,7 @@
                  NSArray *appEntries = [NSArray arrayWithArray:[[appStoreDict valueForKey:@"feed"] valueForKey:@"entry"] ];
                 for (NSDictionary *entry in  appEntries)
                  {
+//                 convering application Entries into TopApp Object
                      TopApp *topApp = [[TopApp alloc]initTopAppFromAppStoreDictionary:entry];
                      [self.appsList addObject:topApp];
                  }

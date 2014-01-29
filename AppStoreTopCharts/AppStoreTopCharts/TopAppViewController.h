@@ -10,8 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "SearchHeaderView.h"
 #import "PopUpView.h"
-#import "TopAppsCollectionCell.h"
-
 
 @class JsonFeedParser;
 
@@ -26,5 +24,7 @@
 @property (strong, nonatomic) UITapGestureRecognizer       *hidePopupGestureRecognizer;
 @property (strong, nonatomic) IBOutlet UICollectionView   *topAppCollectionView;
 
+//method to search for app using AppName
 - (IBAction)searchAppsByName:(id)sender;
+
 @end

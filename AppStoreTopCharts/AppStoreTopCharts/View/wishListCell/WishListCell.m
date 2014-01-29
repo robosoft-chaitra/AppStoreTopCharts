@@ -10,25 +10,9 @@
 #import "TopApp.h"
 @implementation WishListCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 -(void)displayAppInfoForWishListApp:(TopApp *)wishListApp
 {
-
+//  method to display WishList app on tableview
     self.appNameLabel.text  = wishListApp.appName;
     self.categoryLabel.text = wishListApp.category;
     self.authorLabel.text   = wishListApp.authorName;
@@ -38,6 +22,9 @@
     self.priceButton.layer.borderColor = KBorderColor;
 }
 
-- (IBAction)installApp:(id)sender {
+#pragma mark - IBAction: Install App
+- (IBAction)installApp:(id)sender
+{
+//    method to install an app
 }
 @end

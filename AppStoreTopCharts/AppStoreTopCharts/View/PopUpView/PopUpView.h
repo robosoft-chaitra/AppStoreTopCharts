@@ -11,6 +11,7 @@
 @class TopApp;
 @protocol PopUpViewDelegate <NSObject>
 
+//method to hide/Show popup on collectionview
 -(void)popUpViewDidAppear;
 -(void)popUpViewCancelButtonClicked;
 -(void)addAppToWishList:(NSString*)appName;
@@ -33,6 +34,7 @@
 @property (weak,   nonatomic) id<PopUpViewDelegate> delegate;
 
 + (id)popUpView;
+
 -(void)startAnimation:(TopApp*)topApp;
 
 - (IBAction)hideView:(id)sender;

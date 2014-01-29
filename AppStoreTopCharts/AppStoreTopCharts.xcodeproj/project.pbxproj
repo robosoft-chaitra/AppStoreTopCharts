@@ -142,8 +142,8 @@
 		9D2D1A28188FC2E5009BB661 /* AppStoreTopCharts */ = {
 			isa = PBXGroup;
 			children = (
+				9D52E0FB1899391C00802732 /* Resources */,
 				9D2D1A65188FC432009BB661 /* Source */,
-				9D2D1A40188FC2E5009BB661 /* Images.xcassets */,
 				9D2D1A29188FC2E5009BB661 /* Supporting Files */,
 			);
 			path = AppStoreTopCharts;
@@ -282,6 +282,14 @@
 				9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */,
 			);
 			name = TopPaidAppCollectionCell;
+			sourceTree = "<group>";
+		};
+		9D52E0FB1899391C00802732 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9D2D1A40188FC2E5009BB661 /* Images.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		9D9B5E9018921B8E00C857E9 /* SearchHeaderView */ = {

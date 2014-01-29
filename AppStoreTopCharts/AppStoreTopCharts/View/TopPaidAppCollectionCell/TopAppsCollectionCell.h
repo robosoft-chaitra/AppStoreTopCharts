@@ -12,7 +12,6 @@
 
 @interface TopAppsCollectionCell : UICollectionViewCell
 
-
 @property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;

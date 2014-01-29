@@ -13,15 +13,6 @@
 
 @implementation TopAppsCollectionCell
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-
-    }
-    return self;
-}
-
 #pragma mark - Display AppInfo
 
 //Method to Display appInfo in grid of UIcollectionView

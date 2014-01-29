@@ -11,6 +11,8 @@
 @interface JsonFeedParser : NSObject
 
 @property (nonatomic, strong) NSMutableArray *appsList;
+
+//method to Fetch Info from JsonFeed 
 -(NSArray *) fetchAppInfoFromJsonFeed:(NSString*) JsonFeed;
 
 @end

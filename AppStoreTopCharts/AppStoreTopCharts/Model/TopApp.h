@@ -10,6 +10,7 @@
 
 @interface TopApp : NSObject
 
+//TopApp Model Class Properties
 @property (nonatomic, strong) NSString *appName;
 @property (nonatomic, strong) NSString *authorName;
 @property (nonatomic, strong) NSString *price;

@@ -14,6 +14,7 @@
 + (id)popUpView
 {
     PopUpView *popUpView;
+//    loading the popup based on Device
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
         popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpViewiPad" owner:nil options:nil] lastObject];
@@ -27,7 +28,7 @@
     else
         return nil;
 }
-
+//start animating the popup & Displaying Info
 -(void)startAnimation:(TopApp*)topApp
 {
     [self setUpUI];
@@ -71,11 +72,13 @@
 
 -(void)animationStopped
 {
+//    method to Disable scrolling of collectionview
     [self.delegate popUpViewDidAppear];
 }
 
 -(void)displayDetailsInPopUpView:(TopApp*)topApp
 {
+//    to display appDetails in Popup
     self.appNameLabel.text    = topApp.appName;
     self.categoryLabel.text   = topApp.category;
     self.authorLabel.text     = topApp.authorName;
@@ -89,6 +92,7 @@
 #pragma mark - IBAction methods
 - (IBAction)hideView:(id)sender
 {
+//    hiding the popup & enabling scrolling of collectionview
     self.alpha = 0.0f;
     [self.delegate popUpViewCancelButtonClicked];
 }
