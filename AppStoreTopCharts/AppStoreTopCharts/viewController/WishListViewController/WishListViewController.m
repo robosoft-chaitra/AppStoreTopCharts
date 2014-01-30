@@ -8,7 +8,6 @@
 
 #import "WishListViewController.h"
 #import "WishListCell.h"
-#import "TopApp.h"
 
 @interface WishListViewController ()
 
@@ -16,15 +15,7 @@
 
 @implementation WishListViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        
-    }
-    return self;
-}
-
+#pragma mark - View methods
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -36,7 +27,7 @@
 {
     [super viewWillAppear:YES];
     
-    self.selectedApps     = [[NSMutableArray alloc]init];
+    self.selectedApps      = [[NSMutableArray alloc]init];
     self.appDictionaryList = [[NSArray arrayWithContentsOfFile:KAppDirectoryPath] mutableCopy];
     
 //    converting appdictionary to TopApp object & storing to List
@@ -48,13 +39,7 @@
      [self.tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
- 
-}
-
-#pragma mark - Table view data source
+#pragma mark - Tableview data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -68,8 +53,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = KWishListCellIdentifier;
-    WishListCell *cell = (WishListCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    WishListCell *cell = (WishListCell*)[tableView dequeueReusableCellWithIdentifier:KWishListCellIdentifier forIndexPath:indexPath];
     
 //    method to display the appInfo in a cell
     [cell displayAppInfoForWishListApp:[self.selectedApps objectAtIndex:indexPath.row]];
@@ -77,10 +62,11 @@
     return cell;
 }
 
-#pragma mark - tableview delegate
+#pragma mark - Tableview delegate
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+//    method to delete app from Plist Permanently
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         TopApp *deletingApp =[self.selectedApps objectAtIndex:indexPath.row];

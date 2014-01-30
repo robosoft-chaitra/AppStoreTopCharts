@@ -7,25 +7,22 @@
 //
 
 #import "JsonFeedParser.h"
-#import "TopApp.h"
-
 
 @implementation JsonFeedParser
-
 
 #pragma mark - Json Parsing
 
 //Method to Parse the Data from json feed
--(NSArray *)fetchAppInfoFromJsonFeed:(NSString *)JsonFeed
+-(NSMutableArray *)fetchAppInfoFromJsonFeed:(NSString *)JsonFeed
 {
-    self.appsList   = [[NSMutableArray alloc]init];
-    
-    NSURL * JsonUrl = [NSURL URLWithString:JsonFeed];
-    NSData *appData = [NSData dataWithContentsOfURL:JsonUrl];
+    NSMutableArray *appsList   = [[NSMutableArray alloc]init];
+
+    NSData *appData = [NSData dataWithContentsOfURL:[NSURL URLWithString:JsonFeed]];
     
     NSError *error;
              if ([appData length] > 0 && error == nil)
              {
+//                 Parse the json feed & adding to appStore Dict
                  NSDictionary* appStoreDict = [NSJSONSerialization JSONObjectWithData:appData
                                                                           options:kNilOptions
                                                                             error:&error];
@@ -35,17 +32,18 @@
                  {
 //                 convering application Entries into TopApp Object
                      TopApp *topApp = [[TopApp alloc]initTopAppFromAppStoreDictionary:entry];
-                     [self.appsList addObject:topApp];
+                     [appsList addObject:topApp];
                  }
              }
              else if ([appData length] == 0 && error == nil)
              {
                  NSLog(@"Nothing was downloaded.");
              }
-             else if (error != nil){
+             else if (error != nil)
+             {
                  NSLog(@"Error = %@", [error userInfo]);
              }
-    return self.appsList;
+    return appsList;
 }
 
 @end

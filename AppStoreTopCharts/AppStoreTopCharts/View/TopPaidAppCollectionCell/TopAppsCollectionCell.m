@@ -7,7 +7,6 @@
 //
 
 #import "TopAppsCollectionCell.h"
-#import "TopApp.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) 
 
@@ -19,16 +18,23 @@
 -(void)displayAppInfoInGrid:(TopApp*)appInfo
 {
     [self.imageActivityIndicator startAnimating];
+    
     dispatch_async(kBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL: appInfo.appImageUrl];
+//        Asynchrounously convering URL to data
+        NSData *imageData = [NSData dataWithContentsOfURL: appInfo.appImageUrl];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self performSelector:@selector(displayAppImage:) withObject:data];
+//            displaying Imageview in mainThread
+            [self performSelector:@selector(displayAppImage:) withObject:imageData];
         });
     });
+    
+//    setup the border for cell
     self.layer.borderWidth  = 0.1f;
     self.layer.borderColor  = KBorderColor;
     self.layer.cornerRadius = KCornerRadius;
+    
+//    Displaying AppInfo of cell
     self.appNameLabel.text  = appInfo.appName;
     self.categoryLabel.text = appInfo.category;
     self.priceLabel.text    = appInfo.price;

@@ -8,8 +8,6 @@
 
 #import "TopAppViewController.h"
 #import "TopAppsCollectionCell.h"
-#import "JsonFeedParser.h"
-#import "TopApp.h"
 
 @interface TopAppViewController ()
 {
@@ -31,8 +29,32 @@
     [self setUpPopUpView];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+//    Asynchronously loading the TopApp from json Feed
+    dispatch_async(kBgQueue, ^{
+        if([self.navigationItem.title isEqualToString:KTopPaidChartTitle])
+//            loading Apps to Applist For TopPaid Apps
+            self.topApps = [self.jsonParser fetchAppInfoFromJsonFeed:KTopPaidAppFeed];
+        
+        else  if([self.navigationItem.title isEqualToString:KTopFreeChartTitle])
+//            loading Apps to AppList for TopFree Apps
+            self.topApps = [self.jsonParser fetchAppInfoFromJsonFeed:KTopFreeAppFeed];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.topAppCollectionView reloadData];
+            
+        });
+    });
+}
+
+#pragma mark - Initialization methods
+
 -(void)setUpModel
 {
+//    Initializing model & parser
     isFiltered = NO;
     isHeaderViewActive = NO;
     isPopUpViewAppers = NO;
@@ -53,24 +75,6 @@
 
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-    
-//    Asynchronously loading the TopApp from json Feed
-    dispatch_async(kBgQueue, ^{
-            if([self.navigationItem.title isEqualToString:KTopPaidChartTitle])
-                self.topApps = [self.jsonParser fetchAppInfoFromJsonFeed:KTopPaidAppFeed];
-        
-            else  if([self.navigationItem.title isEqualToString:KTopFreeChartTitle])
-                self.topApps = [self.jsonParser fetchAppInfoFromJsonFeed:KTopFreeAppFeed];
-        
-      dispatch_async(dispatch_get_main_queue(), ^{
-            [self.topAppCollectionView reloadData];
-            
-        });
-    });
-}
 
 #pragma mark - UICollectionView DataSource
 
@@ -194,7 +198,6 @@
     self.topAppCollectionView.scrollEnabled = NO;
     self.topAppCollectionView.alpha = 0.8;
     [self.view addGestureRecognizer:self.hidePopupGestureRecognizer];
-
 }
 
 -(void)popUpViewCancelButtonClicked

@@ -8,21 +8,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JsonFeedParser.h"
 #import "SearchHeaderView.h"
 #import "PopUpView.h"
 
-@class JsonFeedParser;
-
 @interface TopAppViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,SearchAppsDelegate, PopUpViewDelegate>
 
-@property (nonatomic, strong) NSMutableArray *wishListApps;
-@property (nonatomic, strong) NSMutableArray *filteredApps;
-@property (nonatomic, strong) NSArray        *topApps;
-@property (nonatomic, strong) JsonFeedParser *jsonParser;
-@property (nonatomic, strong) PopUpView      *popupView ;
+@property (nonatomic, strong) NSMutableArray *wishListApps; //Array of Wishlist Apps
+@property (nonatomic, strong) NSMutableArray *filteredApps; //Array of Filtered Apps
+@property (nonatomic, strong) NSArray        *topApps;      //Array of TopApps
 
-@property (strong, nonatomic) UITapGestureRecognizer       *hidePopupGestureRecognizer;
-@property (strong, nonatomic) IBOutlet UICollectionView   *topAppCollectionView;
+@property (nonatomic, strong) JsonFeedParser *jsonParser;   //Parse the jsonFeed async
+@property (nonatomic, strong) PopUpView      *popupView ;   //popup to view details of app
+
+@property (strong, nonatomic) UITapGestureRecognizer     *hidePopupGestureRecognizer;   //Tapgesture to hide popup
+@property (strong, nonatomic) IBOutlet UICollectionView  *topAppCollectionView;
 
 //method to search for app using AppName
 - (IBAction)searchAppsByName:(id)sender;

@@ -7,7 +7,6 @@
 //
 
 #import "PopUpView.h"
-#import "TopApp.h"
 
 @implementation PopUpView
 
@@ -19,15 +18,19 @@
     {
         popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpViewiPad" owner:nil options:nil] lastObject];
     }
-    else{
+    else
+    {
         popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpViewiPhone" owner:nil options:nil] lastObject];
-
     }
+    
     if ([popUpView isKindOfClass:[PopUpView class]])
         return popUpView;
     else
         return nil;
 }
+
+#pragma mark - Animation Methods
+
 //start animating the popup & Displaying Info
 -(void)startAnimation:(TopApp*)topApp
 {
@@ -76,9 +79,38 @@
     [self.delegate popUpViewDidAppear];
 }
 
+#pragma mark - IBAction methods
+
+- (IBAction)hideView:(id)sender
+{
+//    hiding the popup & enabling scrolling of collectionview
+    self.alpha = 0.0f;
+    [self.delegate popUpViewCancelButtonClicked];
+}
+
+- (IBAction)installApp:(id)sender
+{
+//    Method to Install app
+    [self.priceButton setTitle:@"INSTALL" forState:UIControlStateNormal];
+
+}
+
+- (IBAction)addToWishList:(id)sender
+{
+//    delegate method to add to WishList
+    [self.delegate addAppToWishList:self.appNameLabel.text];
+}
+
+- (IBAction)showReferenceLink:(id)sender
+{
+//    TODO: method to go to RefeneceLink site
+}
+
+#pragma mark - Display AppDetails methods
+
 -(void)displayDetailsInPopUpView:(TopApp*)topApp
 {
-//    to display appDetails in Popup
+    //    to display appDetails in Popup
     self.appNameLabel.text    = topApp.appName;
     self.categoryLabel.text   = topApp.category;
     self.authorLabel.text     = topApp.authorName;
@@ -89,30 +121,10 @@
     [self.priceButton setTitle:topApp.price forState:UIControlStateNormal];
     [self.referenceLinkButton setTitle:topApp.referenceLink forState:UIControlStateNormal];
 }
-#pragma mark - IBAction methods
-- (IBAction)hideView:(id)sender
-{
-//    hiding the popup & enabling scrolling of collectionview
-    self.alpha = 0.0f;
-    [self.delegate popUpViewCancelButtonClicked];
-}
-
-- (IBAction)installApp:(id)sender
-{
-    [self.priceButton setTitle:@"INSTALL" forState:UIControlStateNormal];
-
-}
-
-- (IBAction)addToWishList:(id)sender
-{
-    [self.delegate addAppToWishList:self.appNameLabel.text];
-}
-
-- (IBAction)showReferenceLink:(id)sender {
-}
 
 -(void)setUpUI
 {
+//  method to  add Border to button & popup View
     self.layer.borderWidth = KBorderWidth;
     self.layer.borderColor = KBorderColor;
     self.layer.cornerRadius = KCornerRadius;

@@ -7,7 +7,7 @@
 //
 
 #import "WishListCell.h"
-#import "TopApp.h"
+
 @implementation WishListCell
 
 -(void)displayAppInfoForWishListApp:(TopApp *)wishListApp
@@ -25,6 +25,6 @@
 #pragma mark - IBAction: Install App
 - (IBAction)installApp:(id)sender
 {
-//    method to install an app
+//   TODO: method to install an app
 }
 @end

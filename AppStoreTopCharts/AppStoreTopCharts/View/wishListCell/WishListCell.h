@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class TopApp;
+
 @interface WishListCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *appImageView;
@@ -17,5 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *priceButton;
 
 - (IBAction)installApp:(id)sender;
--(void)displayAppInfoForWishListApp:(TopApp*)wishListApp;
+
+//Method to display the AppInfo on wishListCell
+- (void)displayAppInfoForWishListApp:(TopApp*)wishListApp;
+
 @end

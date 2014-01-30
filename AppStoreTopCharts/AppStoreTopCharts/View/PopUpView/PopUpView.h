@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class TopApp;
 @protocol PopUpViewDelegate <NSObject>
 
 //method to hide/Show popup on collectionview
