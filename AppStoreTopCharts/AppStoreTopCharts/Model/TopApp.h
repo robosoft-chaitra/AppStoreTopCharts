@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSString *summary;
 @property (nonatomic, strong) NSString *releaseDate;
 @property (nonatomic, strong) NSString *referenceLink;
-@property (nonatomic, strong) NSDictionary *appDictionary;
+@property (nonatomic, strong) NSDictionary *appInfoDictionary;
 
 -(id)initTopAppFromAppStoreDictionary:(NSDictionary*) appStoreDictionary;
 

@@ -72,9 +72,9 @@
         TopApp *deletingApp =[self.selectedApps objectAtIndex:indexPath.row];
         
 //      To check deleting app found in plist
-       if([self.appDictionaryList containsObject:deletingApp.appDictionary])
+       if([self.appDictionaryList containsObject:deletingApp.appInfoDictionary])
        {
-           [self.appDictionaryList removeObject:deletingApp.appDictionary];
+           [self.appDictionaryList removeObject:deletingApp.appInfoDictionary];
            [self.selectedApps removeObject:deletingApp];
            [self.appDictionaryList writeToFile:KAppDirectoryPath atomically:YES];
        }

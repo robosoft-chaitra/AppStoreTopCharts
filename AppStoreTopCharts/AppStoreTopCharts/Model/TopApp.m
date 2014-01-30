@@ -17,18 +17,16 @@
 {
     if(self = [super init])
     {
-         self.appName       = [self seperateAppNameFromSubTitle:[[appStoreDictionary valueForKey:@"im:name"]   valueForKey:@"label"]];
-         self.authorName    = [[appStoreDictionary valueForKey:@"im:artist"] valueForKey:@"label"];
-         self.summary       = [[appStoreDictionary valueForKey:@"summary"]   valueForKey:@"label"];
-         self.price         = [[appStoreDictionary valueForKey:@"im:price"]  valueForKey:@"label"];
-         self.copyright     = [[appStoreDictionary valueForKey:@"rights"]    valueForKey:@"label"];
-         self.category      = [[[appStoreDictionary valueForKey:@"category"] valueForKey:@"attributes"] valueForKey:@"label"];
-         self.referenceLink = [[[appStoreDictionary valueForKey:@"link"]     valueForKey:@"attributes"] valueForKey:@"href"];
+         self.appName       = [self seperateAppNameFromSubTitle:[appStoreDictionary valueForKeyPath:@"im:name.label"]];
+         self.authorName    = [appStoreDictionary valueForKeyPath:@"im:artist.label"];
+         self.summary       = [appStoreDictionary valueForKeyPath:@"summary.label"];
+         self.price         = [appStoreDictionary valueForKeyPath:@"im:price.label"];
+         self.copyright     = [appStoreDictionary valueForKeyPath:@"rights.label"];
+         self.category      = [appStoreDictionary valueForKeyPath:@"category.attributes.label"];
+         self.referenceLink = [appStoreDictionary valueForKeyPath:@"link.attributes.href"];
          self.appImageUrl   = [NSURL URLWithString:[[[appStoreDictionary     valueForKey:@"im:image"]   objectAtIndex:0] valueForKey:@"label"]] ;
-         self.releaseDate   = [[[appStoreDictionary valueForKey:@"im:releaseDate"] valueForKey:@"attributes"]valueForKey:@"label"];
-         self.appDictionary = appStoreDictionary;
-
-        
+         self.releaseDate   = [appStoreDictionary valueForKeyPath:@"im:releaseDate.attributes.label"];
+         self.appInfoDictionary = appStoreDictionary;
     }
     return self;
 }
