@@ -32,14 +32,15 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    
+
 //    Asynchronously loading the TopApp from json Feed
     dispatch_async(kBgQueue, ^{
-        if([self.navigationItem.title isEqualToString:KTopPaidChartTitle])
+        
+        if(self.tabBarController.selectedIndex == KTopPaidAppTabBarItemIndex)
 //            loading Apps to Applist For TopPaid Apps
             self.topApps = [self.jsonParser fetchAppInfoFromJsonFeed:KTopPaidAppFeed];
         
-        else  if([self.navigationItem.title isEqualToString:KTopFreeChartTitle])
+        else  if(self.tabBarController.selectedIndex == KTopFreeAppTabBarItemIndex)
 //            loading Apps to AppList for TopFree Apps
             self.topApps = [self.jsonParser fetchAppInfoFromJsonFeed:KTopFreeAppFeed];
         
@@ -216,8 +217,8 @@
     NSIndexPath *indexpath = [[self.topAppCollectionView indexPathsForSelectedItems ] objectAtIndex:0];
     TopApp *topApp = [self.topApps objectAtIndex:indexpath.row];
     
-    if(![self.wishListApps containsObject:topApp.appDictionary])
-        [self.wishListApps addObject:topApp.appDictionary];
+    if(![self.wishListApps containsObject:topApp.appInfoDictionary])
+        [self.wishListApps addObject:topApp.appInfoDictionary];
     else
     {
         UIAlertView *wishListAlert = [[UIAlertView alloc]initWithTitle:@"" message:@"App Already added to WishList" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];

@@ -15,9 +15,6 @@
 #define KTopPaidAppFeed @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=100/json"
 #define KTopFreeAppFeed @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=100/json"
 
-#define KTopPaidChartTitle @"Top Paid Chart"
-#define KTopFreeChartTitle @"Top Free Chart"
-
 #define KWishListCellIdentifier @"WishListCell"
 #define KTopAppCellIdentifier   @"TopAppsCell"
 #define KTopAppHeaderView       @"TopAppHeaderView"

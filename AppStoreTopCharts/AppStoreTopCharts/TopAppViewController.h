@@ -12,6 +12,12 @@
 #import "SearchHeaderView.h"
 #import "PopUpView.h"
 
+typedef enum
+{
+    KTopPaidAppTabBarItemIndex,
+    KTopFreeAppTabBarItemIndex
+}TabBarItem;
+
 @interface TopAppViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,SearchAppsDelegate, PopUpViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *wishListApps; //Array of Wishlist Apps
