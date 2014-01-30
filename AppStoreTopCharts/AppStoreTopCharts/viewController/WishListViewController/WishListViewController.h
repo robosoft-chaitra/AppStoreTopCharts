@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class TopApp;
+
 @interface WishListViewController : UITableViewController
 
 @property(nonatomic, retain) NSMutableArray *selectedApps;

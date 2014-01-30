@@ -200,29 +200,87 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-2604" y="-1822"/>
+            <point key="canvasLocation" x="-2560" y="-1750"/>
         </scene>
         <!--Wish List View Controller - Wish List-->
-        <scene sceneID="ppy-ZO-rSs">
+        <scene sceneID="RLG-bK-3qq">
             <objects>
-                <viewController id="Qg9-Mf-9ZM" customClass="WishListViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="itE-Nn-6xc"/>
-                        <viewControllerLayoutGuide type="bottom" id="EZD-Rf-VVc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fQg-LE-o8L">
+                <tableViewController id="qIn-CC-7Eh" customClass="WishListViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="hPt-lb-1mm">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Wish List" id="aD4-KM-WGN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="RQv-hh-ENR"/>
-                    </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pze-TX-ooO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WishListCell" rowHeight="100" id="Q1I-sY-zXt" customClass="WishListCell">
+                                <rect key="frame" x="0.0" y="86" width="768" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q1I-sY-zXt" id="ueT-nS-3Lp">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="99"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AppName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCe-sU-KQl">
+                                            <rect key="frame" x="134" y="20" width="363" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oh3-RP-igi">
+                                            <rect key="frame" x="134" y="40" width="363" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahx-MF-Oa3">
+                                            <rect key="frame" x="134" y="58" width="538" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgz-jv-WQQ">
+                                            <rect key="frame" x="20" y="13" width="91" height="75"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cH-9F-EmD">
+                                            <rect key="frame" x="658" y="30" width="60" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="X1j-OL-U33"/>
+                                            </constraints>
+                                            <state key="normal" title="INSTALL">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="installApp:" destination="Q1I-sY-zXt" eventType="touchUpInside" id="LLb-I8-aqA"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="9cH-9F-EmD" secondAttribute="trailing" constant="50" id="3K5-g2-tpy"/>
+                                        <constraint firstItem="9cH-9F-EmD" firstAttribute="top" secondItem="ueT-nS-3Lp" secondAttribute="top" constant="30" id="qNZ-e4-xdH"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="appImageView" destination="lgz-jv-WQQ" id="FeR-zP-asK"/>
+                                    <outlet property="appNameLabel" destination="jCe-sU-KQl" id="HZw-z1-ZZj"/>
+                                    <outlet property="authorLabel" destination="ahx-MF-Oa3" id="0Nr-2Z-zXA"/>
+                                    <outlet property="categoryLabel" destination="Oh3-RP-igi" id="r57-CP-1Pn"/>
+                                    <outlet property="priceButton" destination="9cH-9F-EmD" id="sih-zf-LeE"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qIn-CC-7Eh" id="0Bh-eO-EAo"/>
+                            <outlet property="delegate" destination="qIn-CC-7Eh" id="PRY-a8-TaI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Wish List" id="04b-pf-BiS"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rCK-Du-hUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2624" y="-337"/>
+            <point key="canvasLocation" x="-2560" y="-423"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -237,7 +295,7 @@
                     <connections>
                         <segue destination="6sI-KK-uQG" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="n5U-hP-ESs" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="QR0-Nx-6RL" kind="relationship" relationship="viewControllers" id="4fz-oX-dqE"/>
+                        <segue destination="VmC-9G-QO4" kind="relationship" relationship="viewControllers" id="iu1-la-aWw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -283,23 +341,23 @@
             <point key="canvasLocation" x="-3823" y="-1716"/>
         </scene>
         <!--Navigation Controller - WishList-->
-        <scene sceneID="ifS-6b-5Gj">
+        <scene sceneID="l5W-2l-rfQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QR0-Nx-6RL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="WishList" image="first" id="z3f-KC-whn"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VmC-9G-QO4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="WishList" image="first" id="bTV-DS-gLr"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6hD-wp-9R8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AWQ-Gj-wOF">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Qg9-Mf-9ZM" kind="relationship" relationship="rootViewController" id="SAB-jW-AR0"/>
+                        <segue destination="qIn-CC-7Eh" kind="relationship" relationship="rootViewController" id="Iee-Tb-P82"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iZc-La-Ez7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vk4-OZ-Ve3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3876" y="-353"/>
+            <point key="canvasLocation" x="-3725" y="-435"/>
         </scene>
     </scenes>
     <resources>
