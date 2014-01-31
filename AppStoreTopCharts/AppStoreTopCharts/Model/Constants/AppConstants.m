@@ -29,7 +29,8 @@ CGFloat const KHeaderViewRefWidth   = 768.0f;
 NSString *const kTopPaidAppJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=100/json";
 NSString *const kTopFreeAppJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=100/json";
 
-NSString *const kAppCellIndentifier = @"TopAppsCell";
-NSString *const kHeaderCellIndentifier = @"SearchHeaderView";
+NSString *const kAppCellIndentifier      = @"TopAppsCell";
+NSString *const kHeaderCellIndentifier   = @"SearchHeaderView";
+NSString *const kWishListCellIndentifier = @"WishListCell";
 
 @end

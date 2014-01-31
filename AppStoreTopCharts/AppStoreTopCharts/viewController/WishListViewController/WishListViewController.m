@@ -55,7 +55,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    WishListCell *cell = (WishListCell*)[tableView dequeueReusableCellWithIdentifier:@"WishListCell" forIndexPath:indexPath];
+    WishListCell *cell = (WishListCell*)[tableView dequeueReusableCellWithIdentifier:kWishListCellIndentifier forIndexPath:indexPath];
     
 //    method to display the appInfo in a cell
     [cell displayAppInfoForWishListApp:[self.selectedApps objectAtIndex:indexPath.row]];

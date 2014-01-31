@@ -23,10 +23,12 @@
 
 @interface TANetworkOperationCenter : NSObject<NSURLConnectionDataDelegate, NSURLConnectionDelegate>
 
+@property (strong, nonatomic) NSURLRequest *urlRequest;
+@property (strong, nonatomic) NSURLConnection *urlConnection;
 @property (weak, nonatomic)id<NetworkOperationsDelegate> delegate;
 
 
 //Designated Initializer 
--(id)initNetworkConnectionFromURL:(NSURL*)RequestURL;
+-(id)initNetworkConnectionFromURL:(NSURL*)RequestedURL;
 
 @end

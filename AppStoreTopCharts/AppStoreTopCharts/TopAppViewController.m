@@ -14,6 +14,7 @@
     BOOL  isFiltered;
     BOOL  isHeaderViewActive;
     BOOL  isPopUpViewAppers;
+    UISearchBar *searchBar;
 }
 
 @end
@@ -29,9 +30,9 @@
     [self setUpPopUpView];
 }
 
--(void)viewWillAppear:(BOOL)animated
+-(void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:YES];
+    [super viewDidAppear:YES];
     NSURL *topAppURL;
     
         if(self.tabBarController.selectedIndex == KTopPaidAppTabBarItemIndex)
@@ -80,12 +81,12 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    int itemCount;
+    NSInteger itemCount;
 
     if(isFiltered)
         itemCount = [self.filteredApps count];
     else
-        itemCount = [self.topApps count];
+        itemCount = [self.topApps count] ;
 
     return itemCount;
 }
@@ -102,6 +103,11 @@
     
 //    method to display appInfo in collectionview grid
     [topAppCollectionCell displayAppInfoInGrid:topApp];
+    
+    if(isFiltered && isHeaderViewActive && ![searchBar isFirstResponder])
+    {
+        [searchBar becomeFirstResponder];
+    }
     
     return topAppCollectionCell;
 }
@@ -132,6 +138,10 @@
     SearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
                                          UICollectionElementKindSectionHeader withReuseIdentifier:kHeaderCellIndentifier forIndexPath:indexPath];
     headerView.delegate = self;
+    if(isFiltered && isHeaderViewActive && ![headerView.appSearchBar isFirstResponder])
+    {
+        [headerView.appSearchBar becomeFirstResponder];
+    }
     return headerView;
 }
 
@@ -158,8 +168,9 @@
 }
 
 #pragma mark - SearchForApp Delegate Method
--(void)didSearchForApps:(NSString *)appName
+-(void)didSearchForApps:(NSString *)appName reference:(UISearchBar*)refSearchBar
 {
+    searchBar = refSearchBar;
      if(appName.length == 0)
               isFiltered = NO;
      else

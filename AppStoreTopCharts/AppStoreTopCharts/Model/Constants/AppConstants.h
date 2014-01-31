@@ -26,7 +26,9 @@ extern CGFloat const KCornerRadius;
 
 extern NSString *const kTopPaidAppJsonFeed;
 extern NSString *const kTopFreeAppJsonFeed;
+
 extern NSString *const kAppCellIndentifier;
 extern NSString *const kHeaderCellIndentifier;
+extern NSString *const kWishListCellIndentifier;
 
 @end

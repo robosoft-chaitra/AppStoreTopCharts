@@ -24,7 +24,7 @@
 -(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString *)searchText
 {
 //    searching  for each character
-   [self.delegate didSearchForApps:searchBar.text];
+   [self.delegate didSearchForApps:searchBar.text reference:searchBar];
 }
 
 @end
