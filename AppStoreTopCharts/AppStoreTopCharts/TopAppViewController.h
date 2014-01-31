@@ -8,7 +8,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JsonFeedParser.h"
+#import "TANetworkOperationCenter.h"
 #import "SearchHeaderView.h"
 #import "PopUpView.h"
 
@@ -16,16 +16,17 @@ typedef enum
 {
     KTopPaidAppTabBarItemIndex,
     KTopFreeAppTabBarItemIndex
+    
 }TabBarItem;
 
-@interface TopAppViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,SearchAppsDelegate, PopUpViewDelegate>
+@interface TopAppViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,SearchAppsDelegate, PopUpViewDelegate,NetworkOperationsDelegate>
 
 @property (nonatomic, strong) NSMutableArray *wishListApps; //Array of Wishlist Apps
 @property (nonatomic, strong) NSMutableArray *filteredApps; //Array of Filtered Apps
-@property (nonatomic, strong) NSArray        *topApps;      //Array of TopApps
+@property (nonatomic, strong) NSMutableArray *topApps;      //Array of TopApps
 
-@property (nonatomic, strong) JsonFeedParser *jsonParser;   //Parse the jsonFeed async
-@property (nonatomic, strong) PopUpView      *popupView ;   //popup to view details of app
+@property (nonatomic, strong) NSString  *appDocumentDirectoryPath; //Document directory Path
+@property (nonatomic, strong) PopUpView *popupView ;   //popup to view details of app
 
 @property (strong, nonatomic) UITapGestureRecognizer     *hidePopupGestureRecognizer;   //Tapgesture to hide popup
 @property (strong, nonatomic) IBOutlet UICollectionView  *topAppCollectionView;

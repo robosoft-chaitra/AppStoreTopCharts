@@ -24,7 +24,7 @@
          self.copyright     = [appStoreDictionary valueForKeyPath:@"rights.label"];
          self.category      = [appStoreDictionary valueForKeyPath:@"category.attributes.label"];
          self.referenceLink = [appStoreDictionary valueForKeyPath:@"link.attributes.href"];
-         self.appImageUrl   = [NSURL URLWithString:[[[appStoreDictionary     valueForKey:@"im:image"]   objectAtIndex:0] valueForKey:@"label"]] ;
+         self.appImageUrl   = [NSURL URLWithString:[[[appStoreDictionary  valueForKey:@"im:image"]   objectAtIndex:0] valueForKey:@"label"]] ;
          self.releaseDate   = [appStoreDictionary valueForKeyPath:@"im:releaseDate.attributes.label"];
          self.appInfoDictionary = appStoreDictionary;
     }

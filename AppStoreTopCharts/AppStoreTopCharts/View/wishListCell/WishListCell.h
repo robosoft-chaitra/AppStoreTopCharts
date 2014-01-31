@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet UIButton *priceButton;
 
+//IBAction: ToInstall APP
 - (IBAction)installApp:(id)sender;
 
 //Method to display the AppInfo on wishListCell

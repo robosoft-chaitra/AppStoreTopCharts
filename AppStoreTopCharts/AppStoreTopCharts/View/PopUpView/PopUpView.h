@@ -12,7 +12,9 @@
 
 //method to hide/Show popup on collectionview
 -(void)popUpViewDidAppear;
+//hiding the popup when cancelButton clicked
 -(void)popUpViewCancelButtonClicked;
+//loading the app To WishList
 -(void)addAppToWishList:(NSString*)appName;
 
 @end
@@ -32,8 +34,10 @@
 
 @property (weak,   nonatomic) id<PopUpViewDelegate> delegate;
 
+//loading the nibFile of popup from Bundle
 + (id)popUpView;
 
+//Start Animating the popup
 -(void)startAnimation:(TopApp*)topApp;
 
 - (IBAction)hideView:(id)sender;

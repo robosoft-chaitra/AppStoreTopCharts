@@ -18,13 +18,16 @@
     self.authorLabel.text   = wishListApp.authorName;
     self.appImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:wishListApp.appImageUrl]];
     [self.priceButton setTitle:wishListApp.price forState:UIControlStateNormal];
-    self.priceButton.layer.borderWidth = KBorderWidth;
-    self.priceButton.layer.borderColor = KBorderColor;
+    self.priceButton.layer.borderWidth = 1.0;
+    self.priceButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 }
 
 #pragma mark - IBAction: Install App
 - (IBAction)installApp:(id)sender
 {
-//   TODO: method to install an app
+//    Method to Install APP
+    UIAlertView *installAlert = [[UIAlertView alloc]initWithTitle:@"Install APP" message:[NSString stringWithFormat:@"Would you like to Install App:%@",self.appNameLabel.text] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+    [installAlert show];
 }
+
 @end

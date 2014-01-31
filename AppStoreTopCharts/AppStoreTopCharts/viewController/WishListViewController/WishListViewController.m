@@ -20,6 +20,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    self.appDocumentDirectoryPath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"WishList.plist"];
 
 }
 
@@ -28,7 +29,7 @@
     [super viewWillAppear:YES];
     
     self.selectedApps      = [[NSMutableArray alloc]init];
-    self.appDictionaryList = [[NSArray arrayWithContentsOfFile:KAppDirectoryPath] mutableCopy];
+    self.appDictionaryList = [[NSArray arrayWithContentsOfFile:self.appDocumentDirectoryPath] mutableCopy];
     
 //    converting appdictionary to TopApp object & storing to List
     for(NSDictionary *appDictionary in self.appDictionaryList)
@@ -54,7 +55,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    WishListCell *cell = (WishListCell*)[tableView dequeueReusableCellWithIdentifier:KWishListCellIdentifier forIndexPath:indexPath];
+    WishListCell *cell = (WishListCell*)[tableView dequeueReusableCellWithIdentifier:@"WishListCell" forIndexPath:indexPath];
     
 //    method to display the appInfo in a cell
     [cell displayAppInfoForWishListApp:[self.selectedApps objectAtIndex:indexPath.row]];
@@ -76,7 +77,7 @@
        {
            [self.appDictionaryList removeObject:deletingApp.appInfoDictionary];
            [self.selectedApps removeObject:deletingApp];
-           [self.appDictionaryList writeToFile:KAppDirectoryPath atomically:YES];
+           [self.appDictionaryList writeToFile:self.appDocumentDirectoryPath atomically:YES];
        }
         
         [self.tableView reloadData];

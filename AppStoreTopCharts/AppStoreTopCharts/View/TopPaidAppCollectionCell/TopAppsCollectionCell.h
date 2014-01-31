@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TANetworkOperationCenter.h"
 
 @class TopApp;
+@interface TopAppsCollectionCell : UICollectionViewCell<NSURLConnectionDataDelegate, NSURLConnectionDelegate, NetworkOperationsDelegate>
 
-@interface TopAppsCollectionCell : UICollectionViewCell
+
+@property (strong, nonatomic) TopApp *topApp;
+@property (strong, nonatomic) NSData *imageData;
 
 @property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;

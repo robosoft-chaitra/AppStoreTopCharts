@@ -25,57 +25,51 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setUpModel];
+    [self initialSetUp];
     [self setUpPopUpView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-
-//    Asynchronously loading the TopApp from json Feed
-    dispatch_async(kBgQueue, ^{
-        
+    NSURL *topAppURL;
+    
         if(self.tabBarController.selectedIndex == KTopPaidAppTabBarItemIndex)
-//            loading Apps to Applist For TopPaid Apps
-            self.topApps = [self.jsonParser fetchAppInfoFromJsonFeed:KTopPaidAppFeed];
-        
+        {
+//            loading TOPPaidAPPURL
+            topAppURL = [NSURL URLWithString:kTopPaidAppJsonFeed];
+         }
         else  if(self.tabBarController.selectedIndex == KTopFreeAppTabBarItemIndex)
-//            loading Apps to AppList for TopFree Apps
-            self.topApps = [self.jsonParser fetchAppInfoFromJsonFeed:KTopFreeAppFeed];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.topAppCollectionView reloadData];
-            
-        });
-    });
+        {
+//            loading TopFreeAppURL
+            topAppURL = [NSURL URLWithString:kTopFreeAppJsonFeed];
+        }
+    TANetworkOperationCenter *networkCenter = [[TANetworkOperationCenter alloc]initNetworkConnectionFromURL:topAppURL];
+    networkCenter.delegate = self;
 }
 
 #pragma mark - Initialization methods
 
--(void)setUpModel
+-(void)initialSetUp
 {
 //    Initializing model & parser
     isFiltered = NO;
     isHeaderViewActive = NO;
     isPopUpViewAppers = NO;
-    self.topApps = [[NSArray alloc]init];
-    self.jsonParser    = [[JsonFeedParser alloc]init];
+   self.appDocumentDirectoryPath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"WishList.plist"];
 }
 
 -(void)setUpPopUpView
 {
 //    adding popupview as subview to collectionview & initially hidingview
-    self.popupView = [PopUpView popUpView];
-    self.popupView.delegate = self;
-    [self.topAppCollectionView addSubview:self.popupView];
-     self.popupView.alpha = 0.0f;
+     self.popupView = [PopUpView popUpView];
+     self.popupView.delegate = self;
+     [self.topAppCollectionView addSubview:self.popupView];
+     self.popupView.alpha = KZeroAplhaValue;
     
 //    TapGesture to hide the popupview
     self.hidePopupGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hidePopUpView:)];
-
 }
-
 
 #pragma mark - UICollectionView DataSource
 
@@ -98,9 +92,8 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    TopAppsCollectionCell *topAppCollectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:KTopAppCellIdentifier
-                                                   
-                                                                                                forIndexPath:indexPath];
+    TopAppsCollectionCell *topAppCollectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:kAppCellIndentifier
+                                                                                            forIndexPath:indexPath];
     TopApp *topApp;
     if(isFiltered)
         topApp = [self.filteredApps objectAtIndex:indexPath.row];
@@ -137,7 +130,7 @@
 {
 //    headerview to display searchBar on SearchButton Click
     SearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
-                                         UICollectionElementKindSectionHeader withReuseIdentifier:@"SearchHeaderView" forIndexPath:indexPath];
+                                         UICollectionElementKindSectionHeader withReuseIdentifier:kHeaderCellIndentifier forIndexPath:indexPath];
     headerView.delegate = self;
     return headerView;
 }
@@ -145,22 +138,22 @@
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
 //    adjust EdgeInset for CollectionView
-    return KCollectionViewEdgeInset;
+    return UIEdgeInsetsMake(KEdgeInsetTopValue, KEdgeInsetLeftValue, KEdgeInsetBottomValue, KEdgeInsetRightValue);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
 //    Hiding/Showing search Bar on button click
     if (isHeaderViewActive == NO)
-        return KHeaderViewZeroSize;
+        return CGSizeMake(KHeaderViewZeroWidth, KHeaderViewZeroHeight);
     else
-        return KHeaderViewRefSize;
+        return CGSizeMake(KHeaderViewRefWidth, KHeaderViewRefHeight);
 }
 
 #pragma mark - IBAction SearchBarButton method
 - (IBAction)searchAppsByName:(id)sender
 {
-    isHeaderViewActive = (isHeaderViewActive == YES) ? NO : YES;
+    isHeaderViewActive = !isHeaderViewActive;
     [self.topAppCollectionView reloadData];
 }
 
@@ -197,7 +190,7 @@
 //    adding HideGesture if popup appered on scrren
     isPopUpViewAppers = YES;
     self.topAppCollectionView.scrollEnabled = NO;
-    self.topAppCollectionView.alpha = 0.8;
+    self.topAppCollectionView.alpha = 0.8f;
     [self.view addGestureRecognizer:self.hidePopupGestureRecognizer];
 }
 
@@ -213,7 +206,7 @@
 -(void)addAppToWishList:(NSString *)appName
 {
 //    method to load WishListApps From application Directory
-    [self loadFromAppDirectory];
+    [self loadFromAppDocumentDirectory];
     NSIndexPath *indexpath = [[self.topAppCollectionView indexPathsForSelectedItems ] objectAtIndex:0];
     TopApp *topApp = [self.topApps objectAtIndex:indexpath.row];
     
@@ -226,7 +219,7 @@
     }
     
 //    Writing Wishlist of Apps to application Directory
-    [self.wishListApps writeToFile:KAppDirectoryPath atomically:YES];
+    [self.wishListApps writeToFile:self.appDocumentDirectoryPath atomically:YES];
 }
 
 #pragma mark- Updating Center for PopupView
@@ -248,19 +241,58 @@
         [self.popupView  hideView:self.popupView];
 }
 
--(void)loadFromAppDirectory
+#pragma mark - loading WishList Apps From AppDocumentDirectory
+-(void)loadFromAppDocumentDirectory
 {
     NSError *error;
 //    If PlistList is not found on ApplicationDirectory then load plist from Plist
-    if (![[NSFileManager defaultManager] fileExistsAtPath:KAppDirectoryPath])
+    if (![[NSFileManager defaultManager] fileExistsAtPath:self.appDocumentDirectoryPath])
     {
         NSString *bundle = [[NSBundle mainBundle] pathForResource:@"WishList" ofType:@"plist"];
-        [[NSFileManager defaultManager] copyItemAtPath:bundle toPath:KAppDirectoryPath error:&error];
+        [[NSFileManager defaultManager] copyItemAtPath:bundle toPath:self.appDocumentDirectoryPath error:&error];
     }
 //    loading wishlistApp From ApplicationDirectory
-    self.wishListApps =[[NSArray arrayWithContentsOfFile:KAppDirectoryPath] mutableCopy];
+    self.wishListApps =[[NSArray arrayWithContentsOfFile:self.appDocumentDirectoryPath] mutableCopy];
     if (self.wishListApps.count == 0)
          self.wishListApps = [[NSMutableArray alloc]init];
+}
+
+#pragma mark - Network operation delegate methods
+-(void)didStartReceivingResponseFromServer
+{
+//    Initializing the AppList List When Start Receiving DataFrom Server
+    self.topApps = [[NSMutableArray alloc]init];
+}
+
+-(void)didReceiveDataFromResponseData:(NSData*)responseData
+{
+    NSError *error;
+//    parse the jsonData Received From Server
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:responseData
+                                                          options:kNilOptions error:&error];
+    if(error)
+    {
+        NSLog(@"Unable to Parse JsonData");
+    }
+    else
+    {
+        NSArray *appEntries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+        
+        for (NSDictionary *appEntry in appEntries)
+        {
+//            converting AppEntries Into TopApp Object
+            TopApp *topApp = [[TopApp alloc] initTopAppFromAppStoreDictionary:appEntry];
+//            Storing to TopApp Array
+            [self.topApps addObject:topApp];
+        }
+    }
+
+}
+
+-(void)didFinishLoadingDataFromServer
+{
+//    Reloading the TopApp in collectionView
+    [self.topAppCollectionView reloadData];
 }
 
 @end

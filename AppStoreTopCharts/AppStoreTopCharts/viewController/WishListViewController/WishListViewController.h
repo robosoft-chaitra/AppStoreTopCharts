@@ -10,7 +10,8 @@
 
 @interface WishListViewController : UITableViewController
 
-@property(nonatomic, retain) NSMutableArray *selectedApps;
-@property(nonatomic, retain) NSMutableArray *appDictionaryList;
+@property (nonatomic, strong) NSMutableArray *selectedApps;
+@property (nonatomic, strong) NSMutableArray *appDictionaryList;
+@property (nonatomic, strong) NSString *appDocumentDirectoryPath;
 
 @end

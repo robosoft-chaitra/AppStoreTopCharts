@@ -110,7 +110,7 @@
 
 -(void)displayDetailsInPopUpView:(TopApp*)topApp
 {
-    //    to display appDetails in Popup
+//    to display appDetails in Popup
     self.appNameLabel.text    = topApp.appName;
     self.categoryLabel.text   = topApp.category;
     self.authorLabel.text     = topApp.authorName;
@@ -125,13 +125,13 @@
 -(void)setUpUI
 {
 //  method to  add Border to button & popup View
-    self.layer.borderWidth = KBorderWidth;
-    self.layer.borderColor = KBorderColor;
+    self.layer.borderWidth  = KButtonBorderWidth;
+    self.layer.borderColor  = [[UIColor lightGrayColor] CGColor];
     self.layer.cornerRadius = KCornerRadius;
-    self.priceButton.layer.borderWidth = KBorderWidth;
-    self.priceButton.layer.borderColor = KBorderColor;
-    self.wishListButton.layer.borderWidth = KBorderWidth;
-    self.wishListButton.layer.borderColor = KBorderColor;
+    self.priceButton.layer.borderWidth = KButtonBorderWidth;
+    self.priceButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.wishListButton.layer.borderWidth = KButtonBorderWidth;
+    self.wishListButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 }
 
 @end
