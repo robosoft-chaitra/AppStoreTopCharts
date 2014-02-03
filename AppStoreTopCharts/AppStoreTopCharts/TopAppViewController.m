@@ -155,7 +155,7 @@
 {
 //    Hiding/Showing search Bar on button click
     if (isHeaderViewActive == NO)
-        return CGSizeMake(KHeaderViewZeroWidth, KHeaderViewZeroHeight);
+        return CGSizeZero;
     else
         return CGSizeMake(KHeaderViewRefWidth, KHeaderViewRefHeight);
 }
@@ -165,6 +165,7 @@
 {
     isHeaderViewActive = !isHeaderViewActive;
     [self.topAppCollectionView reloadData];
+    [self.topAppCollectionView setContentOffset:CGPointMake(0, -55.0f) animated:YES];
 }
 
 #pragma mark - SearchForApp Delegate Method

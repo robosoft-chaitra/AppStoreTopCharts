@@ -33,6 +33,7 @@
 		9D9BDD6518990E4E00049F4D /* WishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDD6418990E4E00049F4D /* WishListCell.m */; };
 		9DA15457189A56F500437421 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA15456189A56F500437421 /* AppConstants.m */; };
 		9DA1545C189A8B0100437421 /* TANetworkOperationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1545A189A858000437421 /* TANetworkOperationCenter.m */; };
+		9DA9FD73189BD97F00CCDDDB /* TopAppTestcase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA9FD72189BD97F00CCDDDB /* TopAppTestcase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,8 @@
 		9DA15456189A56F500437421 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppConstants.m; path = Model/Constants/AppConstants.m; sourceTree = "<group>"; };
 		9DA15459189A858000437421 /* TANetworkOperationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TANetworkOperationCenter.h; path = Model/NetWorkOperation/TANetworkOperationCenter.h; sourceTree = "<group>"; };
 		9DA1545A189A858000437421 /* TANetworkOperationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TANetworkOperationCenter.m; path = Model/NetWorkOperation/TANetworkOperationCenter.m; sourceTree = "<group>"; };
+		9DA9FD71189BD97F00CCDDDB /* TopAppTestcase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopAppTestcase.h; path = NetWorkOperationTestCase/TopAppTestcase.h; sourceTree = "<group>"; };
+		9DA9FD72189BD97F00CCDDDB /* TopAppTestcase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopAppTestcase.m; path = NetWorkOperationTestCase/TopAppTestcase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +169,7 @@
 		9D2D1A4D188FC2E5009BB661 /* AppStoreTopChartsTests */ = {
 			isa = PBXGroup;
 			children = (
-				9D2D1A53188FC2E5009BB661 /* AppStoreTopChartsTests.m */,
+				9DA9FD70189BD92F00CCDDDB /* NetworkOperationTestCase */,
 				9D2D1A4E188FC2E5009BB661 /* Supporting Files */,
 			);
 			path = AppStoreTopChartsTests;
@@ -332,6 +335,16 @@
 			name = TANetWorkOperation;
 			sourceTree = "<group>";
 		};
+		9DA9FD70189BD92F00CCDDDB /* NetworkOperationTestCase */ = {
+			isa = PBXGroup;
+			children = (
+				9DA9FD71189BD97F00CCDDDB /* TopAppTestcase.h */,
+				9DA9FD72189BD97F00CCDDDB /* TopAppTestcase.m */,
+				9D2D1A53188FC2E5009BB661 /* AppStoreTopChartsTests.m */,
+			);
+			name = NetworkOperationTestCase;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -453,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D2D1A54188FC2E5009BB661 /* AppStoreTopChartsTests.m in Sources */,
+				9DA9FD73189BD97F00CCDDDB /* TopAppTestcase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
