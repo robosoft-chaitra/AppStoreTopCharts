@@ -33,7 +33,7 @@
 		9D9BDD6518990E4E00049F4D /* TAWishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDD6418990E4E00049F4D /* TAWishListCell.m */; };
 		9D9EE06018A0B43100BEC311 /* TopAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EE05F18A0B43100BEC311 /* TopAppsFeed.json */; };
 		9D9EE06118A0B43100BEC311 /* TopAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EE05F18A0B43100BEC311 /* TopAppsFeed.json */; };
-		9DA15457189A56F500437421 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA15456189A56F500437421 /* AppConstants.m */; };
+		9DA15457189A56F500437421 /* TAAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA15456189A56F500437421 /* TAAppConstants.m */; };
 		9DA1545C189A8B0100437421 /* TANetworkOperationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1545A189A858000437421 /* TANetworkOperationCenter.m */; };
 		9DA9FD73189BD97F00CCDDDB /* TopAppTestcase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA9FD72189BD97F00CCDDDB /* TopAppTestcase.m */; };
 /* End PBXBuildFile section */
@@ -85,8 +85,8 @@
 		9D9BDD6318990E4E00049F4D /* TAWishListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAWishListCell.h; path = View/wishListCell/TAWishListCell.h; sourceTree = "<group>"; };
 		9D9BDD6418990E4E00049F4D /* TAWishListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAWishListCell.m; path = View/wishListCell/TAWishListCell.m; sourceTree = "<group>"; };
 		9D9EE05F18A0B43100BEC311 /* TopAppsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TopAppsFeed.json; sourceTree = "<group>"; };
-		9DA15455189A56F500437421 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppConstants.h; path = Model/Constants/AppConstants.h; sourceTree = "<group>"; };
-		9DA15456189A56F500437421 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppConstants.m; path = Model/Constants/AppConstants.m; sourceTree = "<group>"; };
+		9DA15455189A56F500437421 /* TAAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAAppConstants.h; path = Model/Constants/TAAppConstants.h; sourceTree = "<group>"; };
+		9DA15456189A56F500437421 /* TAAppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAAppConstants.m; path = Model/Constants/TAAppConstants.m; sourceTree = "<group>"; };
 		9DA15459189A858000437421 /* TANetworkOperationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TANetworkOperationCenter.h; path = Model/NetWorkOperation/TANetworkOperationCenter.h; sourceTree = "<group>"; };
 		9DA1545A189A858000437421 /* TANetworkOperationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TANetworkOperationCenter.m; path = Model/NetWorkOperation/TANetworkOperationCenter.m; sourceTree = "<group>"; };
 		9DA9FD71189BD97F00CCDDDB /* TopAppTestcase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopAppTestcase.h; path = NetWorkOperationTestCase/TopAppTestcase.h; sourceTree = "<group>"; };
@@ -324,8 +324,8 @@
 		9D9FAC4A189107030052BFEB /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				9DA15455189A56F500437421 /* AppConstants.h */,
-				9DA15456189A56F500437421 /* AppConstants.m */,
+				9DA15455189A56F500437421 /* TAAppConstants.h */,
+				9DA15456189A56F500437421 /* TAAppConstants.m */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -455,7 +455,7 @@
 			files = (
 				9D2D1A3C188FC2E5009BB661 /* TACollectionViewController.m in Sources */,
 				9DA1545C189A8B0100437421 /* TANetworkOperationCenter.m in Sources */,
-				9DA15457189A56F500437421 /* AppConstants.m in Sources */,
+				9DA15457189A56F500437421 /* TAAppConstants.m in Sources */,
 				9D9BDD611898F7DF00049F4D /* TAWishListViewController.m in Sources */,
 				9D2D1A33188FC2E5009BB661 /* TAAppDelegate.m in Sources */,
 				9D3A94F0188FFB2E00F524A7 /* TopAppsCollectionCell.m in Sources */,

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Chaithra TV. All rights reserved.
 //
 
-#import "AppConstants.h"
+#import "TAAppConstants.h"
 
-@implementation AppConstants
+@implementation TAAppConstants
 
 CGFloat const KButtonBorderWidth    = 1.0f;
 CGFloat const KCellBorderWidth      = 0.1f;

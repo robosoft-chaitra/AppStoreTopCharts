@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AppConstants : NSObject
+@interface TAAppConstants : NSObject
 
 extern CGFloat const KZeroAplhaValue;
 extern CGFloat const KEdgeInsetTopValue;
