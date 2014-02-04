@@ -24,12 +24,6 @@
 
 }
 
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
 -(void)testJsonData
 {
     XCTAssert(self.topAppTestcase.jsonData, @"JsonFeed Should not be nil");

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Chaithra TV. All rights reserved.
 //
 
-#import "SearchHeaderView.h"
+#import "TASearchHeaderView.h"
 
-@implementation SearchHeaderView
+@implementation TASearchHeaderView
 
 #pragma mark - UISearchBar delegate Methods
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar

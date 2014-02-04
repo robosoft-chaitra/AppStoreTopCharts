@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WishListCell : UITableViewCell
+@interface TAWishListCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *appImageView;
 @property (weak, nonatomic) IBOutlet UILabel *appNameLabel;

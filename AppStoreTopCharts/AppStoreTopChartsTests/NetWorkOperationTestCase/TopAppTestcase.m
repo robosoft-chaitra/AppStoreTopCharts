@@ -29,9 +29,7 @@
     
             for (NSDictionary *appEntry in self.appEntries)
             {
-        //            converting AppEntries Into TopApp Object
                 self.topApp = [[TopApp alloc] initTopAppFromAppStoreDictionary:appEntry];
-        //            Storing to TopApp Array
                 [self.topApps addObject:self.topApp];
             }
         }

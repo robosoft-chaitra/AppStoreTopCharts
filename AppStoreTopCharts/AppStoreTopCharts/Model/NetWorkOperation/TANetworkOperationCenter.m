@@ -19,7 +19,7 @@
         self.urlConnection = [NSURLConnection connectionWithRequest:self.urlRequest delegate:self];
         
         if(!self.urlConnection)
-            NSLog(@"Connection is not established");
+            NSLog(@"Connection not established");
     }
     return self;
 }
@@ -42,7 +42,7 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
 // inform the user if error occured
-    NSLog(@"Connection failed! Error - %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+    NSLog(@"Connection failed! Error - %@", [error localizedDescription]);
     
 }
 

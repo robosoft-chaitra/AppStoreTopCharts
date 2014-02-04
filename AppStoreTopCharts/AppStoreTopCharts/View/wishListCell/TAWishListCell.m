@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Chaithra TV. All rights reserved.
 //
 
-#import "WishListCell.h"
+#import "TAWishListCell.h"
 
-@implementation WishListCell
+@implementation TAWishListCell
 
 -(void)displayAppInfoForWishListApp:(TopApp *)wishListApp
 {

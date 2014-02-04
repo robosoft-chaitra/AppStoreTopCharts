@@ -15,8 +15,6 @@ extern CGFloat const KEdgeInsetTopValue;
 extern CGFloat const KEdgeInsetRightValue;
 extern CGFloat const KEdgeInsetBottomValue;
 extern CGFloat const KEdgeInsetLeftValue;
-extern CGFloat const KHeaderViewZeroHeight;
-extern CGFloat const KHeaderViewZeroWidth;
 extern CGFloat const KHeaderViewRefHeight;
 extern CGFloat const KHeaderViewRefWidth;
 

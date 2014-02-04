@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Chaithra TV. All rights reserved.
 //
 
-#import "TopAppViewController.h"
+#import "TACollectionViewController.h"
 #import "TopAppsCollectionCell.h"
 
-@interface TopAppViewController ()
+@interface TACollectionViewController ()
 {
     BOOL  isFiltered;
     BOOL  isHeaderViewActive;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation TopAppViewController
+@implementation TACollectionViewController
 
 #pragma mark - View setUp methods
 
@@ -63,7 +63,7 @@
 -(void)setUpPopUpView
 {
 //    adding popupview as subview to collectionview & initially hidingview
-     self.popupView = [PopUpView popUpView];
+     self.popupView = [TAPopUpView popUpView];
      self.popupView.delegate = self;
      [self.topAppCollectionView addSubview:self.popupView];
      self.popupView.alpha = KZeroAplhaValue;
@@ -135,7 +135,7 @@
 - (UICollectionReusableView *)collectionView: (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
 //    headerview to display searchBar on SearchButton Click
-    SearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
+    TASearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
                                          UICollectionElementKindSectionHeader withReuseIdentifier:kHeaderCellIndentifier forIndexPath:indexPath];
     headerView.delegate = self;
     if(isFiltered && isHeaderViewActive && ![headerView.appSearchBar isFirstResponder])

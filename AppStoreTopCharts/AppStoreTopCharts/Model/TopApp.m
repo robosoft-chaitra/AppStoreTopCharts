@@ -41,4 +41,14 @@
                                     componentsSeparatedByString:@"by"] objectAtIndex: 0];
 }
 
+//overriding init method
+-(id)init
+{
+    if(self = [super init])
+    {
+        self =  [self initTopAppFromAppStoreDictionary:nil];
+    }
+     return self;
+}
+
 @end

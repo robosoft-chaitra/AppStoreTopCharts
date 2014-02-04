@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Top App View Controller - Top Paid Chart-->
+        <!--Collection View Controller - Top Paid Chart-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="TopAppViewController" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="TACollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="V9S-2u-kn1">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopAppsCell" id="zzX-Np-BUa" customClass="TopAppsCollectionCell">
-                                <rect key="frame" x="0.0" y="114" width="133" height="178"/>
+                                <rect key="frame" x="0.0" y="50" width="133" height="178"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="133" height="178"/>
@@ -68,8 +68,8 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchHeaderView" id="XMx-vd-iqa" customClass="SearchHeaderView">
-                            <rect key="frame" x="0.0" y="64" width="768" height="50"/>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchHeaderView" id="XMx-vd-iqa" customClass="TASearchHeaderView">
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="UTe-1r-j4s">
@@ -110,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="-2585" y="-3276"/>
         </scene>
-        <!--Top App View Controller - Top Free Chart-->
+        <!--Collection View Controller - Top Free Chart-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="TopAppViewController" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="TACollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="MrF-fs-2Fc">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,7 +126,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="TopAppsCell" id="FpX-cs-vt8" customClass="TopAppsCollectionCell">
-                                <rect key="frame" x="0.0" y="64" width="120" height="171"/>
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="171"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="120" height="171"/>
@@ -205,14 +205,14 @@
         <!--Wish List View Controller - Wish List-->
         <scene sceneID="RLG-bK-3qq">
             <objects>
-                <tableViewController id="qIn-CC-7Eh" customClass="WishListViewController" sceneMemberID="viewController">
+                <tableViewController id="qIn-CC-7Eh" customClass="TAWishListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="hPt-lb-1mm">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WishListCell" rowHeight="100" id="Q1I-sY-zXt" customClass="WishListCell">
-                                <rect key="frame" x="0.0" y="86" width="768" height="100"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WishListCell" rowHeight="100" id="Q1I-sY-zXt" customClass="TAWishListCell">
+                                <rect key="frame" x="0.0" y="22" width="768" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q1I-sY-zXt" id="ueT-nS-3Lp">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="99"/>

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WishListViewController : UITableViewController
+@interface TAWishListViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *selectedApps;
 @property (nonatomic, strong) NSMutableArray *appDictionaryList;

@@ -20,9 +20,6 @@ CGFloat const KEdgeInsetRightValue  = 0.5f;
 CGFloat const KEdgeInsetBottomValue = 0.5f;
 CGFloat const KEdgeInsetLeftValue   = 0.5f;
 
-CGFloat const KHeaderViewZeroHeight = 0.0f;
-CGFloat const KHeaderViewZeroWidth  = 0.0f;
-
 CGFloat const KHeaderViewRefHeight  = 44.0f;
 CGFloat const KHeaderViewRefWidth   = 768.0f;
 

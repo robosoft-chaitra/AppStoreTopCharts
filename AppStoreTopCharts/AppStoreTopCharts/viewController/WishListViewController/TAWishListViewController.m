@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 Chaithra TV. All rights reserved.
 //
 
-#import "WishListViewController.h"
-#import "WishListCell.h"
+#import "TAWishListViewController.h"
+#import "TAWishListCell.h"
 
-@interface WishListViewController ()
+@interface TAWishListViewController ()
 
 @end
 
-@implementation WishListViewController
+@implementation TAWishListViewController
 
 #pragma mark - View methods
 - (void)viewDidLoad
@@ -55,7 +55,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    WishListCell *cell = (WishListCell*)[tableView dequeueReusableCellWithIdentifier:kWishListCellIndentifier forIndexPath:indexPath];
+    TAWishListCell *cell = (TAWishListCell*)[tableView dequeueReusableCellWithIdentifier:kWishListCellIndentifier forIndexPath:indexPath];
     
 //    method to display the appInfo in a cell
     [cell displayAppInfoForWishListApp:[self.selectedApps objectAtIndex:indexPath.row]];

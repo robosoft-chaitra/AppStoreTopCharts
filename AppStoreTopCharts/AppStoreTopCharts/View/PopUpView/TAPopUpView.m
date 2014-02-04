@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Chaithra TV. All rights reserved.
 //
 
-#import "PopUpView.h"
+#import "TAPopUpView.h"
 
-@implementation PopUpView
+@implementation TAPopUpView
 
 + (id)popUpView
 {
-    PopUpView *popUpView;
+    TAPopUpView *popUpView;
 //    loading the popup based on Device
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
@@ -23,7 +23,7 @@
         popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpViewiPhone" owner:nil options:nil] lastObject];
     }
     
-    if ([popUpView isKindOfClass:[PopUpView class]])
+    if ([popUpView isKindOfClass:[TAPopUpView class]])
         return popUpView;
     else
         return nil;

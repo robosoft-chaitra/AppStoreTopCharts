@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol PopUpViewDelegate <NSObject>
+@protocol TAPopUpViewDelegate <NSObject>
 
 //method to hide/Show popup on collectionview
 -(void)popUpViewDidAppear;
@@ -19,7 +19,7 @@
 
 @end
 
-@interface PopUpView : UIView
+@interface TAPopUpView : UIView
 
 @property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
@@ -32,7 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *wishListButton;
 @property (weak, nonatomic) IBOutlet UIButton *referenceLinkButton;
 
-@property (weak,   nonatomic) id<PopUpViewDelegate> delegate;
+@property (weak,   nonatomic) id<TAPopUpViewDelegate> delegate;
 
 //loading the nibFile of popup from Bundle
 + (id)popUpView;

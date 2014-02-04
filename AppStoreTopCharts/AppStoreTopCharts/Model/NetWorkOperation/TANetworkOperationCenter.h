@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol NetworkOperationsDelegate <NSObject>
+@protocol TANetworkOperationsDelegate <NSObject>
 
 //initialzation method When Start Receiving Response From  Server
 -(void)didStartReceivingResponseFromServer;
@@ -25,7 +25,7 @@
 
 @property (strong, nonatomic) NSURLRequest *urlRequest;
 @property (strong, nonatomic) NSURLConnection *urlConnection;
-@property (weak, nonatomic)id<NetworkOperationsDelegate> delegate;
+@property (weak, nonatomic)id<TANetworkOperationsDelegate> delegate;
 
 
 //Designated Initializer 
