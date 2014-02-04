@@ -29,4 +29,7 @@ extern NSString *const kAppCellIndentifier;
 extern NSString *const kHeaderCellIndentifier;
 extern NSString *const kWishListCellIndentifier;
 
+extern NSString *const kPopUpViewiPadNib;
+extern NSString *const kPopUpViewiPhoneNib;
+
 @end

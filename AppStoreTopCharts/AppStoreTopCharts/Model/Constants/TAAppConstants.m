@@ -30,4 +30,8 @@ NSString *const kAppCellIndentifier      = @"TopAppsCell";
 NSString *const kHeaderCellIndentifier   = @"SearchHeaderView";
 NSString *const kWishListCellIndentifier = @"WishListCell";
 
+NSString *const kPopUpViewiPadNib   = @"PopUpViewiPad";
+NSString *const kPopUpViewiPhoneNib = @"PopUpViewiPhone";
+
+
 @end

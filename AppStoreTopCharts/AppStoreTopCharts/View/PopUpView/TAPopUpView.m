@@ -16,11 +16,11 @@
 //    loading the popup based on Device
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
-        popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpViewiPad" owner:nil options:nil] lastObject];
+        popUpView = [[[NSBundle mainBundle] loadNibNamed:kPopUpViewiPadNib owner:nil options:nil] lastObject];
     }
     else
     {
-        popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpViewiPhone" owner:nil options:nil] lastObject];
+        popUpView = [[[NSBundle mainBundle] loadNibNamed:kPopUpViewiPhoneNib owner:nil options:nil] lastObject];
     }
     
     if ([popUpView isKindOfClass:[TAPopUpView class]])
