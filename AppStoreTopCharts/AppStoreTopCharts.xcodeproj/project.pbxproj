@@ -31,6 +31,8 @@
 		9D9BDC381897E4F400E4155E /* WishList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D9BDC371897E4F400E4155E /* WishList.plist */; };
 		9D9BDD611898F7DF00049F4D /* WishListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDD601898F7DF00049F4D /* WishListViewController.m */; };
 		9D9BDD6518990E4E00049F4D /* WishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDD6418990E4E00049F4D /* WishListCell.m */; };
+		9D9EE06018A0B43100BEC311 /* TopAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EE05F18A0B43100BEC311 /* TopAppsFeed.json */; };
+		9D9EE06118A0B43100BEC311 /* TopAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EE05F18A0B43100BEC311 /* TopAppsFeed.json */; };
 		9DA15457189A56F500437421 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA15456189A56F500437421 /* AppConstants.m */; };
 		9DA1545C189A8B0100437421 /* TANetworkOperationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1545A189A858000437421 /* TANetworkOperationCenter.m */; };
 		9DA9FD73189BD97F00CCDDDB /* TopAppTestcase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA9FD72189BD97F00CCDDDB /* TopAppTestcase.m */; };
@@ -82,6 +84,7 @@
 		9D9BDD601898F7DF00049F4D /* WishListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListViewController.m; path = viewController/WishListViewController/WishListViewController.m; sourceTree = "<group>"; };
 		9D9BDD6318990E4E00049F4D /* WishListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListCell.h; path = View/wishListCell/WishListCell.h; sourceTree = "<group>"; };
 		9D9BDD6418990E4E00049F4D /* WishListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListCell.m; path = View/wishListCell/WishListCell.m; sourceTree = "<group>"; };
+		9D9EE05F18A0B43100BEC311 /* TopAppsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TopAppsFeed.json; sourceTree = "<group>"; };
 		9DA15455189A56F500437421 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppConstants.h; path = Model/Constants/AppConstants.h; sourceTree = "<group>"; };
 		9DA15456189A56F500437421 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppConstants.m; path = Model/Constants/AppConstants.m; sourceTree = "<group>"; };
 		9DA15459189A858000437421 /* TANetworkOperationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TANetworkOperationCenter.h; path = Model/NetWorkOperation/TANetworkOperationCenter.h; sourceTree = "<group>"; };
@@ -169,7 +172,7 @@
 		9D2D1A4D188FC2E5009BB661 /* AppStoreTopChartsTests */ = {
 			isa = PBXGroup;
 			children = (
-				9DA9FD70189BD92F00CCDDDB /* NetworkOperationTestCase */,
+				9DA9FD70189BD92F00CCDDDB /* TopAppTestCase */,
 				9D2D1A4E188FC2E5009BB661 /* Supporting Files */,
 			);
 			path = AppStoreTopChartsTests;
@@ -178,6 +181,7 @@
 		9D2D1A4E188FC2E5009BB661 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9D9EE05F18A0B43100BEC311 /* TopAppsFeed.json */,
 				9D2D1A4F188FC2E5009BB661 /* AppStoreTopChartsTests-Info.plist */,
 				9D2D1A50188FC2E5009BB661 /* InfoPlist.strings */,
 			);
@@ -335,14 +339,14 @@
 			name = TANetWorkOperation;
 			sourceTree = "<group>";
 		};
-		9DA9FD70189BD92F00CCDDDB /* NetworkOperationTestCase */ = {
+		9DA9FD70189BD92F00CCDDDB /* TopAppTestCase */ = {
 			isa = PBXGroup;
 			children = (
 				9DA9FD71189BD97F00CCDDDB /* TopAppTestcase.h */,
 				9DA9FD72189BD97F00CCDDDB /* TopAppTestcase.m */,
 				9D2D1A53188FC2E5009BB661 /* AppStoreTopChartsTests.m */,
 			);
-			name = NetworkOperationTestCase;
+			name = TopAppTestCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D2D1A39188FC2E5009BB661 /* Main_iPad.storyboard in Resources */,
+				9D9EE06018A0B43100BEC311 /* TopAppsFeed.json in Resources */,
 				9D9BDC361897B2C100E4155E /* PopUpViewiPad.xib in Resources */,
 				9D9B5EE418928BEB00C857E9 /* PopUpViewiPhone.xib in Resources */,
 				9D2D1A41188FC2E5009BB661 /* Images.xcassets in Resources */,
@@ -437,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D2D1A52188FC2E5009BB661 /* InfoPlist.strings in Resources */,
+				9D9EE06118A0B43100BEC311 /* TopAppsFeed.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

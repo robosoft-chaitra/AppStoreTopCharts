@@ -298,7 +298,6 @@
             [self.topApps addObject:topApp];
         }
     }
-
 }
 
 -(void)didFinishLoadingDataFromServer
