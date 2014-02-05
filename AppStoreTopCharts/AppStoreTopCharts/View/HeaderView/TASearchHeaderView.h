@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol SearchAppsDelegate<NSObject>
+@protocol TASearchAppsDelegate<NSObject>
 
 //Delegate method to search for app using appName
 -(void)didSearchForApps:(NSString *)appName reference:(UISearchBar*)refSearchBar;
 
 @end
 
-@interface SearchHeaderView : UICollectionReusableView<UISearchBarDelegate>
+@interface TASearchHeaderView : UICollectionReusableView<UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *appSearchBar;
-@property (weak, nonatomic)id<SearchAppsDelegate> delegate;
+@property (weak, nonatomic)id<TASearchAppsDelegate> delegate;
 
 @end

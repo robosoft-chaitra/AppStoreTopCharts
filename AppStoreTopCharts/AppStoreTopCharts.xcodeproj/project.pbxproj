@@ -12,10 +12,10 @@
 		9D2D1A27188FC2E5009BB661 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2D1A26188FC2E5009BB661 /* UIKit.framework */; };
 		9D2D1A2D188FC2E5009BB661 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D2D1A2B188FC2E5009BB661 /* InfoPlist.strings */; };
 		9D2D1A2F188FC2E5009BB661 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A2E188FC2E5009BB661 /* main.m */; };
-		9D2D1A33188FC2E5009BB661 /* ASAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A32188FC2E5009BB661 /* ASAppDelegate.m */; };
+		9D2D1A33188FC2E5009BB661 /* TAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A32188FC2E5009BB661 /* TAAppDelegate.m */; };
 		9D2D1A36188FC2E5009BB661 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2D1A34188FC2E5009BB661 /* Main_iPhone.storyboard */; };
 		9D2D1A39188FC2E5009BB661 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2D1A37188FC2E5009BB661 /* Main_iPad.storyboard */; };
-		9D2D1A3C188FC2E5009BB661 /* TopAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A3B188FC2E5009BB661 /* TopAppViewController.m */; };
+		9D2D1A3C188FC2E5009BB661 /* TACollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A3B188FC2E5009BB661 /* TACollectionViewController.m */; };
 		9D2D1A41188FC2E5009BB661 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D2D1A40188FC2E5009BB661 /* Images.xcassets */; };
 		9D2D1A48188FC2E5009BB661 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2D1A47188FC2E5009BB661 /* XCTest.framework */; };
 		9D2D1A49188FC2E5009BB661 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2D1A22188FC2E5009BB661 /* Foundation.framework */; };
@@ -24,14 +24,16 @@
 		9D2D1A54188FC2E5009BB661 /* AppStoreTopChartsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A53188FC2E5009BB661 /* AppStoreTopChartsTests.m */; };
 		9D2D1A6F188FDB23009BB661 /* TopApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A6E188FDB23009BB661 /* TopApp.m */; };
 		9D3A94F0188FFB2E00F524A7 /* TopAppsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */; };
-		9D9B5E9318921BBC00C857E9 /* SearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B5E9218921BBC00C857E9 /* SearchHeaderView.m */; };
-		9D9B5EE218928BC300C857E9 /* PopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B5EE118928BC300C857E9 /* PopUpView.m */; };
-		9D9B5EE418928BEB00C857E9 /* PopUpViewiPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B5EE318928BEB00C857E9 /* PopUpViewiPhone.xib */; };
-		9D9BDC361897B2C100E4155E /* PopUpViewiPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9BDC351897B2C100E4155E /* PopUpViewiPad.xib */; };
+		9D9B5E9318921BBC00C857E9 /* TASearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B5E9218921BBC00C857E9 /* TASearchHeaderView.m */; };
+		9D9B5EE218928BC300C857E9 /* TAPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B5EE118928BC300C857E9 /* TAPopUpView.m */; };
+		9D9B5EE418928BEB00C857E9 /* TAPopUpViewiPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B5EE318928BEB00C857E9 /* TAPopUpViewiPhone.xib */; };
+		9D9BDC361897B2C100E4155E /* TAPopUpViewiPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9BDC351897B2C100E4155E /* TAPopUpViewiPad.xib */; };
 		9D9BDC381897E4F400E4155E /* WishList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D9BDC371897E4F400E4155E /* WishList.plist */; };
-		9D9BDD611898F7DF00049F4D /* WishListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDD601898F7DF00049F4D /* WishListViewController.m */; };
-		9D9BDD6518990E4E00049F4D /* WishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDD6418990E4E00049F4D /* WishListCell.m */; };
-		9DA15457189A56F500437421 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA15456189A56F500437421 /* AppConstants.m */; };
+		9D9BDD611898F7DF00049F4D /* TAWishListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDD601898F7DF00049F4D /* TAWishListViewController.m */; };
+		9D9BDD6518990E4E00049F4D /* TAWishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDD6418990E4E00049F4D /* TAWishListCell.m */; };
+		9D9EE06018A0B43100BEC311 /* TopAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EE05F18A0B43100BEC311 /* TopAppsFeed.json */; };
+		9D9EE06118A0B43100BEC311 /* TopAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EE05F18A0B43100BEC311 /* TopAppsFeed.json */; };
+		9DA15457189A56F500437421 /* TAAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA15456189A56F500437421 /* TAAppConstants.m */; };
 		9DA1545C189A8B0100437421 /* TANetworkOperationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA1545A189A858000437421 /* TANetworkOperationCenter.m */; };
 		9DA9FD73189BD97F00CCDDDB /* TopAppTestcase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA9FD72189BD97F00CCDDDB /* TopAppTestcase.m */; };
 /* End PBXBuildFile section */
@@ -55,12 +57,12 @@
 		9D2D1A2C188FC2E5009BB661 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9D2D1A2E188FC2E5009BB661 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9D2D1A30188FC2E5009BB661 /* AppStoreTopCharts-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppStoreTopCharts-Prefix.pch"; sourceTree = "<group>"; };
-		9D2D1A31188FC2E5009BB661 /* ASAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASAppDelegate.h; sourceTree = "<group>"; };
-		9D2D1A32188FC2E5009BB661 /* ASAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASAppDelegate.m; sourceTree = "<group>"; };
+		9D2D1A31188FC2E5009BB661 /* TAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TAAppDelegate.h; sourceTree = "<group>"; };
+		9D2D1A32188FC2E5009BB661 /* TAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TAAppDelegate.m; sourceTree = "<group>"; };
 		9D2D1A35188FC2E5009BB661 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		9D2D1A38188FC2E5009BB661 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		9D2D1A3A188FC2E5009BB661 /* TopAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopAppViewController.h; sourceTree = "<group>"; };
-		9D2D1A3B188FC2E5009BB661 /* TopAppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopAppViewController.m; sourceTree = "<group>"; };
+		9D2D1A3A188FC2E5009BB661 /* TACollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TACollectionViewController.h; sourceTree = "<group>"; };
+		9D2D1A3B188FC2E5009BB661 /* TACollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TACollectionViewController.m; sourceTree = "<group>"; };
 		9D2D1A40188FC2E5009BB661 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9D2D1A46188FC2E5009BB661 /* AppStoreTopChartsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStoreTopChartsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D2D1A47188FC2E5009BB661 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -71,19 +73,20 @@
 		9D2D1A6E188FDB23009BB661 /* TopApp.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.c.objc; name = TopApp.m; path = Model/TopApp.m; sourceTree = "<group>"; };
 		9D3A94EE188FFB2E00F524A7 /* TopAppsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopAppsCollectionCell.h; path = View/TopPaidAppCollectionCell/TopAppsCollectionCell.h; sourceTree = "<group>"; };
 		9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopAppsCollectionCell.m; path = View/TopPaidAppCollectionCell/TopAppsCollectionCell.m; sourceTree = "<group>"; };
-		9D9B5E9118921BBC00C857E9 /* SearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHeaderView.h; path = View/HeaderView/SearchHeaderView.h; sourceTree = "<group>"; };
-		9D9B5E9218921BBC00C857E9 /* SearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHeaderView.m; path = View/HeaderView/SearchHeaderView.m; sourceTree = "<group>"; };
-		9D9B5EE018928BC300C857E9 /* PopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpView.h; path = View/PopUpView/PopUpView.h; sourceTree = "<group>"; };
-		9D9B5EE118928BC300C857E9 /* PopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopUpView.m; path = View/PopUpView/PopUpView.m; sourceTree = "<group>"; };
-		9D9B5EE318928BEB00C857E9 /* PopUpViewiPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopUpViewiPhone.xib; path = View/PopUpView/PopUpViewiPhone.xib; sourceTree = "<group>"; };
-		9D9BDC351897B2C100E4155E /* PopUpViewiPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewiPad.xib; sourceTree = "<group>"; };
+		9D9B5E9118921BBC00C857E9 /* TASearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TASearchHeaderView.h; path = View/HeaderView/TASearchHeaderView.h; sourceTree = "<group>"; };
+		9D9B5E9218921BBC00C857E9 /* TASearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TASearchHeaderView.m; path = View/HeaderView/TASearchHeaderView.m; sourceTree = "<group>"; };
+		9D9B5EE018928BC300C857E9 /* TAPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAPopUpView.h; path = View/PopUpView/TAPopUpView.h; sourceTree = "<group>"; };
+		9D9B5EE118928BC300C857E9 /* TAPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAPopUpView.m; path = View/PopUpView/TAPopUpView.m; sourceTree = "<group>"; };
+		9D9B5EE318928BEB00C857E9 /* TAPopUpViewiPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TAPopUpViewiPhone.xib; path = View/PopUpView/TAPopUpViewiPhone.xib; sourceTree = "<group>"; };
+		9D9BDC351897B2C100E4155E /* TAPopUpViewiPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TAPopUpViewiPad.xib; sourceTree = "<group>"; };
 		9D9BDC371897E4F400E4155E /* WishList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WishList.plist; sourceTree = "<group>"; };
-		9D9BDD5F1898F7DF00049F4D /* WishListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListViewController.h; path = viewController/WishListViewController/WishListViewController.h; sourceTree = "<group>"; };
-		9D9BDD601898F7DF00049F4D /* WishListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListViewController.m; path = viewController/WishListViewController/WishListViewController.m; sourceTree = "<group>"; };
-		9D9BDD6318990E4E00049F4D /* WishListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListCell.h; path = View/wishListCell/WishListCell.h; sourceTree = "<group>"; };
-		9D9BDD6418990E4E00049F4D /* WishListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListCell.m; path = View/wishListCell/WishListCell.m; sourceTree = "<group>"; };
-		9DA15455189A56F500437421 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppConstants.h; path = Model/Constants/AppConstants.h; sourceTree = "<group>"; };
-		9DA15456189A56F500437421 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppConstants.m; path = Model/Constants/AppConstants.m; sourceTree = "<group>"; };
+		9D9BDD5F1898F7DF00049F4D /* TAWishListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAWishListViewController.h; path = viewController/WishListViewController/TAWishListViewController.h; sourceTree = "<group>"; };
+		9D9BDD601898F7DF00049F4D /* TAWishListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAWishListViewController.m; path = viewController/WishListViewController/TAWishListViewController.m; sourceTree = "<group>"; };
+		9D9BDD6318990E4E00049F4D /* TAWishListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAWishListCell.h; path = View/wishListCell/TAWishListCell.h; sourceTree = "<group>"; };
+		9D9BDD6418990E4E00049F4D /* TAWishListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAWishListCell.m; path = View/wishListCell/TAWishListCell.m; sourceTree = "<group>"; };
+		9D9EE05F18A0B43100BEC311 /* TopAppsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TopAppsFeed.json; sourceTree = "<group>"; };
+		9DA15455189A56F500437421 /* TAAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAAppConstants.h; path = Model/Constants/TAAppConstants.h; sourceTree = "<group>"; };
+		9DA15456189A56F500437421 /* TAAppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAAppConstants.m; path = Model/Constants/TAAppConstants.m; sourceTree = "<group>"; };
 		9DA15459189A858000437421 /* TANetworkOperationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TANetworkOperationCenter.h; path = Model/NetWorkOperation/TANetworkOperationCenter.h; sourceTree = "<group>"; };
 		9DA1545A189A858000437421 /* TANetworkOperationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TANetworkOperationCenter.m; path = Model/NetWorkOperation/TANetworkOperationCenter.m; sourceTree = "<group>"; };
 		9DA9FD71189BD97F00CCDDDB /* TopAppTestcase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopAppTestcase.h; path = NetWorkOperationTestCase/TopAppTestcase.h; sourceTree = "<group>"; };
@@ -169,7 +172,7 @@
 		9D2D1A4D188FC2E5009BB661 /* AppStoreTopChartsTests */ = {
 			isa = PBXGroup;
 			children = (
-				9DA9FD70189BD92F00CCDDDB /* NetworkOperationTestCase */,
+				9DA9FD70189BD92F00CCDDDB /* TopAppTestCase */,
 				9D2D1A4E188FC2E5009BB661 /* Supporting Files */,
 			);
 			path = AppStoreTopChartsTests;
@@ -178,6 +181,7 @@
 		9D2D1A4E188FC2E5009BB661 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9D9EE05F18A0B43100BEC311 /* TopAppsFeed.json */,
 				9D2D1A4F188FC2E5009BB661 /* AppStoreTopChartsTests-Info.plist */,
 				9D2D1A50188FC2E5009BB661 /* InfoPlist.strings */,
 			);
@@ -187,8 +191,8 @@
 		9D2D1A5D188FC39D009BB661 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				9D2D1A31188FC2E5009BB661 /* ASAppDelegate.h */,
-				9D2D1A32188FC2E5009BB661 /* ASAppDelegate.m */,
+				9D2D1A31188FC2E5009BB661 /* TAAppDelegate.h */,
+				9D2D1A32188FC2E5009BB661 /* TAAppDelegate.m */,
 			);
 			name = AppDelegate;
 			sourceTree = "<group>";
@@ -214,8 +218,8 @@
 		9D2D1A60188FC3E5009BB661 /* TopAppViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9D2D1A3A188FC2E5009BB661 /* TopAppViewController.h */,
-				9D2D1A3B188FC2E5009BB661 /* TopAppViewController.m */,
+				9D2D1A3A188FC2E5009BB661 /* TACollectionViewController.h */,
+				9D2D1A3B188FC2E5009BB661 /* TACollectionViewController.m */,
 			);
 			name = TopAppViewController;
 			sourceTree = "<group>";
@@ -223,8 +227,8 @@
 		9D2D1A62188FC40E009BB661 /* WishListViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9D9BDD5F1898F7DF00049F4D /* WishListViewController.h */,
-				9D9BDD601898F7DF00049F4D /* WishListViewController.m */,
+				9D9BDD5F1898F7DF00049F4D /* TAWishListViewController.h */,
+				9D9BDD601898F7DF00049F4D /* TAWishListViewController.m */,
 			);
 			name = WishListViewController;
 			sourceTree = "<group>";
@@ -243,7 +247,7 @@
 		9D2D1A64188FC42A009BB661 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9DA15458189A854200437421 /* TANetWorkOperation */,
+				9DA15458189A854200437421 /* NetWorkOperationCenter */,
 				9D9FAC4A189107030052BFEB /* Constants */,
 				9D2D1A6C188FCE20009BB661 /* TopApp */,
 			);
@@ -291,8 +295,8 @@
 		9D9B5E9018921B8E00C857E9 /* SearchHeaderView */ = {
 			isa = PBXGroup;
 			children = (
-				9D9B5E9118921BBC00C857E9 /* SearchHeaderView.h */,
-				9D9B5E9218921BBC00C857E9 /* SearchHeaderView.m */,
+				9D9B5E9118921BBC00C857E9 /* TASearchHeaderView.h */,
+				9D9B5E9218921BBC00C857E9 /* TASearchHeaderView.m */,
 			);
 			name = SearchHeaderView;
 			sourceTree = "<group>";
@@ -300,10 +304,10 @@
 		9D9B5EDF18928BA400C857E9 /* PopUpView */ = {
 			isa = PBXGroup;
 			children = (
-				9D9B5EE018928BC300C857E9 /* PopUpView.h */,
-				9D9B5EE118928BC300C857E9 /* PopUpView.m */,
-				9D9B5EE318928BEB00C857E9 /* PopUpViewiPhone.xib */,
-				9D9BDC351897B2C100E4155E /* PopUpViewiPad.xib */,
+				9D9B5EE018928BC300C857E9 /* TAPopUpView.h */,
+				9D9B5EE118928BC300C857E9 /* TAPopUpView.m */,
+				9D9B5EE318928BEB00C857E9 /* TAPopUpViewiPhone.xib */,
+				9D9BDC351897B2C100E4155E /* TAPopUpViewiPad.xib */,
 			);
 			name = PopUpView;
 			sourceTree = "<group>";
@@ -311,8 +315,8 @@
 		9D9BDD6218990DEA00049F4D /* WishListCell */ = {
 			isa = PBXGroup;
 			children = (
-				9D9BDD6318990E4E00049F4D /* WishListCell.h */,
-				9D9BDD6418990E4E00049F4D /* WishListCell.m */,
+				9D9BDD6318990E4E00049F4D /* TAWishListCell.h */,
+				9D9BDD6418990E4E00049F4D /* TAWishListCell.m */,
 			);
 			name = WishListCell;
 			sourceTree = "<group>";
@@ -320,29 +324,29 @@
 		9D9FAC4A189107030052BFEB /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				9DA15455189A56F500437421 /* AppConstants.h */,
-				9DA15456189A56F500437421 /* AppConstants.m */,
+				9DA15455189A56F500437421 /* TAAppConstants.h */,
+				9DA15456189A56F500437421 /* TAAppConstants.m */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
 		};
-		9DA15458189A854200437421 /* TANetWorkOperation */ = {
+		9DA15458189A854200437421 /* NetWorkOperationCenter */ = {
 			isa = PBXGroup;
 			children = (
 				9DA15459189A858000437421 /* TANetworkOperationCenter.h */,
 				9DA1545A189A858000437421 /* TANetworkOperationCenter.m */,
 			);
-			name = TANetWorkOperation;
+			name = NetWorkOperationCenter;
 			sourceTree = "<group>";
 		};
-		9DA9FD70189BD92F00CCDDDB /* NetworkOperationTestCase */ = {
+		9DA9FD70189BD92F00CCDDDB /* TopAppTestCase */ = {
 			isa = PBXGroup;
 			children = (
 				9DA9FD71189BD97F00CCDDDB /* TopAppTestcase.h */,
 				9DA9FD72189BD97F00CCDDDB /* TopAppTestcase.m */,
 				9D2D1A53188FC2E5009BB661 /* AppStoreTopChartsTests.m */,
 			);
-			name = NetworkOperationTestCase;
+			name = TopAppTestCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,8 +427,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D2D1A39188FC2E5009BB661 /* Main_iPad.storyboard in Resources */,
-				9D9BDC361897B2C100E4155E /* PopUpViewiPad.xib in Resources */,
-				9D9B5EE418928BEB00C857E9 /* PopUpViewiPhone.xib in Resources */,
+				9D9EE06018A0B43100BEC311 /* TopAppsFeed.json in Resources */,
+				9D9BDC361897B2C100E4155E /* TAPopUpViewiPad.xib in Resources */,
+				9D9B5EE418928BEB00C857E9 /* TAPopUpViewiPhone.xib in Resources */,
 				9D2D1A41188FC2E5009BB661 /* Images.xcassets in Resources */,
 				9D2D1A36188FC2E5009BB661 /* Main_iPhone.storyboard in Resources */,
 				9D2D1A2D188FC2E5009BB661 /* InfoPlist.strings in Resources */,
@@ -437,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D2D1A52188FC2E5009BB661 /* InfoPlist.strings in Resources */,
+				9D9EE06118A0B43100BEC311 /* TopAppsFeed.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,17 +453,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D2D1A3C188FC2E5009BB661 /* TopAppViewController.m in Sources */,
+				9D2D1A3C188FC2E5009BB661 /* TACollectionViewController.m in Sources */,
 				9DA1545C189A8B0100437421 /* TANetworkOperationCenter.m in Sources */,
-				9DA15457189A56F500437421 /* AppConstants.m in Sources */,
-				9D9BDD611898F7DF00049F4D /* WishListViewController.m in Sources */,
-				9D2D1A33188FC2E5009BB661 /* ASAppDelegate.m in Sources */,
+				9DA15457189A56F500437421 /* TAAppConstants.m in Sources */,
+				9D9BDD611898F7DF00049F4D /* TAWishListViewController.m in Sources */,
+				9D2D1A33188FC2E5009BB661 /* TAAppDelegate.m in Sources */,
 				9D3A94F0188FFB2E00F524A7 /* TopAppsCollectionCell.m in Sources */,
 				9D2D1A2F188FC2E5009BB661 /* main.m in Sources */,
 				9D2D1A6F188FDB23009BB661 /* TopApp.m in Sources */,
-				9D9B5EE218928BC300C857E9 /* PopUpView.m in Sources */,
-				9D9BDD6518990E4E00049F4D /* WishListCell.m in Sources */,
-				9D9B5E9318921BBC00C857E9 /* SearchHeaderView.m in Sources */,
+				9D9B5EE218928BC300C857E9 /* TAPopUpView.m in Sources */,
+				9D9BDD6518990E4E00049F4D /* TAWishListCell.m in Sources */,
+				9D9B5E9318921BBC00C857E9 /* TASearchHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

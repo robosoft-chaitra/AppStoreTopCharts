@@ -10,7 +10,7 @@
 #import "TANetworkOperationCenter.h"
 
 @class TopApp;
-@interface TopAppsCollectionCell : UICollectionViewCell<NSURLConnectionDataDelegate, NSURLConnectionDelegate, NetworkOperationsDelegate>
+@interface TopAppsCollectionCell : UICollectionViewCell<NSURLConnectionDataDelegate, NSURLConnectionDelegate, TANetworkOperationsDelegate>
 
 
 @property (strong, nonatomic) TopApp *topApp;

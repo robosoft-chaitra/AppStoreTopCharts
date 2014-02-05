@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Chaithra TV. All rights reserved.
 //
 
-#import "TopAppViewController.h"
+#import "TACollectionViewController.h"
 #import "TopAppsCollectionCell.h"
 
-@interface TopAppViewController ()
+@interface TACollectionViewController ()
 {
     BOOL  isFiltered;
     BOOL  isHeaderViewActive;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation TopAppViewController
+@implementation TACollectionViewController
 
 #pragma mark - View setUp methods
 
@@ -38,12 +38,12 @@
         if(self.tabBarController.selectedIndex == KTopPaidAppTabBarItemIndex)
         {
 //            loading TOPPaidAPPURL
-            topAppURL = [NSURL URLWithString:kTopPaidAppJsonFeed];
+            topAppURL = [NSURL URLWithString:TATopPaidAppJsonFeed];
          }
         else  if(self.tabBarController.selectedIndex == KTopFreeAppTabBarItemIndex)
         {
 //            loading TopFreeAppURL
-            topAppURL = [NSURL URLWithString:kTopFreeAppJsonFeed];
+            topAppURL = [NSURL URLWithString:TATopFreeAppJsonFeed];
         }
     TANetworkOperationCenter *networkCenter = [[TANetworkOperationCenter alloc]initNetworkConnectionFromURL:topAppURL];
     networkCenter.delegate = self;
@@ -63,10 +63,10 @@
 -(void)setUpPopUpView
 {
 //    adding popupview as subview to collectionview & initially hidingview
-     self.popupView = [PopUpView popUpView];
+     self.popupView = [TAPopUpView popUpView];
      self.popupView.delegate = self;
      [self.topAppCollectionView addSubview:self.popupView];
-     self.popupView.alpha = KZeroAplhaValue;
+     self.popupView.alpha = TAZeroAplhaValue;
     
 //    TapGesture to hide the popupview
     self.hidePopupGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hidePopUpView:)];
@@ -93,7 +93,7 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    TopAppsCollectionCell *topAppCollectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:kAppCellIndentifier
+    TopAppsCollectionCell *topAppCollectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:TACellIndentifier
                                                                                             forIndexPath:indexPath];
     TopApp *topApp;
     if(isFiltered)
@@ -135,8 +135,8 @@
 - (UICollectionReusableView *)collectionView: (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
 //    headerview to display searchBar on SearchButton Click
-    SearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
-                                         UICollectionElementKindSectionHeader withReuseIdentifier:kHeaderCellIndentifier forIndexPath:indexPath];
+    TASearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
+                                         UICollectionElementKindSectionHeader withReuseIdentifier:TAHeaderCellIndentifier forIndexPath:indexPath];
     headerView.delegate = self;
     if(isFiltered && isHeaderViewActive && ![headerView.appSearchBar isFirstResponder])
     {
@@ -148,7 +148,7 @@
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
 //    adjust EdgeInset for CollectionView
-    return UIEdgeInsetsMake(KEdgeInsetTopValue, KEdgeInsetLeftValue, KEdgeInsetBottomValue, KEdgeInsetRightValue);
+    return UIEdgeInsetsMake(TAEdgeInsetTopValue, TAEdgeInsetLeftValue, TAEdgeInsetBottomValue, TAEdgeInsetRightValue);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
@@ -157,7 +157,7 @@
     if (isHeaderViewActive == NO)
         return CGSizeZero;
     else
-        return CGSizeMake(KHeaderViewRefWidth, KHeaderViewRefHeight);
+        return CGSizeMake(TAHeaderViewRefWidth, TAHeaderViewRefHeight);
 }
 
 #pragma mark - IBAction SearchBarButton method
@@ -298,7 +298,6 @@
             [self.topApps addObject:topApp];
         }
     }
-
 }
 
 -(void)didFinishLoadingDataFromServer

@@ -6,24 +6,24 @@
 //  Copyright (c) 2014 Chaithra TV. All rights reserved.
 //
 
-#import "PopUpView.h"
+#import "TAPopUpView.h"
 
-@implementation PopUpView
+@implementation TAPopUpView
 
 + (id)popUpView
 {
-    PopUpView *popUpView;
+    TAPopUpView *popUpView;
 //    loading the popup based on Device
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
-        popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpViewiPad" owner:nil options:nil] lastObject];
+        popUpView = [[[NSBundle mainBundle] loadNibNamed:@"TAPopUpViewiPad" owner:nil options:nil] lastObject];
     }
     else
     {
-        popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpViewiPhone" owner:nil options:nil] lastObject];
+        popUpView = [[[NSBundle mainBundle] loadNibNamed:@"TAPopUpViewiPhone" owner:nil options:nil] lastObject];
     }
     
-    if ([popUpView isKindOfClass:[PopUpView class]])
+    if ([popUpView isKindOfClass:[TAPopUpView class]])
         return popUpView;
     else
         return nil;
@@ -125,12 +125,12 @@
 -(void)setUpUI
 {
 //  method to  add Border to button & popup View
-    self.layer.borderWidth  = KButtonBorderWidth;
+    self.layer.borderWidth  = TAButtonBorderWidth;
     self.layer.borderColor  = [[UIColor lightGrayColor] CGColor];
-    self.layer.cornerRadius = KCornerRadius;
-    self.priceButton.layer.borderWidth = KButtonBorderWidth;
+    self.layer.cornerRadius = TACornerRadius;
+    self.priceButton.layer.borderWidth = TAButtonBorderWidth;
     self.priceButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.wishListButton.layer.borderWidth = KButtonBorderWidth;
+    self.wishListButton.layer.borderWidth = TAButtonBorderWidth;
     self.wishListButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 }
 

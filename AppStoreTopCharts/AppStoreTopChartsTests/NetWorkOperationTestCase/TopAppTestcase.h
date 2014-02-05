@@ -10,12 +10,12 @@
 
 @interface TopAppTestcase : TopApp
 
-@property (nonatomic, strong) NSURL *jsonUrl;
+@property (nonatomic, strong) NSData *jsonData;
 @property (nonatomic, strong) NSDictionary *jsonDictionary;
 @property (nonatomic, strong) NSMutableArray *topApps;
 @property (nonatomic, strong) NSArray *appEntries;
 @property (nonatomic, strong) TopApp *topApp;
 
--(id)initNetWorkOperationTestCase:(NSURL*)jsonFeed;
+-(id)initTopAppTestCase;
 
 @end

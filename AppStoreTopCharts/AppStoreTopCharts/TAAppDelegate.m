@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Chaithra TV. All rights reserved.
 //
 
-#import "ASAppDelegate.h"
+#import "TAAppDelegate.h"
 
-@implementation ASAppDelegate
+@implementation TAAppDelegate
 
 @end

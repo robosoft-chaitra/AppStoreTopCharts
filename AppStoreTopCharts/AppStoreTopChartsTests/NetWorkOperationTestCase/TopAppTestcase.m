@@ -10,16 +10,14 @@
 
 @implementation TopAppTestcase
 
--(id)initNetWorkOperationTestCase:(NSURL*)jsonFeed
+-(id)initTopAppTestCase
 {
     if(self = [super init])
     {
         NSError *error;
-        self.jsonUrl = jsonFeed;
         self.topApps = [[NSMutableArray alloc]init];
-        NSData *jsonData = [NSData dataWithContentsOfURL:self.jsonUrl];
-    
-        self.jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+        self.jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+        self.jsonDictionary = [NSJSONSerialization JSONObjectWithData:self.jsonData
                                                                options:kNilOptions error:&error];
         if(error)
         {
@@ -31,9 +29,7 @@
     
             for (NSDictionary *appEntry in self.appEntries)
             {
-        //            converting AppEntries Into TopApp Object
                 self.topApp = [[TopApp alloc] initTopAppFromAppStoreDictionary:appEntry];
-        //            Storing to TopApp Array
                 [self.topApps addObject:self.topApp];
             }
         }
