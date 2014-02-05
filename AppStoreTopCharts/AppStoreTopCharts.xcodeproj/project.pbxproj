@@ -26,8 +26,8 @@
 		9D3A94F0188FFB2E00F524A7 /* TopAppsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */; };
 		9D9B5E9318921BBC00C857E9 /* TASearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B5E9218921BBC00C857E9 /* TASearchHeaderView.m */; };
 		9D9B5EE218928BC300C857E9 /* TAPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B5EE118928BC300C857E9 /* TAPopUpView.m */; };
-		9D9B5EE418928BEB00C857E9 /* PopUpViewiPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B5EE318928BEB00C857E9 /* PopUpViewiPhone.xib */; };
-		9D9BDC361897B2C100E4155E /* PopUpViewiPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9BDC351897B2C100E4155E /* PopUpViewiPad.xib */; };
+		9D9B5EE418928BEB00C857E9 /* TAPopUpViewiPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B5EE318928BEB00C857E9 /* TAPopUpViewiPhone.xib */; };
+		9D9BDC361897B2C100E4155E /* TAPopUpViewiPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9BDC351897B2C100E4155E /* TAPopUpViewiPad.xib */; };
 		9D9BDC381897E4F400E4155E /* WishList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D9BDC371897E4F400E4155E /* WishList.plist */; };
 		9D9BDD611898F7DF00049F4D /* TAWishListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDD601898F7DF00049F4D /* TAWishListViewController.m */; };
 		9D9BDD6518990E4E00049F4D /* TAWishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9BDD6418990E4E00049F4D /* TAWishListCell.m */; };
@@ -77,8 +77,8 @@
 		9D9B5E9218921BBC00C857E9 /* TASearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TASearchHeaderView.m; path = View/HeaderView/TASearchHeaderView.m; sourceTree = "<group>"; };
 		9D9B5EE018928BC300C857E9 /* TAPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAPopUpView.h; path = View/PopUpView/TAPopUpView.h; sourceTree = "<group>"; };
 		9D9B5EE118928BC300C857E9 /* TAPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAPopUpView.m; path = View/PopUpView/TAPopUpView.m; sourceTree = "<group>"; };
-		9D9B5EE318928BEB00C857E9 /* PopUpViewiPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopUpViewiPhone.xib; path = View/PopUpView/PopUpViewiPhone.xib; sourceTree = "<group>"; };
-		9D9BDC351897B2C100E4155E /* PopUpViewiPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewiPad.xib; sourceTree = "<group>"; };
+		9D9B5EE318928BEB00C857E9 /* TAPopUpViewiPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TAPopUpViewiPhone.xib; path = View/PopUpView/TAPopUpViewiPhone.xib; sourceTree = "<group>"; };
+		9D9BDC351897B2C100E4155E /* TAPopUpViewiPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TAPopUpViewiPad.xib; sourceTree = "<group>"; };
 		9D9BDC371897E4F400E4155E /* WishList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WishList.plist; sourceTree = "<group>"; };
 		9D9BDD5F1898F7DF00049F4D /* TAWishListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAWishListViewController.h; path = viewController/WishListViewController/TAWishListViewController.h; sourceTree = "<group>"; };
 		9D9BDD601898F7DF00049F4D /* TAWishListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAWishListViewController.m; path = viewController/WishListViewController/TAWishListViewController.m; sourceTree = "<group>"; };
@@ -306,8 +306,8 @@
 			children = (
 				9D9B5EE018928BC300C857E9 /* TAPopUpView.h */,
 				9D9B5EE118928BC300C857E9 /* TAPopUpView.m */,
-				9D9B5EE318928BEB00C857E9 /* PopUpViewiPhone.xib */,
-				9D9BDC351897B2C100E4155E /* PopUpViewiPad.xib */,
+				9D9B5EE318928BEB00C857E9 /* TAPopUpViewiPhone.xib */,
+				9D9BDC351897B2C100E4155E /* TAPopUpViewiPad.xib */,
 			);
 			name = PopUpView;
 			sourceTree = "<group>";
@@ -428,8 +428,8 @@
 			files = (
 				9D2D1A39188FC2E5009BB661 /* Main_iPad.storyboard in Resources */,
 				9D9EE06018A0B43100BEC311 /* TopAppsFeed.json in Resources */,
-				9D9BDC361897B2C100E4155E /* PopUpViewiPad.xib in Resources */,
-				9D9B5EE418928BEB00C857E9 /* PopUpViewiPhone.xib in Resources */,
+				9D9BDC361897B2C100E4155E /* TAPopUpViewiPad.xib in Resources */,
+				9D9B5EE418928BEB00C857E9 /* TAPopUpViewiPhone.xib in Resources */,
 				9D2D1A41188FC2E5009BB661 /* Images.xcassets in Resources */,
 				9D2D1A36188FC2E5009BB661 /* Main_iPhone.storyboard in Resources */,
 				9D2D1A2D188FC2E5009BB661 /* InfoPlist.strings in Resources */,

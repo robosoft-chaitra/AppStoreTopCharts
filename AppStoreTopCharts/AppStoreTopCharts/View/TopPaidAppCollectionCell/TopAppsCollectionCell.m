@@ -46,9 +46,9 @@
     [self.imageActivityIndicator stopAnimating];
     [self.imageActivityIndicator setHidesWhenStopped:YES];
     
-    self.layer.borderWidth  = KCellBorderWidth;
+    self.layer.borderWidth  = TACellBorderWidth;
     self.layer.borderColor  = [[UIColor lightGrayColor] CGColor];
-    self.layer.cornerRadius = KCornerRadius;
+    self.layer.cornerRadius = TACornerRadius;
     self.appNameLabel.text  = self.topApp.appName;
     self.categoryLabel.text = self.topApp.category;
     self.priceLabel.text    = self.topApp.price;

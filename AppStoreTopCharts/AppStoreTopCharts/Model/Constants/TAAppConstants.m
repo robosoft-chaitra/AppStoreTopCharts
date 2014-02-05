@@ -10,28 +10,25 @@
 
 @implementation TAAppConstants
 
-CGFloat const KButtonBorderWidth    = 1.0f;
-CGFloat const KCellBorderWidth      = 0.1f;
-CGFloat const KCornerRadius         = 15.0f;
-CGFloat const KZeroAplhaValue       = 0.0f;
+CGFloat const TAZeroAplhaValue      = 0.0f;
 
-CGFloat const KEdgeInsetTopValue    = 0.5f;
-CGFloat const KEdgeInsetRightValue  = 0.5f;
-CGFloat const KEdgeInsetBottomValue = 0.5f;
-CGFloat const KEdgeInsetLeftValue   = 0.5f;
+CGFloat const TAButtonBorderWidth   = 1.0f;
+CGFloat const TACellBorderWidth     = 0.1f;
+CGFloat const TACornerRadius        = 15.0f;
 
-CGFloat const KHeaderViewRefHeight  = 44.0f;
-CGFloat const KHeaderViewRefWidth   = 768.0f;
+CGFloat const TAEdgeInsetTopValue    = 0.5f;
+CGFloat const TAEdgeInsetRightValue  = 0.5f;
+CGFloat const TAEdgeInsetBottomValue = 0.5f;
+CGFloat const TAEdgeInsetLeftValue   = 0.5f;
 
-NSString *const kTopPaidAppJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=100/json";
-NSString *const kTopFreeAppJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=100/json";
+CGFloat const TAHeaderViewRefHeight  = 44.0f;
+CGFloat const TAHeaderViewRefWidth   = 768.0f;
 
-NSString *const kAppCellIndentifier      = @"TopAppsCell";
-NSString *const kHeaderCellIndentifier   = @"SearchHeaderView";
-NSString *const kWishListCellIndentifier = @"WishListCell";
+NSString *const TATopPaidAppJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=250/json";
+NSString *const TATopFreeAppJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=250/json";
 
-NSString *const kPopUpViewiPadNib   = @"PopUpViewiPad";
-NSString *const kPopUpViewiPhoneNib = @"PopUpViewiPhone";
-
+NSString *const TACellIndentifier         = @"TopAppsCell";
+NSString *const TAHeaderCellIndentifier   = @"TASearchHeaderView";
+NSString *const TAWishListCellIndentifier = @"TAWishListCell";
 
 @end

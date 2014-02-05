@@ -10,26 +10,26 @@
 
 @interface TAAppConstants : NSObject
 
-extern CGFloat const KZeroAplhaValue;
-extern CGFloat const KEdgeInsetTopValue;
-extern CGFloat const KEdgeInsetRightValue;
-extern CGFloat const KEdgeInsetBottomValue;
-extern CGFloat const KEdgeInsetLeftValue;
-extern CGFloat const KHeaderViewRefHeight;
-extern CGFloat const KHeaderViewRefWidth;
+extern CGFloat const TAZeroAplhaValue;
 
-extern CGFloat const KButtonBorderWidth;
-extern CGFloat const KCellBorderWidth;
-extern CGFloat const KCornerRadius;
+extern CGFloat const TAEdgeInsetTopValue;
+extern CGFloat const TAEdgeInsetRightValue;
+extern CGFloat const TAEdgeInsetBottomValue;
+extern CGFloat const TAEdgeInsetLeftValue;
 
-extern NSString *const kTopPaidAppJsonFeed;
-extern NSString *const kTopFreeAppJsonFeed;
+extern CGFloat const TAHeaderViewRefHeight;
+extern CGFloat const TAHeaderViewRefWidth;
 
-extern NSString *const kAppCellIndentifier;
-extern NSString *const kHeaderCellIndentifier;
-extern NSString *const kWishListCellIndentifier;
+extern CGFloat const TAButtonBorderWidth;
+extern CGFloat const TACellBorderWidth;
+extern CGFloat const TACornerRadius;
 
-extern NSString *const kPopUpViewiPadNib;
-extern NSString *const kPopUpViewiPhoneNib;
+extern NSString *const TATopPaidAppJsonFeed;
+extern NSString *const TATopFreeAppJsonFeed;
+
+extern NSString *const TACellIndentifier;
+extern NSString *const TAHeaderCellIndentifier;
+extern NSString *const TAWishListCellIndentifier;
+
 
 @end

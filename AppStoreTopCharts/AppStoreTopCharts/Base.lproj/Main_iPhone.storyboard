@@ -20,7 +20,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopAppsCell" id="1Im-dj-8aS" customClass="TopAppsCollectionCell">
-                                <rect key="frame" x="0.0" y="50" width="90" height="110"/>
+                                <rect key="frame" x="0.0" y="114" width="90" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="90" height="110"/>
@@ -66,8 +66,8 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchHeaderView" id="esO-Sc-lRy" customClass="TASearchHeaderView">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TASearchHeaderView" id="esO-Sc-lRy" customClass="TASearchHeaderView">
+                            <rect key="frame" x="0.0" y="64" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Syo-Ik-cdU">
@@ -130,7 +130,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopAppsCell" id="Vao-30-Jld" customClass="TopAppsCollectionCell">
-                                <rect key="frame" x="0.0" y="50" width="90" height="114"/>
+                                <rect key="frame" x="0.0" y="114" width="90" height="114"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="90" height="114"/>
@@ -175,8 +175,8 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchHeaderView" id="q66-eB-avd" customClass="TASearchHeaderView">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TASearchHeaderView" id="q66-eB-avd" customClass="TASearchHeaderView">
+                            <rect key="frame" x="0.0" y="64" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="OAq-ov-aHZ">
@@ -266,8 +266,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WishListCell" rowHeight="75" id="dQE-Ux-kha" customClass="TAWishListCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="75"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TAWishListCell" rowHeight="75" id="dQE-Ux-kha" customClass="TAWishListCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dQE-Ux-kha" id="bK9-qi-o7V">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
