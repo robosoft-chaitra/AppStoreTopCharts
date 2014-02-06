@@ -103,7 +103,7 @@
 
 - (IBAction)showReferenceLink:(id)sender
 {
-//    TODO: method to go to RefeneceLink site
+    NSLog(@"reference link = %@",self.referenceLinkButton.titleLabel.text);
 }
 
 #pragma mark - Display AppDetails methods

@@ -601,6 +601,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramachandra Acharya (66ANZ2UC56)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppStoreTopCharts/AppStoreTopCharts-Prefix.pch";
 				INFOPLIST_FILE = "AppStoreTopCharts/AppStoreTopCharts-Info.plist";

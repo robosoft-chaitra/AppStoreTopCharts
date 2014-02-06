@@ -288,6 +288,7 @@
     }
     else
     {
+//        To load feed entries
         NSArray *appEntries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
         
         for (NSDictionary *appEntry in appEntries)
