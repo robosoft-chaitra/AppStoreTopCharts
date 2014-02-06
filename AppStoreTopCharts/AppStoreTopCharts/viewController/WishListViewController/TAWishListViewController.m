@@ -11,6 +11,10 @@
 
 @interface TAWishListViewController ()
 
+@property (nonatomic, strong) NSMutableArray *selectedApps;
+@property (nonatomic, strong) NSMutableArray *appDictionaryList;
+//@property (nonatomic, strong) NSString *appDocumentDirectoryPath;
+
 @end
 
 @implementation TAWishListViewController
@@ -20,7 +24,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    self.appDocumentDirectoryPath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"WishList.plist"];
+//    self.appDocumentDirectoryPath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"WishList.plist"];
 
 }
 
@@ -29,12 +33,12 @@
     [super viewWillAppear:YES];
     
     self.selectedApps      = [[NSMutableArray alloc]init];
-    self.appDictionaryList = [[NSArray arrayWithContentsOfFile:self.appDocumentDirectoryPath] mutableCopy];
+    self.appDictionaryList = [[NSArray arrayWithContentsOfFile:[self publicDataPath]] mutableCopy];
     
 //    converting appdictionary to TopApp object & storing to List
     for(NSDictionary *appDictionary in self.appDictionaryList)
     {
-        TopApp *wishListApp =[[TopApp alloc]initTopAppFromAppStoreDictionary:appDictionary];
+        TAAppInfo *wishListApp =[[TAAppInfo alloc]initFromAppStoreDictionary:appDictionary];
         [self.selectedApps addObject:wishListApp];
     }
      [self.tableView reloadData];
@@ -58,7 +62,7 @@
     TAWishListCell *cell = (TAWishListCell*)[tableView dequeueReusableCellWithIdentifier:TAWishListCellIndentifier forIndexPath:indexPath];
     
 //    method to display the appInfo in a cell
-    [cell displayAppInfoForWishListApp:[self.selectedApps objectAtIndex:indexPath.row]];
+    [cell configureWith:[self.selectedApps objectAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -70,18 +74,35 @@
 //    method to delete app from Plist Permanently
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        TopApp *deletingApp =[self.selectedApps objectAtIndex:indexPath.row];
+        TAAppInfo *deletingApp =[self.selectedApps objectAtIndex:indexPath.row];
         
 //      To check deleting app found in plist
        if([self.appDictionaryList containsObject:deletingApp.appInfoDictionary])
        {
            [self.appDictionaryList removeObject:deletingApp.appInfoDictionary];
            [self.selectedApps removeObject:deletingApp];
-           [self.appDictionaryList writeToFile:self.appDocumentDirectoryPath atomically:YES];
+           [self.appDictionaryList writeToFile:[self publicDataPath] atomically:YES];
        }
         
         [self.tableView reloadData];
     }
 }
+- (NSString *)publicDataPath
+{
+    @synchronized ([NSFileManager class])
+    {
+        static NSString *path = nil;
+        if (!path)
+        {
+            //user documents folder
+            path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"WishList.plist"];
+            
+            //retain path
+            path = [[NSString alloc] initWithString:path];
+        }
+        return path;
+    }
+}
+
 
 @end

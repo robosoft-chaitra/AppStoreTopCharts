@@ -13,29 +13,14 @@
 #import "TAPopUpView.h"
 
 //CR: Use these - NS_ENUM(<#_type#>, <#_name#>)
-typedef enum
+NS_ENUM(NSInteger, AppTabBarItem)
 {
-    KTopPaidAppTabBarItemIndex,
-    KTopFreeAppTabBarItemIndex
-    
-}TabBarItem;
+    TAPaidAppTabBarItem,
+    TAFreeAppTabBarItem
+};
+
 
 @interface TACollectionViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,TASearchAppsDelegate, TAPopUpViewDelegate,TANetworkOperationsDelegate>
 
-@property (nonatomic, strong) NSMutableArray *wishListApps; //Array of Wishlist Apps
-@property (nonatomic, strong) NSMutableArray *filteredApps; //Array of Filtered Apps
-@property (nonatomic, strong) NSMutableArray *topApps;      //Array of TopApps
-
-//CR: StandardPaths of Nick Lockwood
-@property (nonatomic, strong) NSString  *appDocumentDirectoryPath; //Document directory Path
-@property (nonatomic, strong) TAPopUpView *popupView ;   //popup to view details of app
-
-@property (strong, nonatomic) UITapGestureRecognizer     *hidePopupGestureRecognizer;   //Tapgesture to hide popup
-
-//CR: Always have the outlets in .m
-@property (strong, nonatomic) IBOutlet UICollectionView  *topAppCollectionView;
-
-//method to search for app using AppName
-- (IBAction)searchAppsByName:(id)sender;
 
 @end

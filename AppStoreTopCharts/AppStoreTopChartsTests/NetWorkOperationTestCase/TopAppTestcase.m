@@ -29,7 +29,7 @@
     
             for (NSDictionary *appEntry in self.appEntries)
             {
-                self.topApp = [[TopApp alloc] initTopAppFromAppStoreDictionary:appEntry];
+                self.topApp = [[TAAppInfo alloc] initTopAppFromAppStoreDictionary:appEntry];
                 [self.topApps addObject:self.topApp];
             }
         }

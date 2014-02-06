@@ -18,6 +18,7 @@
 @interface TASearchHeaderView : UICollectionReusableView<UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *appSearchBar;
+
 @property (weak, nonatomic)id<TASearchAppsDelegate> delegate;
 
 @end

@@ -22,7 +22,7 @@
 		9D2D1A4A188FC2E5009BB661 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2D1A26188FC2E5009BB661 /* UIKit.framework */; };
 		9D2D1A52188FC2E5009BB661 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D2D1A50188FC2E5009BB661 /* InfoPlist.strings */; };
 		9D2D1A54188FC2E5009BB661 /* AppStoreTopChartsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A53188FC2E5009BB661 /* AppStoreTopChartsTests.m */; };
-		9D2D1A6F188FDB23009BB661 /* TopApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A6E188FDB23009BB661 /* TopApp.m */; };
+		9D2D1A6F188FDB23009BB661 /* TAAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A6E188FDB23009BB661 /* TAAppInfo.m */; };
 		9D3A94F0188FFB2E00F524A7 /* TopAppsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */; };
 		9D9B5E9318921BBC00C857E9 /* TASearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B5E9218921BBC00C857E9 /* TASearchHeaderView.m */; };
 		9D9B5EE218928BC300C857E9 /* TAPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B5EE118928BC300C857E9 /* TAPopUpView.m */; };
@@ -69,8 +69,8 @@
 		9D2D1A4F188FC2E5009BB661 /* AppStoreTopChartsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppStoreTopChartsTests-Info.plist"; sourceTree = "<group>"; };
 		9D2D1A51188FC2E5009BB661 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9D2D1A53188FC2E5009BB661 /* AppStoreTopChartsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppStoreTopChartsTests.m; sourceTree = "<group>"; };
-		9D2D1A6D188FDB23009BB661 /* TopApp.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.c.h; name = TopApp.h; path = Model/TopApp.h; sourceTree = "<group>"; };
-		9D2D1A6E188FDB23009BB661 /* TopApp.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.c.objc; name = TopApp.m; path = Model/TopApp.m; sourceTree = "<group>"; };
+		9D2D1A6D188FDB23009BB661 /* TAAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.c.h; name = TAAppInfo.h; path = Model/TAAppInfo.h; sourceTree = "<group>"; };
+		9D2D1A6E188FDB23009BB661 /* TAAppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.c.objc; name = TAAppInfo.m; path = Model/TAAppInfo.m; sourceTree = "<group>"; };
 		9D3A94EE188FFB2E00F524A7 /* TopAppsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopAppsCollectionCell.h; path = View/TopPaidAppCollectionCell/TopAppsCollectionCell.h; sourceTree = "<group>"; };
 		9D3A94EF188FFB2E00F524A7 /* TopAppsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopAppsCollectionCell.m; path = View/TopPaidAppCollectionCell/TopAppsCollectionCell.m; sourceTree = "<group>"; };
 		9D9B5E9118921BBC00C857E9 /* TASearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TASearchHeaderView.h; path = View/HeaderView/TASearchHeaderView.h; sourceTree = "<group>"; };
@@ -269,8 +269,8 @@
 		9D2D1A6C188FCE20009BB661 /* TopApp */ = {
 			isa = PBXGroup;
 			children = (
-				9D2D1A6D188FDB23009BB661 /* TopApp.h */,
-				9D2D1A6E188FDB23009BB661 /* TopApp.m */,
+				9D2D1A6D188FDB23009BB661 /* TAAppInfo.h */,
+				9D2D1A6E188FDB23009BB661 /* TAAppInfo.m */,
 			);
 			name = TopApp;
 			sourceTree = "<group>";
@@ -460,7 +460,7 @@
 				9D2D1A33188FC2E5009BB661 /* TAAppDelegate.m in Sources */,
 				9D3A94F0188FFB2E00F524A7 /* TopAppsCollectionCell.m in Sources */,
 				9D2D1A2F188FC2E5009BB661 /* main.m in Sources */,
-				9D2D1A6F188FDB23009BB661 /* TopApp.m in Sources */,
+				9D2D1A6F188FDB23009BB661 /* TAAppInfo.m in Sources */,
 				9D9B5EE218928BC300C857E9 /* TAPopUpView.m in Sources */,
 				9D9BDD6518990E4E00049F4D /* TAWishListCell.m in Sources */,
 				9D9B5E9318921BBC00C857E9 /* TASearchHeaderView.m in Sources */,

@@ -17,6 +17,21 @@
     UISearchBar *searchBar;
 }
 
+@property (nonatomic, strong) NSMutableArray *wishListApps; //Array of Wishlist Apps
+@property (nonatomic, strong) NSMutableArray *filteredApps; //Array of Filtered Apps
+@property (nonatomic, strong) NSMutableArray *topApps;      //Array of TopApps
+
+//CR: StandardPaths of Nick Lockwood
+@property (nonatomic, strong) TAPopUpView *popupView ;   //popup to view details of app
+
+@property (strong, nonatomic) UITapGestureRecognizer     *hidePopupGestureRecognizer;   //Tapgesture to hide popup
+
+//CR: Always have the outlets in .m
+@property (strong, nonatomic) IBOutlet UICollectionView  *topAppCollectionView;
+
+//method to search for app using AppName
+- (IBAction)searchAppsByName:(id)sender;
+
 @end
 
 @implementation TACollectionViewController
@@ -35,12 +50,12 @@
     [super viewDidAppear:YES];
     NSURL *topAppURL;
     
-        if(self.tabBarController.selectedIndex == KTopPaidAppTabBarItemIndex)
+        if(self.tabBarController.selectedIndex == TAPaidAppTabBarItem)
         {
 //            loading TOPPaidAPPURL
             topAppURL = [NSURL URLWithString:TATopPaidAppJsonFeed];
          }
-        else  if(self.tabBarController.selectedIndex == KTopFreeAppTabBarItemIndex)
+        else  if(self.tabBarController.selectedIndex == TAFreeAppTabBarItem)
         {
 //            loading TopFreeAppURL
             topAppURL = [NSURL URLWithString:TATopFreeAppJsonFeed];
@@ -59,7 +74,6 @@
     isFiltered = NO;
     isHeaderViewActive = NO;
     isPopUpViewAppers = NO;
-   self.appDocumentDirectoryPath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"WishList.plist"];
 }
 
 -(void)setUpPopUpView
@@ -97,14 +111,14 @@
 {
     TopAppsCollectionCell *topAppCollectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:TACellIndentifier
                                                                                             forIndexPath:indexPath];
-    TopApp *topApp;
+    TAAppInfo *topApp;
     if(isFiltered)
         topApp = [self.filteredApps objectAtIndex:indexPath.row];
     else
         topApp = [self.topApps objectAtIndex:indexPath.row];
     
 //    method to display appInfo in collectionview grid
-    [topAppCollectionCell displayAppInfoInGrid:topApp];
+    [topAppCollectionCell configureAppInfo:topApp];
     
     if(isFiltered && isHeaderViewActive && ![searchBar isFirstResponder])
     {
@@ -122,9 +136,9 @@
     if(!isPopUpViewAppers)
     {
         if(isFiltered)
-             [self.popupView startAnimation: [self.filteredApps objectAtIndex:indexPath.row]];
+             [self.popupView startAnimatingPopupView: [self.filteredApps objectAtIndex:indexPath.row]];
         else
-             [self.popupView startAnimation: [self.topApps objectAtIndex:indexPath.row]];
+             [self.popupView startAnimatingPopupView: [self.topApps objectAtIndex:indexPath.row]];
         
 //        method to adjust the popupview to center of screen
         self.popupView.center = [self adjustCenterForPopUpView];
@@ -140,7 +154,7 @@
     TASearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
                                          UICollectionElementKindSectionHeader withReuseIdentifier:TAHeaderCellIndentifier forIndexPath:indexPath];
     headerView.delegate = self;
-    if(isFiltered && isHeaderViewActive && ![headerView.appSearchBar isFirstResponder])
+    if(isFiltered && isHeaderViewActive)
     {
         [headerView.appSearchBar becomeFirstResponder];
     }
@@ -180,7 +194,7 @@
      {
         isFiltered = YES;
         self.filteredApps = [[NSMutableArray alloc] init];
-        for (TopApp *topApp in self.topApps)
+        for (TAAppInfo *topApp in self.topApps)
         {
 //            Searching for App By using appName
             NSRange nameRange = [topApp.appName rangeOfString:appName options:NSCaseInsensitiveSearch];
@@ -199,7 +213,7 @@
 }
 
 #pragma mark - PopView Delegate methods
--(void)popUpViewDidAppear
+-(void)popUpViewDidAppear:(TAPopUpView *)popUpView
 {
 //    adding HideGesture if popup appered on scrren
     isPopUpViewAppers = YES;
@@ -222,7 +236,7 @@
 //    method to load WishListApps From application Directory
     [self loadFromAppDocumentDirectory];
     NSIndexPath *indexpath = [[self.topAppCollectionView indexPathsForSelectedItems ] objectAtIndex:0];
-    TopApp *topApp = [self.topApps objectAtIndex:indexpath.row];
+    TAAppInfo *topApp = [self.topApps objectAtIndex:indexpath.row];
     
     if(![self.wishListApps containsObject:topApp.appInfoDictionary])
         [self.wishListApps addObject:topApp.appInfoDictionary];
@@ -233,7 +247,7 @@
     }
     
 //    Writing Wishlist of Apps to application Directory
-    [self.wishListApps writeToFile:self.appDocumentDirectoryPath atomically:YES];
+    [self.wishListApps writeToFile:[self publicDataPath] atomically:YES];
 }
 
 #pragma mark- Updating Center for PopupView
@@ -260,13 +274,13 @@
 {
     NSError *error;
 //    If PlistList is not found on ApplicationDirectory then load plist from Plist
-    if (![[NSFileManager defaultManager] fileExistsAtPath:self.appDocumentDirectoryPath])
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[self publicDataPath]])
     {
         NSString *bundle = [[NSBundle mainBundle] pathForResource:@"WishList" ofType:@"plist"];
-        [[NSFileManager defaultManager] copyItemAtPath:bundle toPath:self.appDocumentDirectoryPath error:&error];
+        [[NSFileManager defaultManager] copyItemAtPath:bundle toPath:[self publicDataPath] error:&error];
     }
 //    loading wishlistApp From ApplicationDirectory
-    self.wishListApps =[[NSArray arrayWithContentsOfFile:self.appDocumentDirectoryPath] mutableCopy];
+    self.wishListApps =[[NSArray arrayWithContentsOfFile:[self publicDataPath]] mutableCopy];
     //CR: This is not needed, double initialization, avoid it.
     if (self.wishListApps.count == 0)
          self.wishListApps = [[NSMutableArray alloc]init];
@@ -296,7 +310,7 @@
         for (NSDictionary *appEntry in appEntries)
         {
 //            converting AppEntries Into TopApp Object
-            TopApp *topApp = [[TopApp alloc] initTopAppFromAppStoreDictionary:appEntry];
+            TAAppInfo *topApp = [[TAAppInfo alloc] initFromAppStoreDictionary:appEntry];
 //            Storing to TopApp Array
             [self.topApps addObject:topApp];
         }
@@ -307,6 +321,23 @@
 {
 //    Reloading the TopApp in collectionView
     [self.topAppCollectionView reloadData];
+}
+
+- (NSString *)publicDataPath
+{
+    @synchronized ([NSFileManager class])
+    {
+        static NSString *path = nil;
+        if (!path)
+        {
+            //user documents folder
+             path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"WishList.plist"];
+            
+            //retain path
+            path = [[NSString alloc] initWithString:path];
+        }
+        return path;
+    }
 }
 
 @end

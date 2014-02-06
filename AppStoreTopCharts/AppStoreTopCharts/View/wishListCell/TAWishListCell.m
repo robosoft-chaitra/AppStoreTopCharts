@@ -8,13 +8,27 @@
 
 #import "TAWishListCell.h"
 
+@interface TAWishListCell()
+
+@property (weak, nonatomic) IBOutlet UIImageView *appImageView;
+@property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
+@property (weak, nonatomic) IBOutlet UIButton *priceButton;
+
+//IBAction: ToInstall APP
+- (IBAction)installApp:(id)sender;
+
+
+
+@end
+
+
 @implementation TAWishListCell
 
--(void)displayAppInfoForWishListApp:(TopApp *)wishListApp
+-(void)configureWith:(TAAppInfo *)wishListApp
 {
     //CR: Remove the following comment. What a method does should be
-    //be explained in header, and not
-//  method to display WishList app on tableview
     self.appNameLabel.text  = wishListApp.appName;
     self.categoryLabel.text = wishListApp.category;
     self.authorLabel.text   = wishListApp.authorName;

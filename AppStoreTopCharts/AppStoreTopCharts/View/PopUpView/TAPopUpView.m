@@ -8,6 +8,27 @@
 
 #import "TAPopUpView.h"
 
+@interface TAPopUpView()
+
+@property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *copyrightLabel;
+@property (weak, nonatomic) IBOutlet UILabel *releaseDateLabel; //CR: Correct the typo should be releaseDateLabel
+@property (weak, nonatomic) IBOutlet UIImageView *appImageView;
+@property (weak, nonatomic) IBOutlet UITextView *summaryTextField;
+@property (weak, nonatomic) IBOutlet UIButton *priceButton;
+@property (weak, nonatomic) IBOutlet UIButton *wishListButton;
+@property (weak, nonatomic) IBOutlet UIButton *referenceLinkButton;
+
+
+- (IBAction)installApp:(id)sender;
+- (IBAction)addToWishList:(id)sender;
+- (IBAction)showReferenceLink:(id)sender;
+
+@end
+
+
 @implementation TAPopUpView
 
 + (id)popUpView
@@ -32,14 +53,14 @@
 #pragma mark - Animation Methods
 
 //start animating the popup & Displaying Info
--(void)startAnimation:(TopApp*)topApp
+-(void)startAnimatingPopupView:(TAAppInfo*)appInfo
 {
     [self setUpUI];
     [UIView animateWithDuration:0.2
                      animations:^(void){
                          self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1);
                          self.alpha = 0.5f;
-                         [self displayDetailsInPopUpView:topApp];
+                         [self displayDetailsInPopUpView:appInfo];
                         }
                      completion:^(BOOL finished){
                          [self bounceOutAnimationStopped];
@@ -76,7 +97,7 @@
 -(void)animationStopped
 {
 //    method to Disable scrolling of collectionview
-    [self.delegate popUpViewDidAppear];
+    [self.delegate popUpViewDidAppear:self];
 }
 
 #pragma mark - IBAction methods
@@ -108,14 +129,14 @@
 
 #pragma mark - Display AppDetails methods
 
--(void)displayDetailsInPopUpView:(TopApp*)topApp
+-(void)displayDetailsInPopUpView:(TAAppInfo*)topApp
 {
 //    to display appDetails in Popup
     self.appNameLabel.text    = topApp.appName;
     self.categoryLabel.text   = topApp.category;
     self.authorLabel.text     = topApp.authorName;
     self.copyrightLabel.text  = topApp.copyright;
-    self.releseDateLabel.text = topApp.releaseDate;
+    self.releaseDateLabel.text = topApp.releaseDate;
     self.summaryTextField.text= topApp.summary;
     self.appImageView.image   = [UIImage imageWithData:[NSData dataWithContentsOfURL:topApp.appImageUrl]];
     [self.priceButton setTitle:topApp.price forState:UIControlStateNormal];

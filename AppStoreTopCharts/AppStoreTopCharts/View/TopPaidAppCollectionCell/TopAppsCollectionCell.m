@@ -9,13 +9,24 @@
 #import "TopAppsCollectionCell.h"
 #import "TANetworkOperationCenter.h"
 
+@interface TopAppsCollectionCell()
+
+@property (strong, nonatomic) TAAppInfo *topApp;
+@property (strong, nonatomic) NSData *imageData;
+
+@property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIImageView  *appImageView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *imageActivityIndicator;
+
+@end
 
 @implementation TopAppsCollectionCell
 
 #pragma mark - Display AppInfo
 
-//Method to Display appInfo in grid of UIcollectionView
--(void)displayAppInfoInGrid:(TopApp*)appInfo
+-(void)configureAppInfo:(TAAppInfo*)appInfo
 {
     self.topApp = appInfo;
 //    initializing the URLConnection to server with appImageURL
