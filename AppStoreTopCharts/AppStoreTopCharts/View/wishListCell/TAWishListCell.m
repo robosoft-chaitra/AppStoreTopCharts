@@ -12,10 +12,15 @@
 
 -(void)displayAppInfoForWishListApp:(TopApp *)wishListApp
 {
+    //CR: Remove the following comment. What a method does should be
+    //be explained in header, and not
 //  method to display WishList app on tableview
     self.appNameLabel.text  = wishListApp.appName;
     self.categoryLabel.text = wishListApp.category;
     self.authorLabel.text   = wishListApp.authorName;
+    
+    //CR: Image is being loaded synchronously. Potential performance issue.
+    //Check AsyncImageView at: https://github.com/nicklockwood/AsyncImageView
     self.appImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:wishListApp.appImageUrl]];
     [self.priceButton setTitle:wishListApp.price forState:UIControlStateNormal];
     self.priceButton.layer.borderWidth = 1.0;

@@ -12,6 +12,7 @@
 #import "TASearchHeaderView.h"
 #import "TAPopUpView.h"
 
+//CR: Use these - NS_ENUM(<#_type#>, <#_name#>)
 typedef enum
 {
     KTopPaidAppTabBarItemIndex,
@@ -25,10 +26,13 @@ typedef enum
 @property (nonatomic, strong) NSMutableArray *filteredApps; //Array of Filtered Apps
 @property (nonatomic, strong) NSMutableArray *topApps;      //Array of TopApps
 
+//CR: StandardPaths of Nick Lockwood
 @property (nonatomic, strong) NSString  *appDocumentDirectoryPath; //Document directory Path
 @property (nonatomic, strong) TAPopUpView *popupView ;   //popup to view details of app
 
 @property (strong, nonatomic) UITapGestureRecognizer     *hidePopupGestureRecognizer;   //Tapgesture to hide popup
+
+//CR: Always have the outlets in .m
 @property (strong, nonatomic) IBOutlet UICollectionView  *topAppCollectionView;
 
 //method to search for app using AppName

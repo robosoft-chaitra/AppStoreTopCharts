@@ -21,5 +21,6 @@
 
 //Method to display the AppInfo on wishListCell
 - (void)displayAppInfoForWishListApp:(TopApp*)wishListApp;
+//CR: Just call this method as configureWith:
 
 @end

@@ -45,6 +45,8 @@
 //            loading TopFreeAppURL
             topAppURL = [NSURL URLWithString:TATopFreeAppJsonFeed];
         }
+    
+    //CR: See RequestQueue from Nick Lockwood
     TANetworkOperationCenter *networkCenter = [[TANetworkOperationCenter alloc]initNetworkConnectionFromURL:topAppURL];
     networkCenter.delegate = self;
 }
@@ -265,6 +267,7 @@
     }
 //    loading wishlistApp From ApplicationDirectory
     self.wishListApps =[[NSArray arrayWithContentsOfFile:self.appDocumentDirectoryPath] mutableCopy];
+    //CR: This is not needed, double initialization, avoid it.
     if (self.wishListApps.count == 0)
          self.wishListApps = [[NSMutableArray alloc]init];
 }

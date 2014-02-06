@@ -17,7 +17,9 @@
 {
     if(self = [super init])
     {
-         self.appName       = [self seperateAppNameFromSubTitle:[appStoreDictionary valueForKeyPath:@"im:name.label"]];
+         //CR: should not use dot operator within the init and dealloc.
+         //read http://qualitycoding.org/objective-c-init/
+         _appName       = [self seperateAppNameFromSubTitle:[appStoreDictionary valueForKeyPath:@"im:name.label"]];
          self.authorName    = [appStoreDictionary valueForKeyPath:@"im:artist.label"];
          self.summary       = [appStoreDictionary valueForKeyPath:@"summary.label"];
          self.price         = [appStoreDictionary valueForKeyPath:@"im:price.label"];
@@ -34,7 +36,9 @@
 //Method to seperate the subtitles
 -(NSString*)seperateAppNameFromSubTitle:(NSString*)originalString
 {
-    return [[[[[[[[[[originalString componentsSeparatedByString:@"\u2013"] objectAtIndex: 0]
+     //CR: This is too arcane to understand. How do you handle error cases?
+     //Refactor this.
+     return [[[[[[[[[[originalString componentsSeparatedByString:@"\u2013"] objectAtIndex: 0]
                                     componentsSeparatedByString:@"\u2014"] objectAtIndex: 0]
                                     componentsSeparatedByString:@"-"] objectAtIndex: 0]
                                     componentsSeparatedByString:@":"] objectAtIndex: 0]
@@ -44,6 +48,7 @@
 //overriding init method
 -(id)init
 {
+     //CR: if you are calling another constructor, self = [super init] is superfluous.
     if(self = [super init])
     {
         self =  [self initTopAppFromAppStoreDictionary:nil];

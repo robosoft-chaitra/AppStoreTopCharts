@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+//CR: Document about a class briefly.
 @interface TopApp : NSObject
 
 //TopApp Model Class Properties
@@ -22,6 +23,7 @@
 @property (nonatomic, strong) NSString *referenceLink;
 @property (nonatomic, strong) NSDictionary *appInfoDictionary;
 
+//CR: Omit quoting the name of the class in the init methods.
 -(id)initTopAppFromAppStoreDictionary:(NSDictionary*) appStoreDictionary;
 
 @end
