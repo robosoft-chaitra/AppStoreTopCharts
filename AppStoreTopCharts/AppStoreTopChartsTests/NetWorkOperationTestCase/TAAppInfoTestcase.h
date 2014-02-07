@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Chaithra TV. All rights reserved.
 //
 
-@interface TopAppTestcase : TAAppInfo
+@interface TAAppInfoTestcase : TAAppInfo
 
 @property (nonatomic, strong) NSData *jsonData;
 @property (nonatomic, strong) NSDictionary *jsonDictionary;
 @property (nonatomic, strong) NSMutableArray *topApps;
 @property (nonatomic, strong) NSArray *appEntries;
-@property (nonatomic, strong) TAAppInfo *topApp;
+@property (nonatomic, strong) TAAppInfo *appInfo;
 
 -(id)initTopAppTestCase;
 

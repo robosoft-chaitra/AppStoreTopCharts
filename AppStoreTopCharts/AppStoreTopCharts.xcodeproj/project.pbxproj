@@ -33,11 +33,11 @@
 		9D9C059218A4970200B3BCEA /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C059118A4970200B3BCEA /* AsyncImageView.m */; };
 		9D9C059618A49B9000B3BCEA /* StandardPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C059518A49B9000B3BCEA /* StandardPaths.m */; };
 		9D9C05F518A4A2F200B3BCEA /* RequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C05F418A4A2F200B3BCEA /* RequestQueue.m */; };
-		9D9C05F918A4BB5400B3BCEA /* ASSubTitleTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C05F818A4BB5400B3BCEA /* ASSubTitleTestCase.m */; };
+		9D9C05F918A4BB5400B3BCEA /* TASubTitleTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9C05F818A4BB5400B3BCEA /* TASubTitleTestCase.m */; };
 		9D9EE06018A0B43100BEC311 /* TopAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EE05F18A0B43100BEC311 /* TopAppsFeed.json */; };
 		9D9EE06118A0B43100BEC311 /* TopAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D9EE05F18A0B43100BEC311 /* TopAppsFeed.json */; };
 		9DA15457189A56F500437421 /* TAAppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA15456189A56F500437421 /* TAAppConstants.m */; };
-		9DA9FD73189BD97F00CCDDDB /* TopAppTestcase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA9FD72189BD97F00CCDDDB /* TopAppTestcase.m */; };
+		9DA9FD73189BD97F00CCDDDB /* TAAppInfoTestcase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA9FD72189BD97F00CCDDDB /* TAAppInfoTestcase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,12 +91,12 @@
 		9D9C059518A49B9000B3BCEA /* StandardPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardPaths.m; sourceTree = "<group>"; };
 		9D9C05F318A4A2F200B3BCEA /* RequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestQueue.h; sourceTree = "<group>"; };
 		9D9C05F418A4A2F200B3BCEA /* RequestQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestQueue.m; sourceTree = "<group>"; };
-		9D9C05F818A4BB5400B3BCEA /* ASSubTitleTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSubTitleTestCase.m; path = SubTitleTestcase/ASSubTitleTestCase.m; sourceTree = "<group>"; };
+		9D9C05F818A4BB5400B3BCEA /* TASubTitleTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TASubTitleTestCase.m; path = SubTitleTestcase/TASubTitleTestCase.m; sourceTree = "<group>"; };
 		9D9EE05F18A0B43100BEC311 /* TopAppsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TopAppsFeed.json; sourceTree = "<group>"; };
 		9DA15455189A56F500437421 /* TAAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAAppConstants.h; path = Model/Constants/TAAppConstants.h; sourceTree = "<group>"; };
 		9DA15456189A56F500437421 /* TAAppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAAppConstants.m; path = Model/Constants/TAAppConstants.m; sourceTree = "<group>"; };
-		9DA9FD71189BD97F00CCDDDB /* TopAppTestcase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopAppTestcase.h; path = NetWorkOperationTestCase/TopAppTestcase.h; sourceTree = "<group>"; };
-		9DA9FD72189BD97F00CCDDDB /* TopAppTestcase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopAppTestcase.m; path = NetWorkOperationTestCase/TopAppTestcase.m; sourceTree = "<group>"; };
+		9DA9FD71189BD97F00CCDDDB /* TAAppInfoTestcase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAAppInfoTestcase.h; path = NetWorkOperationTestCase/TAAppInfoTestcase.h; sourceTree = "<group>"; };
+		9DA9FD72189BD97F00CCDDDB /* TAAppInfoTestcase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAAppInfoTestcase.m; path = NetWorkOperationTestCase/TAAppInfoTestcase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,10 +367,10 @@
 		9DA9FD70189BD92F00CCDDDB /* TopAppTestCase */ = {
 			isa = PBXGroup;
 			children = (
-				9DA9FD71189BD97F00CCDDDB /* TopAppTestcase.h */,
-				9DA9FD72189BD97F00CCDDDB /* TopAppTestcase.m */,
+				9DA9FD71189BD97F00CCDDDB /* TAAppInfoTestcase.h */,
+				9DA9FD72189BD97F00CCDDDB /* TAAppInfoTestcase.m */,
 				9D2D1A53188FC2E5009BB661 /* AppStoreTopChartsTests.m */,
-				9D9C05F818A4BB5400B3BCEA /* ASSubTitleTestCase.m */,
+				9D9C05F818A4BB5400B3BCEA /* TASubTitleTestCase.m */,
 			);
 			name = TopAppTestCase;
 			sourceTree = "<group>";
@@ -499,8 +499,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D2D1A54188FC2E5009BB661 /* AppStoreTopChartsTests.m in Sources */,
-				9DA9FD73189BD97F00CCDDDB /* TopAppTestcase.m in Sources */,
-				9D9C05F918A4BB5400B3BCEA /* ASSubTitleTestCase.m in Sources */,
+				9DA9FD73189BD97F00CCDDDB /* TAAppInfoTestcase.m in Sources */,
+				9D9C05F918A4BB5400B3BCEA /* TASubTitleTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

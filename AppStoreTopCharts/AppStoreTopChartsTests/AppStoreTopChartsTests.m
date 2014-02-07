@@ -7,12 +7,12 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "TopAppTestcase.h"
+#import "TAAppInfoTestcase.h"
 
 //ToDo:unit testing for A valid model 
 @interface AppStoreTopChartsTests : XCTestCase
 
-@property (nonatomic, retain)  TopAppTestcase *topAppTestcase;
+@property (nonatomic, retain)  TAAppInfoTestcase *topAppTestcase;
 
 @end
 
@@ -21,83 +21,168 @@
 - (void)setUp
 {
     [super setUp];
-    self.topAppTestcase = [[TopAppTestcase alloc]initTopAppTestCase];
+    self.topAppTestcase = [[TAAppInfoTestcase alloc]initTopAppTestCase];
 
 }
 
 -(void)testJsonData
 {
-    XCTAssert(self.topAppTestcase.jsonData, @"JsonFeed Should not be nil");
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+    XCTAssertEqualObjects(self.topAppTestcase.jsonData,jsonData, @"JsonFeed Should not be valid data");
 }
 
 -(void)testJsonParse
 {
-    XCTAssert(self.topAppTestcase.jsonDictionary, @"JsonFeed Parsing Error");
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:kNilOptions error:&error];
+
+    XCTAssertEqualObjects(self.topAppTestcase.jsonDictionary, jsonDictionary,@"JsonFeed Parsing Error");
+}
+
+
+
+-(void)testAppEntriesInServer
+{
+    NSError *error;
+     NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                          options:kNilOptions error:&error];
+    NSArray *entries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+   
+    XCTAssertEqualObjects(self.topAppTestcase.appEntries, entries, @"app entries should be proper");
 }
 
 -(void)testTopAppList
 {
-    XCTAssert(self.topAppTestcase.topApps, @"TopApp list should not be empty");
-}
-
--(void)testAppEntriesInServer
-{
-    XCTAssert(self.topAppTestcase.appEntries, @"TopApp list should not be empty");
-}
-
--(void)testTopAppModel
-{
-     XCTAssert(self.topAppTestcase.topApp, @"TopApp list should not be empty");
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:kNilOptions error:&error];
+    NSArray *entries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+    NSMutableArray *apps = [[NSMutableArray alloc]init];
+    for (NSDictionary *appEntry in entries)
+    {
+        TAAppInfo *appInfo = [[TAAppInfo alloc] initFromAppStoreDictionary:appEntry];
+        [apps addObject:appInfo];
+    }
+    XCTAssertEqual(self.topAppTestcase.topApps.count,apps.count, @"TopApp list not equal");
 }
 
 -(void)testAppName
 {
-    XCTAssert(self.topAppTestcase.topApp.appName, @"App Name should not be empty");
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:kNilOptions error:&error];
+    NSArray *entries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+    
+    XCTAssertEqualObjects(self.topAppTestcase.appInfo.appName, [[entries objectAtIndex:0] valueForKeyPath:@"im:name.label"], @"app name should be same");
 }
 
 -(void)testAppAuthorName
 {
-    XCTAssert(self.topAppTestcase.topApp.authorName, @"App Author should not be empty");
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:kNilOptions error:&error];
+    NSArray *entries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+    
+    XCTAssertEqualObjects(self.topAppTestcase.appInfo.authorName, [[entries objectAtIndex:0] valueForKeyPath:@"im:artist.label"], @"author name should be same");
+
 }
 
 -(void)testAppPrice
 {
-    XCTAssert(self.topAppTestcase.topApp.price, @"App Price should not be empty");
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:kNilOptions error:&error];
+    NSArray *entries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+    
+    XCTAssertEqualObjects(self.topAppTestcase.appInfo.price, [[entries objectAtIndex:0] valueForKeyPath:@"im:price.label"], @"price should be same");
 }
 
 -(void)testAppImageUrl
 {
-    XCTAssert(self.topAppTestcase.topApp.appImageUrl , @"App ImageURL should not be empty");
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:kNilOptions error:&error];
+    NSArray *entries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+    
+    NSURL *imageUrl = [NSURL URLWithString:[[[[entries objectAtIndex:0] valueForKey:@"im:image"]   objectAtIndex:0] valueForKey:@"label"]];
+    
+    XCTAssertEqualObjects(self.topAppTestcase.appInfo.appImageUrl,imageUrl, @"Image URL should be same");
 }
 
 -(void)testAppReleseDate
 {
-    XCTAssert(self.topAppTestcase.topApp.releaseDate , @"App releseDate should not be empty");
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:kNilOptions error:&error];
+    NSArray *entries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+    
+    XCTAssertEqualObjects(self.topAppTestcase.appInfo.releaseDate, [[entries objectAtIndex:0] valueForKeyPath:@"im:releaseDate.attributes.label"], @"releseDate should be same");
 }
 
 -(void)testAppReferenceLink
 {
-    XCTAssert(self.topAppTestcase.topApp.referenceLink , @"App referenceLink should not be empty");
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:kNilOptions error:&error];
+    NSArray *entries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+    
+    XCTAssertEqualObjects(self.topAppTestcase.appInfo.referenceLink, [[entries objectAtIndex:0] valueForKeyPath:@"link.attributes.href"], @"reference Link name should be same");
+
 }
 
 -(void)testAppCategory
 {
-    XCTAssert(self.topAppTestcase.topApp.category , @"App category should not be empty");
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:kNilOptions error:&error];
+    NSArray *entries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+    
+    XCTAssertEqualObjects(self.topAppTestcase.appInfo.category, [[entries objectAtIndex:0] valueForKeyPath:@"category.attributes.label"], @"category should be same");
 }
 
 -(void)testAppCopyRight
 {
-    XCTAssert(self.topAppTestcase.topApp.copyright , @"App CopyRight should not be empty");
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:kNilOptions error:&error];
+    NSArray *entries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+    
+    XCTAssertEqualObjects(self.topAppTestcase.appInfo.copyright, [[entries objectAtIndex:0] valueForKeyPath:@"rights.label"], @"copyright should be same");
 }
 
 -(void)testAppSummary
 {
-    XCTAssert(self.topAppTestcase.topApp.summary , @"App summary should not be empty");
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:kNilOptions error:&error];
+    NSArray *entries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+    
+    XCTAssertEqualObjects(self.topAppTestcase.appInfo.summary, [[entries objectAtIndex:0] valueForKeyPath:@"summary.label"], @"summary should be same");
 }
 
 -(void)testAppInfoDict
 {
-     XCTAssert(self.topAppTestcase.topApp.appInfoDictionary , @"App Indo Dictionary should not be empty");
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"TopAppsFeed" ofType:@"json"]];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:kNilOptions error:&error];
+    NSArray *entries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+    
+    XCTAssertEqualObjects(self.topAppTestcase.appInfo.appInfoDictionary, [entries objectAtIndex:0], @"app dictioanary should be same");
+
 }
 
 @end

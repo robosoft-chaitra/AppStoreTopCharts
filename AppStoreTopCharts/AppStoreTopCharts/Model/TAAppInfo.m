@@ -34,7 +34,6 @@
 //Method to exclude the subtitles from appName
 -(NSString*)seperateAppNameFromSubTitle:(NSString*)originalString
 {
-     NSLog(@"original string =%@",originalString);
 //     possible subtitle starting characters are: \u2013, \u2014, - ,: ,(, by
      
 //     \u2013 for unicode of single dash -

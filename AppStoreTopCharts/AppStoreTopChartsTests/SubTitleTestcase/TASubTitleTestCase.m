@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface ASSubTitleTestCase : XCTestCase
+@interface TASubTitleTestCase : XCTestCase
 
 @end
 
-@implementation ASSubTitleTestCase
+@implementation TASubTitleTestCase
 
 - (void)setUp
 {
