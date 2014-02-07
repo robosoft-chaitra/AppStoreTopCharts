@@ -20,9 +20,14 @@
     // Put setup code here; it will be run once, before the first test case.
 }
 
-- (void)testNilAppName
+-(void)testAppNameNil
 {
-    XCTAssertEqual([self seperateAppNameFromSubTitle:@""],@"", @"main String is nil");
+   XCTAssertNil([self seperateAppNameFromSubTitle:nil], @"main String is nil");
+}
+
+- (void)testEmptyAppName
+{
+    XCTAssertEqual([self seperateAppNameFromSubTitle:@""],@"", @"main String is empty");
 }
 
 -(void)testSubtitleNil
