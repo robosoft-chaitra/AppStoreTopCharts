@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Chaithra TV. All rights reserved.
 //
 
-#import "TopAppTestcase.h"
+#import "TAAppInfoTestcase.h"
 
-@implementation TopAppTestcase
+@implementation TAAppInfoTestcase
 
 -(id)initTopAppTestCase
 {
@@ -21,7 +21,7 @@
                                                                options:kNilOptions error:&error];
         if(error)
         {
-            NSLog(@"Unable to Parse JsonData");
+            NSLog(@"Unable to Parse JsonData %@",error.localizedDescription);
         }
         else
         {
@@ -29,11 +29,12 @@
     
             for (NSDictionary *appEntry in self.appEntries)
             {
-                self.topApp = [[TopApp alloc] initTopAppFromAppStoreDictionary:appEntry];
-                [self.topApps addObject:self.topApp];
+                TAAppInfo *appData = [[TAAppInfo alloc] initFromAppStoreDictionary:appEntry];
+                [self.topApps addObject:appData];
             }
         }
     }
+    self.appInfo = [self.topApps objectAtIndex:0];
     return self;
 }
 

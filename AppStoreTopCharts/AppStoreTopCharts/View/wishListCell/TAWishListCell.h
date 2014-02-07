@@ -10,16 +10,7 @@
 
 @interface TAWishListCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *appImageView;
-@property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
-@property (weak, nonatomic) IBOutlet UIButton *priceButton;
-
-//IBAction: ToInstall APP
-- (IBAction)installApp:(id)sender;
-
 //Method to display the AppInfo on wishListCell
-- (void)displayAppInfoForWishListApp:(TopApp*)wishListApp;
+- (void)configureWith:(TAAppInfo*)wishListAppInfo;
 
 @end

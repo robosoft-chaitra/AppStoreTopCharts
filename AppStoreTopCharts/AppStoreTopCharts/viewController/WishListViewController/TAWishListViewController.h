@@ -10,8 +10,4 @@
 
 @interface TAWishListViewController : UITableViewController
 
-@property (nonatomic, strong) NSMutableArray *selectedApps;
-@property (nonatomic, strong) NSMutableArray *appDictionaryList;
-@property (nonatomic, strong) NSString *appDocumentDirectoryPath;
-
 @end

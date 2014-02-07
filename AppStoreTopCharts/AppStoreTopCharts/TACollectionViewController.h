@@ -8,30 +8,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TANetworkOperationCenter.h"
 #import "TASearchHeaderView.h"
 #import "TAPopUpView.h"
 
-typedef enum
+NS_ENUM(NSInteger, TabBarItem)
 {
-    KTopPaidAppTabBarItemIndex,
-    KTopFreeAppTabBarItemIndex
-    
-}TabBarItem;
+    TAPaidAppTabBarItem,
+    TAFreeAppTabBarItem
+};
 
-@interface TACollectionViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,TASearchAppsDelegate, TAPopUpViewDelegate,TANetworkOperationsDelegate>
-
-@property (nonatomic, strong) NSMutableArray *wishListApps; //Array of Wishlist Apps
-@property (nonatomic, strong) NSMutableArray *filteredApps; //Array of Filtered Apps
-@property (nonatomic, strong) NSMutableArray *topApps;      //Array of TopApps
-
-@property (nonatomic, strong) NSString  *appDocumentDirectoryPath; //Document directory Path
-@property (nonatomic, strong) TAPopUpView *popupView ;   //popup to view details of app
-
-@property (strong, nonatomic) UITapGestureRecognizer     *hidePopupGestureRecognizer;   //Tapgesture to hide popup
-@property (strong, nonatomic) IBOutlet UICollectionView  *topAppCollectionView;
-
-//method to search for app using AppName
-- (IBAction)searchAppsByName:(id)sender;
+@interface TACollectionViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,TASearchAppsDelegate, TAPopUpViewDelegate>
 
 @end

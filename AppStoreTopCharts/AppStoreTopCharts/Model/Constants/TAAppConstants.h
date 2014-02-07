@@ -31,5 +31,7 @@ extern NSString *const TACellIndentifier;
 extern NSString *const TAHeaderCellIndentifier;
 extern NSString *const TAWishListCellIndentifier;
 
+extern NSString *const TAWishListPlist;
+
 
 @end

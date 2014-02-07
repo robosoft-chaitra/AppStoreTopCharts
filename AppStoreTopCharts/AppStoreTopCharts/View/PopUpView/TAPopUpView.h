@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class TAPopUpView;
+
 @protocol TAPopUpViewDelegate <NSObject>
 
 //method to hide/Show popup on collectionview
--(void)popUpViewDidAppear;
+-(void)popUpViewDidAppear:(TAPopUpView*)popUpView;
 //hiding the popup when cancelButton clicked
 -(void)popUpViewCancelButtonClicked;
 //loading the app To WishList
@@ -21,29 +23,15 @@
 
 @interface TAPopUpView : UIView
 
-@property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *copyrightLabel;
-@property (weak, nonatomic) IBOutlet UILabel *releseDateLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *appImageView;
-@property (weak, nonatomic) IBOutlet UITextView *summaryTextField;
-@property (weak, nonatomic) IBOutlet UIButton *priceButton;
-@property (weak, nonatomic) IBOutlet UIButton *wishListButton;
-@property (weak, nonatomic) IBOutlet UIButton *referenceLinkButton;
-
 @property (weak,   nonatomic) id<TAPopUpViewDelegate> delegate;
 
-//loading the nibFile of popup from Bundle
+//loading view from the nib
 + (id)popUpView;
 
-//Start Animating the popup
--(void)startAnimation:(TopApp*)topApp;
+//start animating the popup with bouncing effect & Displaying appInfo
+-(void)startAnimatingPopupView:(TAAppInfo*)appInfo;
 
+//hiding the popupview 
 - (IBAction)hideView:(id)sender;
-- (IBAction)installApp:(id)sender;
-- (IBAction)addToWishList:(id)sender;
-- (IBAction)showReferenceLink:(id)sender;
-
 
 @end

@@ -7,54 +7,33 @@
 //
 
 #import "TopAppsCollectionCell.h"
-#import "TANetworkOperationCenter.h"
+#import "AsyncImageView.h"
 
+@interface TopAppsCollectionCell()
+
+@property (strong, nonatomic) NSData *imageData;
+
+@property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIImageView  *appImageView;
+
+@end
 
 @implementation TopAppsCollectionCell
 
 #pragma mark - Display AppInfo
 
-//Method to Display appInfo in grid of UIcollectionView
--(void)displayAppInfoInGrid:(TopApp*)appInfo
+-(void)configureWith:(TAAppInfo *)appInfo
 {
-    self.topApp = appInfo;
-//    initializing the URLConnection to server with appImageURL
-    TANetworkOperationCenter *networkCenter = [[TANetworkOperationCenter alloc]initNetworkConnectionFromURL:appInfo.appImageUrl];
-    networkCenter.delegate = self;
-}
-
-
-#pragma  mark - NetWEorkOPeration Delegate Methods
-
--(void)didStartReceivingResponseFromServer
-{
-//    Initialzing the  image data when Start recieving response From server
-    self.appImageView.image = nil;
-    [self.imageActivityIndicator startAnimating];
-    self.imageData = [[NSData alloc]init];
-}
-
--(void)didReceiveDataFromResponseData:(NSData*)responseData
-{
-//    loading data received from server to imagedata
-    self.imageData = responseData;
-}
-
--(void)didFinishLoadingDataFromServer
-{
-//    displaying the App DEtails in collectionview cell
-    [self.imageActivityIndicator stopAnimating];
-    [self.imageActivityIndicator setHidesWhenStopped:YES];
-    
     self.layer.borderWidth  = TACellBorderWidth;
     self.layer.borderColor  = [[UIColor lightGrayColor] CGColor];
     self.layer.cornerRadius = TACornerRadius;
-    self.appNameLabel.text  = self.topApp.appName;
-    self.categoryLabel.text = self.topApp.category;
-    self.priceLabel.text    = self.topApp.price;
-    self.appImageView.image = [UIImage imageWithData:self.imageData];
+    
+    self.appNameLabel.text  = appInfo.appName;
+    self.categoryLabel.text = appInfo.category;
+    self.priceLabel.text    = appInfo.price;
+    self.appImageView.imageURL = appInfo.appImageUrl;
 }
-
-
 
 @end

@@ -7,17 +7,31 @@
 //
 
 #import "TAWishListCell.h"
+#import "AsyncImageView.h"
+
+@interface TAWishListCell()
+
+@property (weak, nonatomic) IBOutlet UIImageView *appImageView;
+@property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
+@property (weak, nonatomic) IBOutlet UIButton *priceButton;
+
+//IBAction: ToInstall APP
+- (IBAction)installApp:(id)sender;
+
+@end
 
 @implementation TAWishListCell
 
--(void)displayAppInfoForWishListApp:(TopApp *)wishListApp
+-(void)configureWith:(TAAppInfo *)wishListAppInfo
 {
-//  method to display WishList app on tableview
-    self.appNameLabel.text  = wishListApp.appName;
-    self.categoryLabel.text = wishListApp.category;
-    self.authorLabel.text   = wishListApp.authorName;
-    self.appImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:wishListApp.appImageUrl]];
-    [self.priceButton setTitle:wishListApp.price forState:UIControlStateNormal];
+    self.appNameLabel.text  = wishListAppInfo.appName;
+    self.categoryLabel.text = wishListAppInfo.category;
+    self.authorLabel.text   = wishListAppInfo.authorName;
+    self.appImageView.imageURL = wishListAppInfo.appImageUrl;
+    
+    [self.priceButton setTitle:wishListAppInfo.price forState:UIControlStateNormal];
     self.priceButton.layer.borderWidth = 1.0;
     self.priceButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 }
@@ -25,7 +39,6 @@
 #pragma mark - IBAction: Install App
 - (IBAction)installApp:(id)sender
 {
-//    Method to Install APP
     UIAlertView *installAlert = [[UIAlertView alloc]initWithTitle:@"Install APP" message:[NSString stringWithFormat:@"Would you like to Install App:%@",self.appNameLabel.text] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
     [installAlert show];
 }

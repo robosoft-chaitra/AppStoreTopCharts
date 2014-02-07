@@ -107,7 +107,7 @@
                 <outlet property="copyrightLabel" destination="aRt-ed-RC7" id="9Yy-qE-mlz"/>
                 <outlet property="priceButton" destination="L2G-Xg-Fbz" id="Yq9-OL-yot"/>
                 <outlet property="referenceLinkButton" destination="Abc-hn-sVI" id="Gu6-f4-9OJ"/>
-                <outlet property="releseDateLabel" destination="BIL-z3-IZc" id="Efe-VX-nm3"/>
+                <outlet property="releaseDateLabel" destination="BIL-z3-IZc" id="uQF-so-xGQ"/>
                 <outlet property="summaryTextField" destination="eQP-0D-ex2" id="lfc-bF-MZa"/>
                 <outlet property="wishListButton" destination="3f5-nG-7c7" id="dlL-Mw-LwM"/>
             </connections>

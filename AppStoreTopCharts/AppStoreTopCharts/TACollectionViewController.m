@@ -8,6 +8,9 @@
 
 #import "TACollectionViewController.h"
 #import "TopAppsCollectionCell.h"
+#import "StandardPaths.h"
+#import "RequestQueue.h"
+#import "TAAppInfo.h"
 
 @interface TACollectionViewController ()
 {
@@ -16,6 +19,17 @@
     BOOL  isPopUpViewAppers;
     UISearchBar *searchBar;
 }
+
+@property (nonatomic, strong) NSMutableArray *wishListApps;
+@property (nonatomic, strong) NSMutableArray *filteredApps;
+@property (nonatomic, strong) NSMutableArray *topApps;
+@property (nonatomic, strong) TAPopUpView *popupView ;
+
+@property (strong, nonatomic) UITapGestureRecognizer     *hidePopupGestureRecognizer;
+@property (strong, nonatomic) IBOutlet UICollectionView  *topAppCollectionView;
+
+//method to search for app using AppName
+- (IBAction)searchAppsByName:(id)sender;
 
 @end
 
@@ -33,31 +47,61 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-    NSURL *topAppURL;
+    NSURLRequest *request;
     
-        if(self.tabBarController.selectedIndex == KTopPaidAppTabBarItemIndex)
+        if(self.tabBarController.selectedIndex == TAPaidAppTabBarItem)
         {
-//            loading TOPPaidAPPURL
-            topAppURL = [NSURL URLWithString:TATopPaidAppJsonFeed];
+//            loading TOPPaidAPPURL request
+           request = [NSURLRequest requestWithURL:[NSURL URLWithString:TATopPaidAppJsonFeed]];
          }
-        else  if(self.tabBarController.selectedIndex == KTopFreeAppTabBarItemIndex)
+        else  if(self.tabBarController.selectedIndex == TAFreeAppTabBarItem)
         {
-//            loading TopFreeAppURL
-            topAppURL = [NSURL URLWithString:TATopFreeAppJsonFeed];
+//            loading TopFreeAppURL request
+            request = [NSURLRequest requestWithURL:[NSURL URLWithString:TATopFreeAppJsonFeed]];
         }
-    TANetworkOperationCenter *networkCenter = [[TANetworkOperationCenter alloc]initNetworkConnectionFromURL:topAppURL];
-    networkCenter.delegate = self;
+    
+    
+    [[RequestQueue mainQueue] addRequest:request completionHandler:^(__unused NSURLResponse *response, NSData *data, NSError *error)
+     {
+         if (error)
+         {
+             [[[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+         }
+         else
+         {
+             NSError *parseError;
+             //    parse the jsonData Received From Server
+             NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data
+                                                                            options:kNilOptions error:&parseError];
+             if(error)
+             {
+                 NSLog(@"Unable to Parse JsonData %@",[parseError localizedDescription]);
+             }
+             else
+             {
+                 NSArray *appEntries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+                 
+                 for (NSDictionary *appEntry in appEntries)
+                 {
+                     //  converting AppEntries Into TopApp Object
+                     TAAppInfo *appInfo = [[TAAppInfo alloc] initFromAppStoreDictionary:appEntry];
+                     [self.topApps addObject:appInfo];
+                 }
+             }
+             [self.topAppCollectionView reloadData];
+         }
+     }];
+    
 }
 
 #pragma mark - Initialization methods
 
 -(void)initialSetUp
 {
-//    Initializing model & parser
     isFiltered = NO;
     isHeaderViewActive = NO;
     isPopUpViewAppers = NO;
-   self.appDocumentDirectoryPath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"WishList.plist"];
+    self.topApps = [[NSMutableArray alloc]init];
 }
 
 -(void)setUpPopUpView
@@ -68,7 +112,6 @@
      [self.topAppCollectionView addSubview:self.popupView];
      self.popupView.alpha = TAZeroAplhaValue;
     
-//    TapGesture to hide the popupview
     self.hidePopupGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hidePopUpView:)];
 }
 
@@ -95,14 +138,13 @@
 {
     TopAppsCollectionCell *topAppCollectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:TACellIndentifier
                                                                                             forIndexPath:indexPath];
-    TopApp *topApp;
+    TAAppInfo *appInfo;
     if(isFiltered)
-        topApp = [self.filteredApps objectAtIndex:indexPath.row];
+        appInfo = [self.filteredApps objectAtIndex:indexPath.row];
     else
-        topApp = [self.topApps objectAtIndex:indexPath.row];
+        appInfo = [self.topApps objectAtIndex:indexPath.row];
     
-//    method to display appInfo in collectionview grid
-    [topAppCollectionCell displayAppInfoInGrid:topApp];
+    [topAppCollectionCell configureWith:appInfo];
     
     if(isFiltered && isHeaderViewActive && ![searchBar isFirstResponder])
     {
@@ -120,9 +162,9 @@
     if(!isPopUpViewAppers)
     {
         if(isFiltered)
-             [self.popupView startAnimation: [self.filteredApps objectAtIndex:indexPath.row]];
+             [self.popupView startAnimatingPopupView: [self.filteredApps objectAtIndex:indexPath.row]];
         else
-             [self.popupView startAnimation: [self.topApps objectAtIndex:indexPath.row]];
+             [self.popupView startAnimatingPopupView: [self.topApps objectAtIndex:indexPath.row]];
         
 //        method to adjust the popupview to center of screen
         self.popupView.center = [self adjustCenterForPopUpView];
@@ -138,7 +180,7 @@
     TASearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:
                                          UICollectionElementKindSectionHeader withReuseIdentifier:TAHeaderCellIndentifier forIndexPath:indexPath];
     headerView.delegate = self;
-    if(isFiltered && isHeaderViewActive && ![headerView.appSearchBar isFirstResponder])
+    if(isFiltered && isHeaderViewActive)
     {
         [headerView.appSearchBar becomeFirstResponder];
     }
@@ -154,7 +196,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
 //    Hiding/Showing search Bar on button click
-    if (isHeaderViewActive == NO)
+    if (!isHeaderViewActive)
         return CGSizeZero;
     else
         return CGSizeMake(TAHeaderViewRefWidth, TAHeaderViewRefHeight);
@@ -178,7 +220,7 @@
      {
         isFiltered = YES;
         self.filteredApps = [[NSMutableArray alloc] init];
-        for (TopApp *topApp in self.topApps)
+        for (TAAppInfo *topApp in self.topApps)
         {
 //            Searching for App By using appName
             NSRange nameRange = [topApp.appName rangeOfString:appName options:NSCaseInsensitiveSearch];
@@ -197,7 +239,7 @@
 }
 
 #pragma mark - PopView Delegate methods
--(void)popUpViewDidAppear
+-(void)popUpViewDidAppear:(TAPopUpView *)popUpView
 {
 //    adding HideGesture if popup appered on scrren
     isPopUpViewAppers = YES;
@@ -217,13 +259,19 @@
 
 -(void)addAppToWishList:(NSString *)appName
 {
-//    method to load WishListApps From application Directory
-    [self loadFromAppDocumentDirectory];
-    NSIndexPath *indexpath = [[self.topAppCollectionView indexPathsForSelectedItems ] objectAtIndex:0];
-    TopApp *topApp = [self.topApps objectAtIndex:indexpath.row];
+//    loding WishListApps From application Directory
+   NSArray *plistArry = [NSArray arrayWithContentsOfFile:[[NSFileManager defaultManager]pathForPublicFile:TAWishListPlist]];
     
-    if(![self.wishListApps containsObject:topApp.appInfoDictionary])
-        [self.wishListApps addObject:topApp.appInfoDictionary];
+    if(plistArry)
+        self.wishListApps = plistArry.mutableCopy;
+    else
+        self.wishListApps = [NSMutableArray array];
+    
+    NSIndexPath *indexpath = [[self.topAppCollectionView indexPathsForSelectedItems] objectAtIndex:0];
+    TAAppInfo *appInfo = [self.topApps objectAtIndex:indexpath.row];
+    
+    if(![self.wishListApps containsObject:appInfo.appInfoDictionary])
+        [self.wishListApps addObject:appInfo.appInfoDictionary];
     else
     {
         UIAlertView *wishListAlert = [[UIAlertView alloc]initWithTitle:@"" message:@"App Already added to WishList" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
@@ -231,7 +279,7 @@
     }
     
 //    Writing Wishlist of Apps to application Directory
-    [self.wishListApps writeToFile:self.appDocumentDirectoryPath atomically:YES];
+    [self.wishListApps writeToFile:[[NSFileManager defaultManager] pathForPublicFile:TAWishListPlist] atomically:YES];
 }
 
 #pragma mark- Updating Center for PopupView
@@ -253,58 +301,5 @@
         [self.popupView  hideView:self.popupView];
 }
 
-#pragma mark - loading WishList Apps From AppDocumentDirectory
--(void)loadFromAppDocumentDirectory
-{
-    NSError *error;
-//    If PlistList is not found on ApplicationDirectory then load plist from Plist
-    if (![[NSFileManager defaultManager] fileExistsAtPath:self.appDocumentDirectoryPath])
-    {
-        NSString *bundle = [[NSBundle mainBundle] pathForResource:@"WishList" ofType:@"plist"];
-        [[NSFileManager defaultManager] copyItemAtPath:bundle toPath:self.appDocumentDirectoryPath error:&error];
-    }
-//    loading wishlistApp From ApplicationDirectory
-    self.wishListApps =[[NSArray arrayWithContentsOfFile:self.appDocumentDirectoryPath] mutableCopy];
-    if (self.wishListApps.count == 0)
-         self.wishListApps = [[NSMutableArray alloc]init];
-}
-
-#pragma mark - Network operation delegate methods
--(void)didStartReceivingResponseFromServer
-{
-//    Initializing the AppList List When Start Receiving DataFrom Server
-    self.topApps = [[NSMutableArray alloc]init];
-}
-
--(void)didReceiveDataFromResponseData:(NSData*)responseData
-{
-    NSError *error;
-//    parse the jsonData Received From Server
-    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:responseData
-                                                          options:kNilOptions error:&error];
-    if(error)
-    {
-        NSLog(@"Unable to Parse JsonData");
-    }
-    else
-    {
-//        To load feed entries
-        NSArray *appEntries = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
-        
-        for (NSDictionary *appEntry in appEntries)
-        {
-//            converting AppEntries Into TopApp Object
-            TopApp *topApp = [[TopApp alloc] initTopAppFromAppStoreDictionary:appEntry];
-//            Storing to TopApp Array
-            [self.topApps addObject:topApp];
-        }
-    }
-}
-
--(void)didFinishLoadingDataFromServer
-{
-//    Reloading the TopApp in collectionView
-    [self.topAppCollectionView reloadData];
-}
 
 @end

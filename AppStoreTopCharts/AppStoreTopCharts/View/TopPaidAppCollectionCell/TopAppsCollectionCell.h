@@ -7,22 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TANetworkOperationCenter.h"
 
-@class TopApp;
-@interface TopAppsCollectionCell : UICollectionViewCell<NSURLConnectionDataDelegate, NSURLConnectionDelegate, TANetworkOperationsDelegate>
-
-
-@property (strong, nonatomic) TopApp *topApp;
-@property (strong, nonatomic) NSData *imageData;
-
-@property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-@property (weak, nonatomic) IBOutlet UIImageView  *appImageView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *imageActivityIndicator;
+@interface TopAppsCollectionCell : UICollectionViewCell
 
 //method to display App Info in CollectionView cell
--(void)displayAppInfoInGrid:(TopApp*)appInfo;
+-(void)configureWith:(TAAppInfo*)appInfo;
 
 @end

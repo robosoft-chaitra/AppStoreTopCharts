@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TopApp : NSObject
+//Class Name : TAAppInfo
+//To store app Information received from appstore dictionary
+
+@interface TAAppInfo : NSObject
 
 //TopApp Model Class Properties
 @property (nonatomic, strong) NSString *appName;
@@ -22,6 +25,7 @@
 @property (nonatomic, strong) NSString *referenceLink;
 @property (nonatomic, strong) NSDictionary *appInfoDictionary;
 
--(id)initTopAppFromAppStoreDictionary:(NSDictionary*) appStoreDictionary;
+//initializing appInfo from appstore dictionary
+-(id)initFromAppStoreDictionary:(NSDictionary*) appStoreDictionary;
 
 @end
