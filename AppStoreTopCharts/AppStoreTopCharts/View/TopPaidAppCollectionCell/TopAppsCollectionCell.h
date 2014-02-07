@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TANetworkOperationCenter.h"
 
-
-@interface TopAppsCollectionCell : UICollectionViewCell<NSURLConnectionDataDelegate, NSURLConnectionDelegate, TANetworkOperationsDelegate>
+@interface TopAppsCollectionCell : UICollectionViewCell
 
 //method to display App Info in CollectionView cell
--(void)configureAppInfo:(TAAppInfo*)appInfo;
+-(void)configureWith:(TAAppInfo*)appInfo;
 
 @end

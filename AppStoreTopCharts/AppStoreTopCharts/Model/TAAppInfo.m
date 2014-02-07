@@ -17,8 +17,6 @@
 {
     if(self = [super init])
     {
-         //CR: should not use dot operator within the init and dealloc.
-         //read http://qualitycoding.org/objective-c-init/
          _appName       = [self seperateAppNameFromSubTitle:[appStoreDictionary valueForKeyPath:@"im:name.label"]];
          _authorName    = [appStoreDictionary valueForKeyPath:@"im:artist.label"];
          _summary       = [appStoreDictionary valueForKeyPath:@"summary.label"];
@@ -36,13 +34,11 @@
 //Method to exclude the subtitles from appName
 -(NSString*)seperateAppNameFromSubTitle:(NSString*)originalString
 {
-//     possible subtitle starting character are: \u2013, \u2014, - ,: ,(, by 
-     //CR: This is too arcane to understand. How do you handle error cases?
-     //Refactor this.
+//     possible subtitle starting characters are: \u2013, \u2014, - ,: ,(, by
      
-//     \u2013 for ascii value of single dash -
+//     \u2013 for unicode of single dash -
      NSString *subTitle1dash = [[originalString componentsSeparatedByString:@"\u2013"]objectAtIndex:0];
-//     \u2014 for ascii value of double dash --
+//     \u2014 for unicode of double dash --
       NSString *subTitle2dash = [[subTitle1dash componentsSeparatedByString:@"\u2014"]objectAtIndex:0];
      
      NSString *subTitledash = [[subTitle2dash componentsSeparatedByString:@"-"]objectAtIndex:0];
@@ -56,10 +52,8 @@
 
 }
 
-//overriding init method
 -(id)init
 {
-     //CR: if you are calling another constructor, self = [super init] is superfluous.
       return [self initFromAppStoreDictionary:nil];
 }
 

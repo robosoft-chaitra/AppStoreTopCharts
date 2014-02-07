@@ -8,12 +8,12 @@
 
 #import "TAWishListViewController.h"
 #import "TAWishListCell.h"
+#import "StandardPaths.h"
 
 @interface TAWishListViewController ()
 
 @property (nonatomic, strong) NSMutableArray *selectedApps;
 @property (nonatomic, strong) NSMutableArray *appDictionaryList;
-//@property (nonatomic, strong) NSString *appDocumentDirectoryPath;
 
 @end
 
@@ -24,7 +24,6 @@
 {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-//    self.appDocumentDirectoryPath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"WishList.plist"];
 
 }
 
@@ -33,7 +32,7 @@
     [super viewWillAppear:YES];
     
     self.selectedApps      = [[NSMutableArray alloc]init];
-    self.appDictionaryList = [[NSArray arrayWithContentsOfFile:[self publicDataPath]] mutableCopy];
+    self.appDictionaryList = [[NSArray arrayWithContentsOfFile:[[NSFileManager defaultManager]pathForPublicFile:TAWishListPlist]] mutableCopy];
     
 //    converting appdictionary to TopApp object & storing to List
     for(NSDictionary *appDictionary in self.appDictionaryList)
@@ -81,28 +80,10 @@
        {
            [self.appDictionaryList removeObject:deletingApp.appInfoDictionary];
            [self.selectedApps removeObject:deletingApp];
-           [self.appDictionaryList writeToFile:[self publicDataPath] atomically:YES];
+           [self.appDictionaryList writeToFile:[[NSFileManager defaultManager]pathForPublicFile:TAWishListPlist] atomically:YES];
        }
         
         [self.tableView reloadData];
     }
 }
-- (NSString *)publicDataPath
-{
-    @synchronized ([NSFileManager class])
-    {
-        static NSString *path = nil;
-        if (!path)
-        {
-            //user documents folder
-            path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"WishList.plist"];
-            
-            //retain path
-            path = [[NSString alloc] initWithString:path];
-        }
-        return path;
-    }
-}
-
-
 @end

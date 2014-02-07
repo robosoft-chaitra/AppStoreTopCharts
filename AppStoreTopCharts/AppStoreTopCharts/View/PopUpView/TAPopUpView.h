@@ -11,8 +11,6 @@
 @class TAPopUpView;
 
 @protocol TAPopUpViewDelegate <NSObject>
-//CR: Delegate methods should always pass the view which delegate is listening from.
-//Ex, -(void)popUpViewDidAppear:(TAPopUpView*)popUpView;
 
 //method to hide/Show popup on collectionview
 -(void)popUpViewDidAppear:(TAPopUpView*)popUpView;
@@ -27,12 +25,13 @@
 
 @property (weak,   nonatomic) id<TAPopUpViewDelegate> delegate;
 
-//loading the nibFile of popup from Bundle CR:This is instead, loading view from the nib
+//loading view from the nib
 + (id)popUpView;
 
-//Start Animating the popup
--(void)startAnimatingPopupView:(TAAppInfo*)appInfo; //CR: Comment is redundant. Method name is too abstract.
-- (IBAction)hideView:(id)sender;
+//start animating the popup with bouncing effect & Displaying appInfo
+-(void)startAnimatingPopupView:(TAAppInfo*)appInfo;
 
+//hiding the popupview 
+- (IBAction)hideView:(id)sender;
 
 @end

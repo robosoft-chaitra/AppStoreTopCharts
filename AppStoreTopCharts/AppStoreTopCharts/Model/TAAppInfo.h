@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-//CR: Document about a class briefly.
-
 //Class Name : TAAppInfo
-//To store app Informations received from appstore dictionary
+//To store app Information received from appstore dictionary
+
 @interface TAAppInfo : NSObject
 
 //TopApp Model Class Properties
@@ -25,8 +24,6 @@
 @property (nonatomic, strong) NSString *releaseDate;
 @property (nonatomic, strong) NSString *referenceLink;
 @property (nonatomic, strong) NSDictionary *appInfoDictionary;
-
-//CR: Omit quoting the name of the class in the init methods.
 
 //initializing appInfo from appstore dictionary
 -(id)initFromAppStoreDictionary:(NSDictionary*) appStoreDictionary;

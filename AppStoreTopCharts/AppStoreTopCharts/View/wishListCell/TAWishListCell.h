@@ -10,9 +10,7 @@
 
 @interface TAWishListCell : UITableViewCell
 
-
 //Method to display the AppInfo on wishListCell
-- (void)configureWith:(TAAppInfo*)wishListApp;
-//CR: Just call this method as configureWith:
+- (void)configureWith:(TAAppInfo*)wishListAppInfo;
 
 @end

@@ -8,19 +8,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TANetworkOperationCenter.h"
 #import "TASearchHeaderView.h"
 #import "TAPopUpView.h"
 
-//CR: Use these - NS_ENUM(<#_type#>, <#_name#>)
-NS_ENUM(NSInteger, AppTabBarItem)
+NS_ENUM(NSInteger, TabBarItem)
 {
     TAPaidAppTabBarItem,
     TAFreeAppTabBarItem
 };
 
-
-@interface TACollectionViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,TASearchAppsDelegate, TAPopUpViewDelegate,TANetworkOperationsDelegate>
-
+@interface TACollectionViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,TASearchAppsDelegate, TAPopUpViewDelegate>
 
 @end

@@ -31,4 +31,6 @@ NSString *const TACellIndentifier         = @"TopAppsCell";
 NSString *const TAHeaderCellIndentifier   = @"TASearchHeaderView";
 NSString *const TAWishListCellIndentifier = @"TAWishListCell";
 
+NSString *const TAWishListPlist = @"WishList.plist";
+
 @end
