@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Chaithra TV. All rights reserved.
 //
 
-#import "TANetworkOperationCenter.h"
-
 @interface TopAppTestcase : TAAppInfo
 
 @property (nonatomic, strong) NSData *jsonData;
