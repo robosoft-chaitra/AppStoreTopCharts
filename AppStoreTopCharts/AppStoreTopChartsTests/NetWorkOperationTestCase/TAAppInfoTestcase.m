@@ -7,12 +7,12 @@
 //
 
 #import "TAAppInfoTestcase.h"
-
+#import "TAAppInfo.h"
 @implementation TAAppInfoTestcase
 
 -(id)initTopAppTestCase
 {
-    if(self = [super init])
+    if(self = [self init])
     {
         NSError *error;
         self.topApps = [[NSMutableArray alloc]init];
