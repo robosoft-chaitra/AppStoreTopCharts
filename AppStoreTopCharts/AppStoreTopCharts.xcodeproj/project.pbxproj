@@ -252,10 +252,6 @@
 		9D2D1A64188FC42A009BB661 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9D9C05F218A4A2F200B3BCEA /* RequestQueue */,
-				9D9C059318A49B9000B3BCEA /* StandardPaths */,
-				9D9C058F18A4970200B3BCEA /* AsyncImageView */,
-				9D9FAC4A189107030052BFEB /* Constants */,
 				9D2D1A6C188FCE20009BB661 /* TopApp */,
 			);
 			name = Model;
@@ -267,6 +263,8 @@
 				9D2D1A64188FC42A009BB661 /* Model */,
 				9D2D1A63188FC421009BB661 /* View */,
 				9D2D1A5F188FC3D2009BB661 /* Controller */,
+				9D9C05FA18A4E2BD00B3BCEA /* OpenSource */,
+				9D9FAC4A189107030052BFEB /* Constants */,
 				9D2D1A5E188FC3B2009BB661 /* StoryBoards */,
 				9D2D1A5D188FC39D009BB661 /* AppDelegate */,
 			);
@@ -353,6 +351,16 @@
 				9D9C05F418A4A2F200B3BCEA /* RequestQueue.m */,
 			);
 			path = RequestQueue;
+			sourceTree = "<group>";
+		};
+		9D9C05FA18A4E2BD00B3BCEA /* OpenSource */ = {
+			isa = PBXGroup;
+			children = (
+				9D9C058F18A4970200B3BCEA /* AsyncImageView */,
+				9D9C059318A49B9000B3BCEA /* StandardPaths */,
+				9D9C05F218A4A2F200B3BCEA /* RequestQueue */,
+			);
+			name = OpenSource;
 			sourceTree = "<group>";
 		};
 		9D9FAC4A189107030052BFEB /* Constants */ = {
