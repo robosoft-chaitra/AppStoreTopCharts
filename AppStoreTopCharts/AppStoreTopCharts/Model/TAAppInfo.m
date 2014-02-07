@@ -38,6 +38,7 @@
      
 //     \u2013 for unicode of single dash -
      NSString *subTitle1dash = [[originalString componentsSeparatedByString:@" \u2013"]objectAtIndex:0];
+     
 //     \u2014 for unicode of double dash --
       NSString *subTitle2dash = [[subTitle1dash componentsSeparatedByString:@" \u2014"]objectAtIndex:0];
      
@@ -52,9 +53,10 @@
 
 }
 
+//overriding init method
 -(id)init
 {
-      return [self initFromAppStoreDictionary:nil];
+     return [self initFromAppStoreDictionary:nil];
 }
 
 @end

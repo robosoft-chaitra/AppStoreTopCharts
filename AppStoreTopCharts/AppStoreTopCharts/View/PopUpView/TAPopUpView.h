@@ -14,8 +14,10 @@
 
 //method to hide/Show popup on collectionview
 -(void)popUpViewDidAppear:(TAPopUpView*)popUpView;
+
 //hiding the popup when cancelButton clicked
 -(void)popUpViewCancelButtonClicked;
+
 //loading the app To WishList
 -(void)addAppToWishList:(NSString*)appName;
 

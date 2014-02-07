@@ -222,7 +222,7 @@
         self.filteredApps = [[NSMutableArray alloc] init];
         for (TAAppInfo *topApp in self.topApps)
         {
-//            Searching for App By using appName
+//            Searching for App using appName
             NSRange nameRange = [topApp.appName rangeOfString:appName options:NSCaseInsensitiveSearch];
             if(nameRange.location != NSNotFound)
             {
